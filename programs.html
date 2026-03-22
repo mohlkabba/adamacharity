@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Programs — Adama's Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Food distribution, rehabilitation support, and community outreach — the three pillars of Adama's Foundation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .program-section {
+      padding-block: var(--space-2xl);
+    }
+    .program-section:nth-child(odd) { background: var(--white); }
+    .program-section:nth-child(even) { background: var(--cream); }
+
+    .program-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: center;
+    }
+    .program-inner--reverse { direction: rtl; }
+    .program-inner--reverse > * { direction: ltr; }
+    @media (max-width: 820px) {
+      .program-inner { grid-template-columns: 1fr; }
+      .program-inner--reverse { direction: ltr; }
+    }
+
+    .program-img { aspect-ratio: 4/3; }
+
+    .program-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.3em 0.9em; border-radius: var(--radius-full);
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .program-tag--food  { background: rgba(58,138,58,0.1);  color: var(--green); }
+    .program-tag--rehab { background: rgba(26,58,107,0.1);  color: var(--blue);  }
+    .program-tag--comm  { background: rgba(201,168,76,0.15); color: #8a6a10;     }
+
+    .program-list { margin-top: var(--space-md); display: flex; flex-direction: column; gap: 0.5rem; }
+    .program-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      font-size: 0.9rem; color: var(--text-mid);
+    }
+    .program-list li::before {
+      content: ''; display: block; width: 7px; height: 7px; min-width: 7px;
+      border-radius: 50%; background: var(--green); margin-top: 0.45rem;
+    }
+    .program-list--blue li::before { background: var(--blue); }
+    .program-list--gold  li::before { background: var(--gold); }
+
+    /* How it works */
+    .how-it-works { background: var(--blue); padding-block: var(--space-xl); }
+    .how-steps {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md);
+      margin-top: var(--space-xl);
+    }
+    @media (max-width: 768px) { .how-steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .how-steps { grid-template-columns: 1fr; } }
+    .how-step { text-align: center; }
+    .how-step__num {
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(255,255,255,0.12); border: 2px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
+      color: var(--gold); margin: 0 auto var(--space-sm);
+    }
+    .how-step__title { font-family: var(--font-display); color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; }
+    .how-step__desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo">
+      <img src="Brand_assets/Logo.jpeg" alt="Adama's Relief &amp; Rehabilitation Foundation" width="42" height="42" />
+      <span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span>
+    </a>
+    <ul class="nav__links" id="nav-menu" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="campaigns.html">Campaigns</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="page-hero" aria-label="Our Programs">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Programs</span></nav>
+    <p class="page-hero__eyebrow reveal">What We Do</p>
+    <h1 class="page-hero__title reveal">Our <em>Programs</em></h1>
+    <p class="page-hero__sub reveal">Three pillars of support — food relief, rehabilitation, and community care — working together to build lasting independence.</p>
+  </div>
+</section>
+
+<section class="program-section" id="food" aria-labelledby="food-heading">
+  <div class="container">
+    <div class="program-inner">
+      <div class="img-wrap program-img reveal">
+        <img src="images/food-packages.jpg" alt="Ramadan food parcels and charity boxes" width="600" height="450" loading="lazy" />
+        <div class="img-wrap--badge">
+          <div class="img-wrap--badge-num">50+</div>
+          <div class="img-wrap--badge-text">Families reached<br>Ramadan 2026</div>
+        </div>
+      </div>
+      <div>
+        <span class="program-tag program-tag--food reveal">Food Distribution</span>
+        <h2 class="section-title reveal" id="food-heading">Food Relief &amp; Emergency Aid</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-body reveal">
+          Our flagship programme delivers essential food parcels to widows, elderly individuals, and families with disabilities. Running during Ramadan and in response to emergencies, we ensure that the most vulnerable in our community are never left hungry.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          Our first major distribution — 27th February 2026 — reached over 50 families. Every parcel contains essential staple foods, selected to meet the needs of diverse households.
+        </p>
+        <ul class="program-list reveal">
+          <li>Ramadan annual food distribution campaign</li>
+          <li>Emergency response food parcels</li>
+          <li>Direct delivery to households — no middlemen</li>
+          <li>Focus on widows, elderly, and disabled families</li>
+          <li>Volunteer-packed and volunteer-delivered</li>
+        </ul>
+        <a href="campaigns.html" class="btn btn--green btn--lg reveal" style="margin-top:var(--space-md)">View Current Campaign</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="program-section" id="rehab" aria-labelledby="rehab-heading">
+  <div class="container">
+    <div class="program-inner program-inner--reverse">
+      <div class="img-wrap program-img reveal">
+        <img src="images/rehab.webp" alt="Assistive equipment — wheelchair and walking aid — provided by Adama's Foundation" width="600" height="450" loading="lazy" />
+      </div>
+      <div>
+        <span class="program-tag program-tag--rehab reveal">Rehabilitation Support</span>
+        <h2 class="section-title reveal" id="rehab-heading">Assistive Equipment &amp; Long-term Support</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-body reveal">
+          Beyond food, we recognise that many in our community need practical support to live independently. Our rehabilitation programme provides assistive equipment — walking aids, wheelchairs, and mobility support — to disabled individuals who cannot access or afford them.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          We believe that rehabilitation is not just physical — it is about restoring confidence, dignity, and the ability to participate fully in community life.
+        </p>
+        <ul class="program-list program-list--blue reveal">
+          <li>Wheelchairs and mobility aids for disabled individuals</li>
+          <li>Walking frames and assistive devices</li>
+          <li>Long-term follow-up and support visits</li>
+          <li>Partnership with local health workers</li>
+          <li>Priority given to those with no other support network</li>
+        </ul>
+        <a href="get-involved.html#donate" class="btn btn--primary btn--lg reveal" style="margin-top:var(--space-md)">Support This Programme</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="program-section" id="community" aria-labelledby="comm-heading">
+  <div class="container">
+    <div class="program-inner">
+      <div class="img-wrap program-img reveal">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&auto=format&fit=crop" alt="Community members working together" width="600" height="450" loading="lazy" />
+      </div>
+      <div>
+        <span class="program-tag program-tag--comm reveal">Community Support</span>
+        <h2 class="section-title reveal" id="comm-heading">Outreach, Clothing &amp; Welfare</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-body reveal">
+          Our community support programme goes beyond food and equipment. We run clothing drives, welfare visits, and outreach events that connect isolated individuals with the wider community — because no one should feel invisible.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          We believe in building a community where everyone looks out for one another. Our outreach volunteers regularly visit elderly and disabled residents to check on their wellbeing, offer companionship, and connect them with available resources.
+        </p>
+        <ul class="program-list program-list--gold reveal">
+          <li>Seasonal clothing drives for families in need</li>
+          <li>Welfare check visits to elderly and isolated individuals</li>
+          <li>Community events and gatherings</li>
+          <li>Referrals to local health and social services</li>
+          <li>Volunteer-led outreach and companionship</li>
+        </ul>
+        <a href="get-involved.html#volunteer" class="btn btn--gold btn--lg reveal" style="margin-top:var(--space-md)">Join as a Volunteer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how-it-works section" aria-labelledby="how-heading">
+  <div class="container">
+    <div style="text-align:center">
+      <p class="section-label section-label--center section-label--white reveal">The Process</p>
+      <h2 class="section-title section-title--center section-title--white reveal" id="how-heading">How we deliver aid</h2>
+      <p style="color:rgba(255,255,255,0.65);font-size:1rem;max-width:48ch;margin-inline:auto" class="reveal">From donation to doorstep — here is how every contribution reaches the people who need it most.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step__num">1</div>
+        <h3 class="how-step__title">Community identifies need</h3>
+        <p class="how-step__desc">Families, volunteers, and community leaders identify households in need of support.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step__num">2</div>
+        <h3 class="how-step__title">Donations fund supplies</h3>
+        <p class="how-step__desc">Your donations are used to purchase essential food parcels, equipment, and supplies.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step__num">3</div>
+        <h3 class="how-step__title">Volunteers pack &amp; prepare</h3>
+        <p class="how-step__desc">Our volunteer team packs every parcel carefully and prepares for distribution day.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="how-step__num">4</div>
+        <h3 class="how-step__title">Direct delivery to families</h3>
+        <p class="how-step__desc">Parcels are delivered directly to families — no middlemen, no delays, 100% reach.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band section">
+  <div class="container">
+    <div class="cta-band__inner">
+      <p class="cta-band__eyebrow reveal">Make it happen</p>
+      <h2 class="cta-band__title reveal">Fund a food parcel today</h2>
+      <p class="cta-band__sub reveal">Your donation directly funds food, equipment, and community outreach for those who need it most.</p>
+      <div class="cta-band__actions reveal">
+        <a href="get-involved.html#donate" class="btn btn--gold btn--lg">Donate Now</a>
+        <a href="campaigns.html" class="btn btn--ghost-white btn--lg">View Campaigns</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div>
+        <p class="footer__brand-desc">Relief today. Independence tomorrow.</p>
+        <div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" class="social-link" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div>
+      </div>
+      <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Our Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>

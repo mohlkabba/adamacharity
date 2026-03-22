@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaigns — Adama's Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Ramadan Food Distribution 2026 — supporting 50–100 families including widows, elderly, and disabled households." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Campaign card */
+    .campaign-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-md);
+      border: 1px solid var(--border);
+    }
+    .campaign-card__header {
+      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      padding: var(--space-xl) var(--space-lg);
+      position: relative; overflow: hidden;
+    }
+    .campaign-card__header::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px;
+      background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;
+    }
+    .campaign-card__badge {
+      display: inline-flex; align-items: center; gap: 0.4em;
+      background: var(--gold); color: var(--blue-dark);
+      padding: 0.3em 0.9em; border-radius: var(--radius-full);
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: var(--space-md);
+    }
+    .campaign-card__title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white); line-height: 1.15;
+      margin-bottom: var(--space-sm);
+    }
+    .campaign-card__meta {
+      display: flex; flex-wrap: wrap; gap: var(--space-sm);
+      color: rgba(255,255,255,0.75); font-size: 0.9rem;
+    }
+    .campaign-card__meta span { display: flex; align-items: center; gap: 0.35em; }
+
+    .campaign-card__body { padding: var(--space-xl); }
+
+    /* Progress */
+    .campaign-progress { margin-bottom: var(--space-xl); }
+    .campaign-progress__title {
+      font-family: var(--font-display); font-size: 1.3rem;
+      color: var(--blue); margin-bottom: var(--space-md);
+    }
+    .progress-stats {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md); margin-bottom: var(--space-md);
+    }
+    @media (max-width: 480px) { .progress-stats { grid-template-columns: 1fr; } }
+    .progress-stat { text-align: center; }
+    .progress-stat__num {
+      font-family: var(--font-display); font-size: 2.5rem; font-weight: 700;
+      color: var(--blue); line-height: 1;
+    }
+    .progress-stat__num--green { color: var(--green); }
+    .progress-stat__label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; }
+
+    /* Beneficiaries */
+    .beneficiaries {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md); margin-top: var(--space-xl);
+    }
+    @media (max-width: 640px) { .beneficiaries { grid-template-columns: 1fr; } }
+    .beneficiary {
+      background: var(--cream); border-radius: var(--radius-md);
+      padding: var(--space-md); text-align: center;
+      border: 1px solid var(--border);
+    }
+    .beneficiary__icon { font-size: 2.5rem; margin-bottom: var(--space-xs); }
+    .beneficiary__title { font-family: var(--font-display); font-size: 1.1rem; color: var(--blue); margin-bottom: 0.3rem; }
+    .beneficiary__desc { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: var(--space-lg); }
+    .timeline::before {
+      content: ''; position: absolute;
+      left: 10px; top: 8px; bottom: 8px;
+      width: 2px; background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: var(--space-lg); padding-left: var(--space-md); }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -21px; top: 6px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--white); border: 2.5px solid var(--green);
+    }
+    .timeline-item--done::before { background: var(--green); }
+    .timeline-item__date { font-size: 0.75rem; font-weight: 600; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .timeline-item--upcoming .timeline-item__date { color: var(--muted); }
+    .timeline-item--upcoming::before { border-color: var(--muted); }
+    .timeline-item__title { font-family: var(--font-display); font-size: 1rem; color: var(--blue); margin-bottom: 0.2rem; }
+    .timeline-item__desc { font-size: 0.875rem; color: var(--muted); }
+
+    /* Donate sidebar */
+    .campaign-layout {
+      display: grid; grid-template-columns: 1fr 340px;
+      gap: var(--space-lg); align-items: start;
+    }
+    @media (max-width: 960px) { .campaign-layout { grid-template-columns: 1fr; } }
+    .campaign-sidebar {
+      position: sticky; top: 90px;
+    }
+    .donate-box {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: var(--space-lg); border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .donate-box__title { font-family: var(--font-display); font-size: 1.3rem; color: var(--blue); margin-bottom: var(--space-md); }
+    .donate-amounts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-bottom: var(--space-md); }
+    .donate-amount {
+      padding: 0.6rem; text-align: center; border-radius: var(--radius-md);
+      border: 2px solid var(--border); cursor: pointer; font-weight: 600;
+      font-size: 0.9rem; color: var(--text-mid); background: var(--white);
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+      min-height: 44px; display: flex; align-items: center; justify-content: center;
+    }
+    .donate-amount:hover, .donate-amount.active {
+      border-color: var(--green); background: rgba(58,138,58,0.06); color: var(--green);
+    }
+    .donate-box__or { text-align: center; font-size: 0.8rem; color: var(--muted); margin-block: var(--space-xs); }
+    @media (max-width: 600px) {
+      .campaign-card__header { padding: var(--space-lg) var(--space-md); }
+      .campaign-card__body   { padding: var(--space-md); }
+      .donate-amounts        { grid-template-columns: repeat(2, 1fr); }
+      .progress-stats        { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="42" height="42" /><span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></a>
+    <ul class="nav__links" id="nav-menu" role="list">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li><li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="page-hero" aria-label="Campaigns">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Campaigns</span></nav>
+    <p class="page-hero__eyebrow reveal">Active Campaigns</p>
+    <h1 class="page-hero__title reveal">Ramadan <em>2026</em><br>Food Distribution</h1>
+    <p class="page-hero__sub reveal">Goal: support 50–100 families with essential food parcels. Our first distribution took place on 27th February 2026.</p>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="campaign-main-heading">
+  <div class="container">
+    <div class="campaign-layout">
+
+      <div>
+        <div class="campaign-card reveal">
+          <div class="campaign-card__header">
+            <div class="campaign-card__badge">★ Active Campaign</div>
+            <h2 class="campaign-card__title" id="campaign-main-heading">Ramadan Food Distribution 2026</h2>
+            <div class="campaign-card__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 February 2026</span>
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sierra Leone</span>
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>50–100 family goal</span>
+            </div>
+          </div>
+          <div class="campaign-card__body">
+
+            <div class="campaign-progress">
+              <h3 class="campaign-progress__title">Campaign Progress</h3>
+              <div class="progress-stats">
+                <div class="progress-stat">
+                  <div class="progress-stat__num progress-stat__num--green">50+</div>
+                  <div class="progress-stat__label">Families reached</div>
+                </div>
+                <div class="progress-stat">
+                  <div class="progress-stat__num">100</div>
+                  <div class="progress-stat__label">Family goal</div>
+                </div>
+                <div class="progress-stat">
+                  <div class="progress-stat__num progress-stat__num--green">50%+</div>
+                  <div class="progress-stat__label">Goal achieved</div>
+                </div>
+              </div>
+              <div class="progress-wrap">
+                <div class="progress-label">
+                  <span><strong>50+ families</strong> reached so far</span>
+                  <span>Goal: 100 families</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-bar__fill" data-width="55%" style="width:0"></div>
+                </div>
+              </div>
+              <p style="font-size:0.85rem;color:var(--muted);margin-top:var(--space-xs)">
+                Help us reach the remaining families. Every donation buys another parcel.
+              </p>
+            </div>
+
+            <p class="section-body" style="margin-bottom:var(--space-md)">
+              Our Ramadan 2026 Food Distribution campaign is our most ambitious yet. We are working to support 50–100 families across our community — with a focus on those who are most overlooked: widows raising children alone, elderly individuals with no family support, and households where disability means earning a living is impossible.
+            </p>
+            <p class="section-body" style="margin-bottom:var(--space-xl)">
+              Our first distribution event on <strong>27th February 2026</strong> successfully reached over 50 families. We are continuing to raise funds to reach the remaining households before the end of Ramadan season.
+            </p>
+
+            <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--blue);margin-bottom:var(--space-md)">Who we're serving</h3>
+            <div class="beneficiaries">
+              <div class="beneficiary reveal">
+                <div class="beneficiary__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <h4 class="beneficiary__title">Widows</h4>
+                <p class="beneficiary__desc">Women raising families alone, with limited income and no financial support.</p>
+              </div>
+              <div class="beneficiary reveal">
+                <div class="beneficiary__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <h4 class="beneficiary__title">Elderly</h4>
+                <p class="beneficiary__desc">Older residents living alone, unable to work, and without regular access to food.</p>
+              </div>
+              <div class="beneficiary reveal">
+                <div class="beneficiary__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <h4 class="beneficiary__title">Disabled Families</h4>
+                <p class="beneficiary__desc">Households where disability limits earning potential and access to resources.</p>
+              </div>
+            </div>
+
+            <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--blue);margin-top:var(--space-xl);margin-bottom:var(--space-md)">Campaign Timeline</h3>
+            <div class="timeline">
+              <div class="timeline-item timeline-item--done reveal">
+                <div class="timeline-item__date">January 2026</div>
+                <h4 class="timeline-item__title">Campaign launched</h4>
+                <p class="timeline-item__desc">Fundraising begins. Community mobilisation and volunteer recruitment.</p>
+              </div>
+              <div class="timeline-item timeline-item--done reveal">
+                <div class="timeline-item__date">27 February 2026</div>
+                <h4 class="timeline-item__title">First distribution day ✓</h4>
+                <p class="timeline-item__desc">Over 50 families received essential food parcels. A landmark day for our foundation.</p>
+              </div>
+              <div class="timeline-item timeline-item--upcoming reveal">
+                <div class="timeline-item__date">Ongoing — 2026</div>
+                <h4 class="timeline-item__title">Continue to 100 families</h4>
+                <p class="timeline-item__desc">Fundraising continues to reach the remaining households in our target of 100 families.</p>
+              </div>
+              <div class="timeline-item timeline-item--upcoming reveal">
+                <div class="timeline-item__date">Ramadan 2027</div>
+                <h4 class="timeline-item__title">Next annual campaign</h4>
+                <p class="timeline-item__desc">Planning begins for an even larger campaign with an expanded volunteer base.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="campaign-sidebar">
+        <div class="donate-box reveal">
+          <h3 class="donate-box__title">Support This Campaign</h3>
+          <p style="font-size:0.875rem;color:var(--muted);margin-bottom:var(--space-md);line-height:1.65">
+            Your donation buys essential food for a family in need. Every amount makes a difference.
+          </p>
+          <div class="donate-amounts" role="group" aria-label="Select donation amount">
+            <button class="donate-amount" type="button">£5</button>
+            <button class="donate-amount active" type="button">£10</button>
+            <button class="donate-amount" type="button">£25</button>
+            <button class="donate-amount" type="button">£50</button>
+            <button class="donate-amount" type="button">£100</button>
+            <button class="donate-amount" type="button">Other</button>
+          </div>
+          <div class="donate-box__or">— or donate via —</div>
+          <a href="https://www.gofundme.com" class="btn btn--gold btn--lg btn--full" target="_blank" rel="noopener noreferrer" style="margin-bottom:var(--space-sm)">
+            GoFundMe
+          </a>
+          <a href="https://www.instagram.com/AdamasFoundation1" class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            Donate via Instagram
+          </a>
+          <p style="font-size:0.75rem;color:var(--muted);margin-top:var(--space-sm);text-align:center">
+            100% of donations go directly to food parcels and delivery.
+          </p>
+        </div>
+
+        <div style="margin-top:var(--space-md);background:var(--cream);border-radius:var(--radius-md);padding:var(--space-md);border:1px solid var(--border)" class="reveal">
+          <h4 style="font-family:var(--font-display);font-size:1rem;color:var(--blue);margin-bottom:var(--space-xs)">Share This Campaign</h4>
+          <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--space-sm)">Help us reach more donors by sharing on social media.</p>
+          <div style="display:flex;gap:0.5rem">
+            <a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Share on Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-link" aria-label="Share on Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-link" aria-label="Share on WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+      <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  // Donation amount selector
+  document.querySelectorAll('.donate-amount').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.donate-amount').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

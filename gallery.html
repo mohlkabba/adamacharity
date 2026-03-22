@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery &amp; Impact — Adama's Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Photos from Adama's Foundation food distributions, community outreach, and rehabilitation support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Filter tabs */
+    .gallery-filters {
+      display: flex; gap: 0.5rem; flex-wrap: wrap;
+      justify-content: center; margin-bottom: var(--space-xl);
+    }
+    .filter-btn {
+      padding: 0.5rem 1.1rem; min-height: 44px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem; font-weight: 600;
+      border: 2px solid var(--border);
+      background: var(--white); color: var(--muted);
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, color 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+    .filter-btn.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
+
+    /* Full gallery grid */
+    .full-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-sm);
+    }
+    @media (max-width: 768px) { .full-gallery { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .full-gallery { grid-template-columns: 1fr; } }
+
+    .gallery-photo {
+      position: relative; overflow: hidden;
+      border-radius: var(--radius-md);
+      aspect-ratio: 4/3; cursor: pointer;
+      transition: opacity 0.3s;
+    }
+    .gallery-photo.hidden { display: none; }
+    .gallery-photo img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    }
+    .gallery-photo:hover img { transform: scale(1.06); }
+    .gallery-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,58,107,0.72) 0%, transparent 55%);
+    }
+    .gallery-photo::before {
+      content: ''; position: absolute; inset: 0; z-index: 1;
+      background: var(--blue); mix-blend-mode: multiply; opacity: 0.07; pointer-events: none;
+    }
+    .gallery-photo figcaption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: var(--space-sm) var(--space-md); z-index: 2; color: var(--white);
+    }
+    .gallery-photo figcaption .tag {
+      display: block; font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--gold-light); font-weight: 700; margin-bottom: 0.25rem;
+    }
+    .gallery-photo figcaption p { font-size: 0.85rem; font-weight: 500; line-height: 1.4; }
+
+    /* Impact numbers */
+    .impact-numbers {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md);
+    }
+    @media (max-width: 768px) { .impact-numbers { grid-template-columns: repeat(2, 1fr); } }
+    .impact-num-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: var(--space-lg); text-align: center;
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+    }
+    .impact-num-card__num {
+      font-family: var(--font-display); font-size: clamp(2rem, 6vw, 3rem); font-weight: 700;
+      color: var(--blue); line-height: 1; margin-bottom: 0.3rem;
+    }
+    .impact-num-card__num--green { color: var(--green); }
+    .impact-num-card__num--gold  { color: var(--gold); }
+    .impact-num-card__label { font-size: 0.82rem; color: var(--muted); }
+    @media (max-width: 480px) {
+      .impact-num-card { padding: var(--space-md) var(--space-sm); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="42" height="42" /><span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></a>
+    <ul class="nav__links" id="nav-menu" role="list">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li><li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="page-hero" aria-label="Gallery and Impact">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></nav>
+    <p class="page-hero__eyebrow reveal">Our Work in Pictures</p>
+    <h1 class="page-hero__title reveal"><em>Gallery</em> &amp; Impact</h1>
+    <p class="page-hero__sub reveal">Real moments from our food distributions, community outreach, and rehabilitation support. Every photo represents a family helped.</p>
+  </div>
+</section>
+
+<section class="section section--blue" aria-label="Impact numbers">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-xl)">
+      <p class="section-label section-label--center section-label--white reveal">By the numbers</p>
+      <h2 class="section-title section-title--center section-title--white reveal">Our impact so far</h2>
+    </div>
+    <div class="impact-numbers">
+      <div class="impact-num-card reveal">
+        <div class="impact-num-card__num impact-num-card__num--green">50+</div>
+        <div class="impact-num-card__label">Families reached</div>
+      </div>
+      <div class="impact-num-card reveal">
+        <div class="impact-num-card__num">3</div>
+        <div class="impact-num-card__label">Beneficiary groups</div>
+      </div>
+      <div class="impact-num-card reveal">
+        <div class="impact-num-card__num impact-num-card__num--gold">1</div>
+        <div class="impact-num-card__label">Distribution event</div>
+      </div>
+      <div class="impact-num-card reveal">
+        <div class="impact-num-card__num impact-num-card__num--green">100%</div>
+        <div class="impact-num-card__label">Directly delivered</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="gallery-section-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-lg)">
+      <p class="section-label section-label--center reveal">Photo Gallery</p>
+      <h2 class="section-title section-title--center reveal" id="gallery-section-heading">Ramadan 2026 — In Pictures</h2>
+      <p class="section-body section-body--center reveal" style="margin-bottom:var(--space-lg)">Filter by category to explore our work.</p>
+    </div>
+
+    <div class="gallery-filters reveal" role="group" aria-label="Gallery filters">
+      <button class="filter-btn active" data-filter="all">All Photos</button>
+      <button class="filter-btn" data-filter="food">Food Distribution</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+      <button class="filter-btn" data-filter="volunteers">Volunteers</button>
+    </div>
+
+    <div class="full-gallery" id="gallery-grid">
+
+      <figure class="gallery-photo reveal" data-category="food">
+        <img src="images/food-packages.jpg" alt="Ramadan food parcels and charity boxes prepared for distribution" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Food Distribution</span>
+          <p>Food parcels distributed to 50+ families</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="volunteers">
+        <img src="images/community-dist.jpg" alt="Volunteers preparing and packing essential food donations" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Volunteers</span>
+          <p>Volunteers preparing essential food items</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="food">
+        <img src="images/wheelchair-outreach.jpg" alt="Family receiving a food parcel donation" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Food Distribution</span>
+          <p>Ramadan 2026 — 27th February distribution day</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="community">
+        <img src="images/outreach-support.jpg" alt="Elderly person receiving care and support" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Community Care</span>
+          <p>Serving widows, elderly &amp; families with disabilities</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="community">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop" alt="Community members working together for humanitarian aid" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Community</span>
+          <p>United in purpose — community humanitarian work</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="food">
+        <img src="images/food-packages.jpg" alt="Food aid boxes stacked and ready for delivery" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Food Distribution</span>
+          <p>Essential food boxes — packed with care by volunteers</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="volunteers">
+        <img src="images/community-dist.jpg" alt="Volunteers working together at food distribution event" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Volunteers</span>
+          <p>Our volunteer team — the heart of every campaign</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="community">
+        <img src="images/ramadan-people.jpg" alt="Beneficiaries gathered at food distribution event" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Community</span>
+          <p>Families gathering — distribution day, February 2026</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-photo reveal" data-category="food">
+        <img src="images/rehab.webp" alt="Assistive equipment provided by Adama's Foundation" width="400" height="300" loading="lazy" />
+        <figcaption>
+          <span class="tag">Food Distribution</span>
+          <p>Every parcel delivered with dignity and care</p>
+        </figcaption>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-band section">
+  <div class="container">
+    <div class="cta-band__inner">
+      <p class="cta-band__eyebrow reveal">Be part of the next chapter</p>
+      <h2 class="cta-band__title reveal">Help us make more moments like these</h2>
+      <p class="cta-band__sub reveal">Donate, volunteer, or partner with us to reach more families and create more stories worth telling.</p>
+      <div class="cta-band__actions reveal">
+        <a href="get-involved.html#donate" class="btn btn--gold btn--lg">Donate Now</a>
+        <a href="get-involved.html#volunteer" class="btn btn--ghost-white btn--lg">Volunteer</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+      <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+  // Gallery filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const photos = document.querySelectorAll('.gallery-photo');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      photos.forEach(photo => {
+        if (filter === 'all' || photo.dataset.category === filter) {
+          photo.classList.remove('hidden');
+        } else {
+          photo.classList.add('hidden');
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

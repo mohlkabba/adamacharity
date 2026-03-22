@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — Adama's Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Providing humanitarian relief and long-term rehabilitation support to vulnerable communities through food assistance, assistive equipment, and community support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* ── HOME-SPECIFIC ── */
+    .hero {
+      position: relative; min-height: 100svh;
+      display: grid; align-items: center;
+      overflow: hidden; padding-block: var(--space-2xl);
+      background:
+        radial-gradient(ellipse 70% 60% at 10% 30%, rgba(26,58,107,0.09) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 70% at 90% 80%, rgba(58,138,58,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 60% 10%, rgba(201,168,76,0.06) 0%, transparent 55%),
+        var(--cream);
+    }
+    .hero::before {
+      content: ''; position: absolute; top: -100px; right: -80px;
+      width: 500px; height: 500px;
+      border: 2px solid var(--border-gold); border-radius: 50%;
+      opacity: 0.45; pointer-events: none;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -80px; left: -60px;
+      width: 350px; height: 350px;
+      border: 1.5px solid rgba(26,58,107,0.07); border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: center;
+    }
+    .hero__eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--green); margin-bottom: var(--space-sm);
+    }
+    .hero__eyebrow::before {
+      content: ''; display: block; width: 22px; height: 2px;
+      background: var(--green); border-radius: 2px;
+    }
+    .hero__headline {
+      font-size: clamp(2.5rem, 5.5vw, 4.5rem); font-weight: 900;
+      color: var(--blue); margin-bottom: var(--space-md); line-height: 1.08;
+    }
+    .hero__headline em { font-style: italic; color: var(--green); }
+    .hero__tagline-primary {
+      font-size: clamp(1.1rem, 2vw, 1.35rem); color: var(--blue);
+      font-weight: 600; font-family: var(--font-display); font-style: italic;
+      margin-bottom: var(--space-xs);
+    }
+    .hero__tagline-sub {
+      font-size: 1rem; color: var(--muted); max-width: 46ch;
+      line-height: 1.75; margin-bottom: var(--space-lg);
+    }
+    .hero__ctas { display: flex; gap: var(--space-sm); flex-wrap: wrap; }
+    .hero__stats {
+      display: flex; gap: var(--space-lg); margin-top: var(--space-lg);
+      padding-top: var(--space-lg); border-top: 1px solid var(--border); flex-wrap: wrap;
+    }
+    .hero__stat-num {
+      font-family: var(--font-display); font-size: 2rem; font-weight: 700;
+      color: var(--blue); line-height: 1;
+    }
+    .hero__stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.2rem; }
+    .hero__visual { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+    .hero__logo-wrap { position: relative; width: clamp(240px, 38vw, 400px); height: clamp(240px, 38vw, 400px); }
+    .hero__logo-ring {
+      position: absolute; inset: -20px; border-radius: 50%;
+      border: 1.5px solid var(--border-gold);
+      animation: pulse-ring 3.2s ease-in-out infinite;
+    }
+    .hero__logo-ring:nth-child(2) { inset: -42px; opacity: 0.5; animation-delay: 0.8s; }
+    .hero__logo-ring:nth-child(3) { inset: -64px; opacity: 0.25; animation-delay: 1.6s; }
+    @keyframes pulse-ring { 0%,100%{opacity:.8} 50%{opacity:.2} }
+    .hero__logo-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero__logo-img {
+      position: relative; width: 100%; height: 100%; object-fit: contain;
+      padding: 0.5rem;
+      filter: drop-shadow(0 16px 48px rgba(26,58,107,0.2)); z-index: 2;
+    }
+    @media (max-width: 820px) {
+      .hero__inner { grid-template-columns: 1fr; text-align: center; }
+      .hero__eyebrow { justify-content: center; }
+      .hero__tagline-sub { margin-inline: auto; }
+      .hero__ctas { justify-content: center; }
+      .hero__stats { display: none; }
+      .hero__visual { order: -1; }
+      .hero__logo-wrap { width: clamp(160px, 48vw, 260px); height: clamp(160px, 48vw, 260px); }
+    }
+    @media (max-width: 480px) {
+      .hero__ctas { flex-direction: column; align-items: center; }
+      .hero__ctas .btn { width: 100%; max-width: 300px; justify-content: center; }
+    }
+
+    /* Programs preview */
+    .programs-preview { background: var(--cream); }
+    .programs-preview__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);
+    }
+    @media (max-width: 768px) { .programs-preview__grid { grid-template-columns: 1fr; } }
+
+    .prog-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border);
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+      display: flex; flex-direction: column;
+    }
+    .prog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .prog-card__img { aspect-ratio: 3/2; overflow: hidden; position: relative; }
+    .prog-card__img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+    .prog-card:hover .prog-card__img img { transform: scale(1.04); }
+    .prog-card__img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,58,107,0.5) 0%, transparent 60%);
+    }
+    .prog-card__body { padding: var(--space-md); flex: 1; display: flex; flex-direction: column; }
+    .prog-card__icon { font-size: 1.5rem; margin-bottom: var(--space-xs); }
+    .prog-card__title {
+      font-family: var(--font-display); font-size: 1.2rem;
+      color: var(--blue); margin-bottom: var(--space-xs);
+    }
+    .prog-card__desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; flex: 1; }
+    .prog-card__link {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      margin-top: var(--space-sm);
+      font-size: 0.82rem; font-weight: 600; color: var(--green);
+      transition: gap 0.2s;
+    }
+    .prog-card__link:hover { gap: 0.55rem; }
+
+    /* Campaign highlight */
+    .campaign-highlight {
+      background:
+        radial-gradient(ellipse 80% 60% at 15% 30%, rgba(74,170,74,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 85% 80%, rgba(42,106,42,0.55) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 50% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+        var(--green-dark);
+      padding-block: var(--space-xl); position: relative; overflow: hidden;
+    }
+    .campaign-highlight::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      background: rgba(255,255,255,0.04); border-radius: 50%; pointer-events: none;
+    }
+    .campaign-highlight__inner {
+      display: grid; grid-template-columns: 1fr auto;
+      gap: var(--space-xl); align-items: center; position: relative; z-index: 1;
+    }
+    .campaign-highlight__title {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      color: var(--white); margin-bottom: var(--space-sm);
+    }
+    .campaign-highlight__desc { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 50ch; margin-bottom: var(--space-md); }
+    .campaign-highlight__pills { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+    .campaign-highlight__cta { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); flex-shrink: 0; }
+    .campaign-date {
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius-md); padding: var(--space-sm) var(--space-md);
+      text-align: center; color: var(--white);
+    }
+    .campaign-date__day { font-family: var(--font-display); font-size: 2.5rem; font-weight: 700; line-height: 1; }
+    .campaign-date__month { font-size: 0.78rem; opacity: 0.8; }
+    @media (max-width: 768px) {
+      .campaign-highlight__inner { grid-template-columns: 1fr; }
+      .campaign-highlight__cta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+    }
+
+    /* Mission strip */
+    .mission-strip { background: var(--white); }
+    .mission-strip__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--space-xl); align-items: center;
+    }
+    .mission-strip__img { aspect-ratio: 4/3; }
+    @media (max-width: 820px) {
+      .mission-strip__inner { grid-template-columns: 1fr; }
+      .mission-strip__img { aspect-ratio: 16/9; max-height: 360px; }
+    }
+
+    /* Get involved strip */
+    .get-involved-strip { background: var(--cream); }
+    .get-involved-strip__grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);
+    }
+    @media (max-width: 768px) { .get-involved-strip__grid { grid-template-columns: 1fr; } }
+    .involve-card {
+      background: var(--white); border-radius: var(--radius-lg); padding: var(--space-lg);
+      border: 1px solid var(--border); box-shadow: var(--shadow-sm);
+      text-align: center;
+      transition: transform 0.25s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.25s ease;
+    }
+    .involve-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .involve-card__icon { font-size: 2.5rem; margin-bottom: var(--space-sm); }
+    .involve-card__title { font-family: var(--font-display); font-size: 1.3rem; color: var(--blue); margin-bottom: var(--space-xs); }
+    .involve-card__desc { font-size: 0.9rem; color: var(--muted); margin-bottom: var(--space-md); line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+<!-- Grain filter definition — used by .grain::after throughout the page -->
+<svg style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+    <feBlend in="SourceGraphic" mode="overlay" result="blend"/>
+    <feComposite in="blend" in2="SourceGraphic" operator="in"/>
+  </filter>
+</svg>
+
+<header class="site-header" role="banner">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo">
+      <img src="Brand_assets/Logo.jpeg" alt="Adama's Relief &amp; Rehabilitation Foundation" width="42" height="42" />
+      <span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span>
+    </a>
+    <ul class="nav__links" id="nav-menu" role="list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="campaigns.html">Campaigns</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="get-involved.html">Get Involved</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<section class="hero grain" aria-label="Introduction">
+  <div class="container">
+    <div class="hero__inner">
+      <div>
+        <p class="hero__eyebrow reveal">Humanitarian Aid &amp; Community Development</p>
+        <h1 class="hero__headline reveal">
+          Adama's Relief<br>&amp; <em>Rehabilitation</em><br>Foundation
+        </h1>
+        <p class="hero__tagline-primary reveal">Relief Today. Independence Tomorrow.</p>
+        <p class="hero__tagline-sub reveal">
+          Providing humanitarian relief and long-term rehabilitation support to vulnerable communities through food assistance, assistive equipment, and community support.
+        </p>
+        <div class="hero__ctas reveal">
+          <a href="get-involved.html#donate" class="btn btn--primary btn--lg">Donate Now</a>
+          <a href="get-involved.html#volunteer" class="btn btn--green btn--lg">Become a Volunteer</a>
+          <a href="get-involved.html#partner" class="btn btn--ghost btn--lg">Partner With Us</a>
+        </div>
+        <div class="hero__stats">
+          <div class="reveal"><div class="hero__stat-num">50+</div><div class="hero__stat-label">Families helped</div></div>
+          <div class="reveal"><div class="hero__stat-num">27/2</div><div class="hero__stat-label">Ramadan 2026 event</div></div>
+          <div class="reveal"><div class="hero__stat-num">100%</div><div class="hero__stat-label">Community-funded</div></div>
+        </div>
+      </div>
+      <div class="hero__visual reveal">
+        <div class="hero__logo-wrap">
+          <div class="hero__logo-ring"></div>
+          <div class="hero__logo-ring"></div>
+          <div class="hero__logo-ring"></div>
+          <div class="hero__logo-bg"></div>
+          <img class="hero__logo-img" src="Brand_assets/Logo.jpeg" alt="Hands cradling a person and a mobility walker — Adama's Foundation" width="400" height="400" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="stat-bar" aria-label="Key statistics">
+  <div class="container">
+    <div class="stat-bar__inner">
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span>50+</span></div>
+        <div class="stat-item__label">Families reached</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span>3</span></div>
+        <div class="stat-item__label">Beneficiary groups</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span>1</span></div>
+        <div class="stat-item__label">Active campaign</div>
+      </div>
+      <div class="stat-item reveal">
+        <div class="stat-item__num"><span>100%</span></div>
+        <div class="stat-item__label">Direct delivery</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="mission-strip section" id="mission">
+  <div class="container">
+    <div class="mission-strip__inner">
+      <div class="img-wrap mission-strip__img reveal">
+        <img src="images/outreach-support.jpg" alt="Elderly person receiving care and support" width="600" height="450" loading="lazy" />
+        <div class="img-wrap--badge">
+          <div class="img-wrap--badge-num">27/2</div>
+          <div class="img-wrap--badge-text">Ramadan 2026<br>Distribution Day</div>
+        </div>
+      </div>
+      <div>
+        <p class="section-label reveal">Our Mission</p>
+        <h2 class="section-title reveal">Built on compassion.<br>Driven by community.</h2>
+        <div class="gold-divider reveal"></div>
+        <p class="section-body reveal">
+          Adama's Relief &amp; Rehabilitation Foundation provides humanitarian relief and long-term rehabilitation support to vulnerable people — including widows, the elderly, and families with disabilities.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          Our Ramadan 2026 campaign reached over 50 families on 27th February 2026, delivering essential food parcels with the help of our dedicated volunteer community.
+        </p>
+        <div class="quote-block reveal">
+          <blockquote>"Every parcel we deliver is a message: you are not forgotten."</blockquote>
+          <cite>— Adama's Relief &amp; Rehabilitation Foundation</cite>
+        </div>
+        <a href="about.html" class="btn btn--primary reveal" style="margin-top:var(--space-md)">Read Our Story</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="programs-preview section" aria-labelledby="programs-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-xl)">
+      <p class="section-label section-label--center reveal">What We Do</p>
+      <h2 class="section-title section-title--center reveal" id="programs-heading">Our Programs</h2>
+      <p class="section-body section-body--center reveal">Three pillars of support — food, rehabilitation, and community care.</p>
+    </div>
+    <div class="programs-preview__grid">
+      <article class="prog-card reveal">
+        <div class="prog-card__img">
+          <img src="images/food-packages.jpg" alt="Food parcels prepared for distribution" width="400" height="266" loading="lazy" />
+        </div>
+        <div class="prog-card__body">
+          <div class="prog-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
+          <h3 class="prog-card__title">Food Distribution</h3>
+          <p class="prog-card__desc">Ramadan and emergency food relief — delivering essential food parcels directly to families in need.</p>
+          <a href="programs.html#food" class="prog-card__link">Learn more →</a>
+        </div>
+      </article>
+      <article class="prog-card reveal">
+        <div class="prog-card__img">
+          <img src="images/rehab.webp" alt="Assistive equipment — wheelchair and walking aid — provided by Adama's Foundation" width="400" height="266" loading="lazy" />
+        </div>
+        <div class="prog-card__body">
+          <div class="prog-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+          <h3 class="prog-card__title">Rehabilitation Support</h3>
+          <p class="prog-card__desc">Providing assistive equipment and long-term support to disabled individuals and their families.</p>
+          <a href="programs.html#rehab" class="prog-card__link">Learn more →</a>
+        </div>
+      </article>
+      <article class="prog-card reveal">
+        <div class="prog-card__img">
+          <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=800&auto=format&fit=crop" alt="Community outreach and humanitarian work" width="400" height="266" loading="lazy" />
+        </div>
+        <div class="prog-card__body">
+          <div class="prog-card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8a6a10" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3 class="prog-card__title">Community Support</h3>
+          <p class="prog-card__desc">Clothing drives, welfare outreach, and ongoing community programmes that build lasting independence.</p>
+          <a href="programs.html#community" class="prog-card__link">Learn more →</a>
+        </div>
+      </article>
+    </div>
+    <div style="text-align:center;margin-top:var(--space-lg)">
+      <a href="programs.html" class="btn btn--ghost reveal">View All Programs</a>
+    </div>
+  </div>
+</section>
+
+<section class="campaign-highlight" aria-labelledby="campaign-heading">
+  <div class="container">
+    <div class="campaign-highlight__inner">
+      <div>
+        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.65);margin-bottom:var(--space-sm)" class="reveal">Active Campaign</p>
+        <h2 class="campaign-highlight__title reveal" id="campaign-heading">Ramadan Food Distribution 2026</h2>
+        <p class="campaign-highlight__desc reveal">Goal: support 50–100 families. Our first distribution on 27th February 2026 reached over 50 families — and we're not stopping there.</p>
+        <div class="campaign-highlight__pills reveal">
+          <span class="pill pill--white">50–100 Family Goal</span>
+          <span class="pill pill--white">Widows &amp; Elderly</span>
+          <span class="pill pill--white">Disabled Households</span>
+        </div>
+      </div>
+      <div class="campaign-highlight__cta reveal">
+        <div class="campaign-date">
+          <div class="campaign-date__day">27</div>
+          <div class="campaign-date__month">February 2026</div>
+        </div>
+        <a href="campaigns.html" class="btn btn--gold btn--lg">View Campaign</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="gallery-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-xl)">
+      <p class="section-label section-label--center reveal">Recent Work</p>
+      <h2 class="section-title section-title--center reveal" id="gallery-heading">Ramadan 2026 — In Pictures</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal">
+        <img src="images/food-packages.jpg" alt="Ramadan food parcels prepared for distribution" width="800" height="1000" loading="lazy" />
+        <figcaption class="gallery-caption">
+          <span class="gallery-caption__tag">Ramadan 2026</span>
+          <p class="gallery-caption__text">Food parcels distributed to 50+ families</p>
+        </figcaption>
+      </figure>
+      <figure class="gallery-item reveal">
+        <img src="images/community-dist.jpg" alt="Volunteers preparing food donations" width="800" height="600" loading="lazy" />
+        <figcaption class="gallery-caption">
+          <span class="gallery-caption__tag">Behind the scenes</span>
+          <p class="gallery-caption__text">Volunteers preparing essential food items</p>
+        </figcaption>
+      </figure>
+      <figure class="gallery-item reveal">
+        <img src="images/wheelchair-outreach.jpg" alt="Family receiving food parcel" width="800" height="600" loading="lazy" />
+        <figcaption class="gallery-caption">
+          <span class="gallery-caption__tag">27 February 2026</span>
+          <p class="gallery-caption__text">Ramadan 2026 — distribution day</p>
+        </figcaption>
+      </figure>
+      <figure class="gallery-item reveal">
+        <img src="images/outreach-support.jpg" alt="Elderly person receiving care" width="800" height="600" loading="lazy" />
+        <figcaption class="gallery-caption">
+          <span class="gallery-caption__tag">Community care</span>
+          <p class="gallery-caption__text">Serving widows, elderly &amp; families with disabilities</p>
+        </figcaption>
+      </figure>
+      <figure class="gallery-item reveal">
+        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&auto=format&fit=crop" alt="Community humanitarian work" width="800" height="600" loading="lazy" />
+        <figcaption class="gallery-caption">
+          <span class="gallery-caption__tag">Community</span>
+          <p class="gallery-caption__text">United in purpose — community humanitarian work</p>
+        </figcaption>
+      </figure>
+    </div>
+    <div style="text-align:center;margin-top:var(--space-lg)">
+      <a href="gallery.html" class="btn btn--ghost reveal">View Full Gallery</a>
+    </div>
+  </div>
+</section>
+
+<section class="get-involved-strip section" aria-labelledby="involve-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-xl)">
+      <p class="section-label section-label--center reveal">Make a Difference</p>
+      <h2 class="section-title section-title--center reveal" id="involve-heading">Three ways to help</h2>
+    </div>
+    <div class="get-involved-strip__grid">
+      <div class="involve-card reveal">
+        <div class="involve-card__icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        <h3 class="involve-card__title">Donate</h3>
+        <p class="involve-card__desc">Every pound feeds a family. Contribute to food parcels, assistive equipment, and community outreach.</p>
+        <a href="get-involved.html#donate" class="btn btn--gold btn--full">Donate Now</a>
+      </div>
+      <div class="involve-card reveal">
+        <div class="involve-card__icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></svg></div>
+        <h3 class="involve-card__title">Volunteer</h3>
+        <p class="involve-card__desc">Join our volunteer team — help pack food, deliver parcels, and support community events.</p>
+        <a href="get-involved.html#volunteer" class="btn btn--green btn--full">Sign Up</a>
+      </div>
+      <div class="involve-card reveal">
+        <div class="involve-card__icon" aria-hidden="true"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <h3 class="involve-card__title">Partner With Us</h3>
+        <p class="involve-card__desc">Organisations and businesses — partner with us to scale our impact and reach more families.</p>
+        <a href="get-involved.html#partner" class="btn btn--primary btn--full">Get in Touch</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__logo">
+          <img src="Brand_assets/Logo.jpeg" alt="Adama's Relief &amp; Rehabilitation Foundation" width="50" height="50" loading="lazy" />
+          <span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span>
+        </div>
+        <p class="footer__brand-desc">Relief today. Independence tomorrow. Serving widows, elderly, and families with disabilities.</p>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram @AdamasFoundation1">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" class="social-link" aria-label="WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="programs.html">Our Programs</a></li>
+          <li><a href="campaigns.html">Campaigns</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Get Involved</h4>
+        <ul>
+          <li><a href="get-involved.html#donate">Donate</a></li>
+          <li><a href="get-involved.html#volunteer">Volunteer</a></li>
+          <li><a href="get-involved.html#partner">Partner With Us</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="contact.html">Sierra Leone</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p>
+      <nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Adama's Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Get in touch with Adama's Relief &amp; Rehabilitation Foundation. Email, Instagram, or send a message via our contact form." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .contact-layout {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: var(--space-xl); align-items: start;
+    }
+    @media (max-width: 820px) { .contact-layout { grid-template-columns: 1fr; } }
+
+    /* Contact info cards */
+    .contact-info { display: flex; flex-direction: column; gap: var(--space-md); }
+    .contact-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: var(--space-md); border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex; gap: var(--space-sm); align-items: flex-start;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+    }
+    .contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .contact-card__icon {
+      width: 48px; height: 48px; min-width: 48px;
+      border-radius: var(--radius-md);
+      background: rgba(26,58,107,0.06);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .contact-card__icon--green { background: rgba(58,138,58,0.08); }
+    .contact-card__icon--gold  { background: rgba(201,168,76,0.10); }
+    .contact-card__label {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 0.2rem;
+    }
+    .contact-card__value {
+      font-family: var(--font-display); font-size: 1rem;
+      color: var(--blue); font-weight: 600;
+    }
+    .contact-card__value a { color: inherit; transition: color 0.2s; }
+    .contact-card__value a:hover { color: var(--green); }
+    .contact-card__sub { font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+
+    /* Form box */
+    .form-box {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: var(--space-xl); border: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+    }
+    .form-box__title { font-family: var(--font-display); font-size: 1.5rem; color: var(--blue); margin-bottom: 0.5rem; }
+    .form-box__sub { font-size: 0.9rem; color: var(--muted); margin-bottom: var(--space-lg); line-height: 1.65; }
+    /* Email address can be long — allow break on tiny screens */
+    .contact-card__value a { word-break: break-word; }
+    @media (max-width: 600px) {
+      .form-box { padding: var(--space-md); }
+      .filter-btn { min-height: 40px; }
+    }
+
+    /* Map placeholder */
+    .map-box {
+      background: var(--cream); border-radius: var(--radius-lg);
+      border: 1px solid var(--border); overflow: hidden;
+      margin-top: var(--space-xl);
+    }
+    .map-placeholder {
+      height: 280px; display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      color: var(--muted); gap: var(--space-sm);
+    }
+    .map-placeholder__icon { font-size: 3rem; }
+    .map-placeholder__title { font-family: var(--font-display); font-size: 1.1rem; color: var(--blue); }
+    .map-placeholder__sub { font-size: 0.85rem; text-align: center; max-width: 28ch; line-height: 1.6; }
+
+    /* Social connect */
+    .social-connect {
+      background: var(--blue); border-radius: var(--radius-lg);
+      padding: var(--space-lg); margin-top: var(--space-md);
+      text-align: center;
+    }
+    .social-connect__title { font-family: var(--font-display); font-size: 1.2rem; color: var(--white); margin-bottom: var(--space-xs); }
+    .social-connect__sub { font-size: 0.85rem; color: rgba(255,255,255,0.65); margin-bottom: var(--space-md); }
+    .social-connect__links { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body>
+
+<header class="site-header" role="banner">
+  <nav class="nav container" aria-label="Main navigation">
+    <a href="index.html" class="nav__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="42" height="42" /><span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></a>
+    <ul class="nav__links" id="nav-menu" role="list">
+      <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li><li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
+    </ul>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="page-hero" aria-label="Contact Us">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Contact</span></nav>
+    <p class="page-hero__eyebrow reveal">Get in Touch</p>
+    <h1 class="page-hero__title reveal"><em>Contact</em> Us</h1>
+    <p class="page-hero__sub reveal">Whether you have a question, want to donate, volunteer, or partner — we'd love to hear from you. We respond to every message.</p>
+  </div>
+</section>
+
+<section class="section section--cream" aria-labelledby="contact-heading">
+  <div class="container">
+    <h2 class="section-title reveal" id="contact-heading" style="margin-bottom:var(--space-xl)">Send us a message</h2>
+    <div class="contact-layout">
+
+      <div>
+        <div class="contact-info">
+          <div class="contact-card reveal">
+            <div class="contact-card__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div>
+              <div class="contact-card__label">Email</div>
+              <div class="contact-card__value"><a href="mailto:contact@adamasfoundation.org">contact@adamasfoundation.org</a></div>
+              <div class="contact-card__sub">We reply within 24 hours</div>
+            </div>
+          </div>
+          <div class="contact-card reveal">
+            <div class="contact-card__icon contact-card__icon--green" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+            <div>
+              <div class="contact-card__label">Phone / WhatsApp</div>
+              <div class="contact-card__value"><a href="tel:+23200000000">+232 00 000 000</a></div>
+              <div class="contact-card__sub">Available Mon–Sat, 9am–6pm</div>
+            </div>
+          </div>
+          <div class="contact-card reveal">
+            <div class="contact-card__icon" style="background:rgba(201,168,76,0.1)" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </div>
+            <div>
+              <div class="contact-card__label">Instagram</div>
+              <div class="contact-card__value"><a href="https://www.instagram.com/AdamasFoundation1" target="_blank" rel="noopener noreferrer">@AdamasFoundation1</a></div>
+              <div class="contact-card__sub">DM us for donations &amp; enquiries</div>
+            </div>
+          </div>
+          <div class="contact-card reveal">
+            <div class="contact-card__icon contact-card__icon--green" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div>
+              <div class="contact-card__label">Location</div>
+              <div class="contact-card__value">Sierra Leone</div>
+              <div class="contact-card__sub">West Africa — serving local communities</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box reveal">
+          <div class="map-placeholder">
+            <div class="map-placeholder__icon" aria-hidden="true"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div class="map-placeholder__title">Sierra Leone</div>
+            <div class="map-placeholder__sub">West Africa — serving vulnerable families across local communities</div>
+          </div>
+        </div>
+
+        <div class="social-connect reveal">
+          <h3 class="social-connect__title">Follow Our Journey</h3>
+          <p class="social-connect__sub">Follow us to see what we're actually doing — distributions, volunteer days, and real stories from the people we help.</p>
+          <div class="social-connect__links">
+            <a href="https://www.instagram.com/AdamasFoundation1" class="btn btn--gold" target="_blank" rel="noopener noreferrer">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              @AdamasFoundation1
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-box reveal">
+        <h3 class="form-box__title">Send a Message</h3>
+        <p class="form-box__sub">Questions about donating, volunteering, or working with us? Fill in the form — we'll get back to you quickly.</p>
+        <form class="form js-contact-form" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-first">First name *</label>
+              <input type="text" id="c-first" name="first_name" placeholder="Your first name" required />
+            </div>
+            <div class="form-group">
+              <label for="c-last">Last name *</label>
+              <input type="text" id="c-last" name="last_name" placeholder="Your last name" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="c-email">Email address *</label>
+            <input type="email" id="c-email" name="email" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="c-phone">Phone number</label>
+            <input type="tel" id="c-phone" name="phone" placeholder="+44 7700 000000" />
+          </div>
+          <div class="form-group">
+            <label for="c-subject">Subject *</label>
+            <select id="c-subject" name="subject" required>
+              <option value="">What is this about?</option>
+              <option value="donate">I'd like to donate</option>
+              <option value="volunteer">I'd like to volunteer</option>
+              <option value="partner">Partnership enquiry</option>
+              <option value="media">Media / press enquiry</option>
+              <option value="general">General question</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="c-message">Your message *</label>
+            <textarea id="c-message" name="message" placeholder="Tell us how we can help…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--lg btn--full">Send Message</button>
+          <p style="font-size:0.75rem;color:var(--muted);text-align:center;margin-top:var(--space-sm)">We respond to every message within 24 hours.</p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+      <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
+      <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html">Sierra Leone</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
