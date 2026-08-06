@@ -1,13 +1,14 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Programs — Adama's Relief &amp; Rehabilitation Foundation</title>
-  <meta name="description" content="Food distribution, rehabilitation support, and community outreach — the three pillars of Adama's Foundation." />
+  <title>Our Programs — YADAMA Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="Food distribution, rehabilitation support, and community outreach — the three pillars of YADAMA." />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     .program-section {
@@ -38,7 +39,7 @@
     }
     .program-tag--food  { background: rgba(58,138,58,0.1);  color: var(--green); }
     .program-tag--rehab { background: rgba(26,58,107,0.1);  color: var(--blue);  }
-    .program-tag--comm  { background: rgba(201,168,76,0.15); color: #8a6a10;     }
+    .program-tag--comm  { background: rgba(58,138,58,0.1);  color: var(--green); }
 
     .program-list { margin-top: var(--space-md); display: flex; flex-direction: column; gap: 0.5rem; }
     .program-list li {
@@ -50,7 +51,7 @@
       border-radius: 50%; background: var(--green); margin-top: 0.45rem;
     }
     .program-list--blue li::before { background: var(--blue); }
-    .program-list--gold  li::before { background: var(--gold); }
+    .program-list--gold  li::before { background: var(--green); }
 
     /* How it works */
     .how-it-works { background: var(--blue); padding-block: var(--space-xl); }
@@ -63,22 +64,31 @@
     .how-step { text-align: center; }
     .how-step__num {
       width: 52px; height: 52px; border-radius: 50%;
-      background: rgba(255,255,255,0.12); border: 2px solid var(--gold);
+      background: rgba(255,255,255,0.12); border: 2px solid var(--green-light);
       display: flex; align-items: center; justify-content: center;
       font-family: var(--font-display); font-size: 1.2rem; font-weight: 700;
-      color: var(--gold); margin: 0 auto var(--space-sm);
+      color: var(--white); margin: 0 auto var(--space-sm);
     }
     .how-step__title { font-family: var(--font-display); color: var(--white); font-size: 1rem; margin-bottom: 0.4rem; }
     .how-step__desc { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.6; }
   </style>
+  <link rel="icon" href="Brand_assets/yadama/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="Brand_assets/yadama/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="Brand_assets/yadama/apple-touch-icon.png" />
+  <meta name="theme-color" content="#053068" />
 </head>
 <body>
+
+<div class="announce">
+  Official launch &amp; fundraising event — Saturday, 12 September 2026.
+  <a href="index.html#official-launch">View event details</a>
+</div>
 
 <header class="site-header" role="banner">
   <nav class="nav container" aria-label="Main navigation">
     <a href="index.html" class="nav__logo">
-      <img src="Brand_assets/Logo.jpeg" alt="Adama's Relief &amp; Rehabilitation Foundation" width="42" height="42" />
-      <span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span>
+      <img src="Brand_assets/yadama/navbar.svg" alt="YADAMA Relief &amp; Rehabilitation Foundation" width="42" height="42" />
+      
     </a>
     <ul class="nav__links" id="nav-menu" role="list">
       <li><a href="index.html">Home</a></li>
@@ -97,9 +107,9 @@
 <section class="page-hero" aria-label="Our Programs">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Programs</span></nav>
-    <p class="page-hero__eyebrow reveal">What We Do</p>
-    <h1 class="page-hero__title reveal">Our <em>Programs</em></h1>
-    <p class="page-hero__sub reveal">Three pillars of support — food relief, rehabilitation, and community care — working together to build lasting independence.</p>
+    <p class="page-hero__eyebrow reveal">What we do</p>
+    <h1 class="page-hero__title reveal">Our Programs</h1>
+    <p class="page-hero__sub reveal">Immediate humanitarian relief and specialist rehabilitation support, working together to restore dignity and independence.</p>
   </div>
 </section>
 
@@ -116,7 +126,6 @@
       <div>
         <span class="program-tag program-tag--food reveal">Food Distribution</span>
         <h2 class="section-title reveal" id="food-heading">Food Relief &amp; Emergency Aid</h2>
-        <div class="gold-divider reveal"></div>
         <p class="section-body reveal">
           Our flagship programme delivers essential food parcels to widows, elderly individuals, and families with disabilities. Running during Ramadan and in response to emergencies, we ensure that the most vulnerable in our community are never left hungry.
         </p>
@@ -140,21 +149,22 @@
   <div class="container">
     <div class="program-inner program-inner--reverse">
       <div class="img-wrap program-img reveal">
-        <img src="images/rehab.webp" alt="Assistive equipment — wheelchair and walking aid — provided by Adama's Foundation" width="600" height="450" loading="lazy" />
+        <img src="images/rehab.webp" alt="Assistive equipment — wheelchair and walking aid — provided by YADAMA" width="600" height="450" loading="lazy" />
       </div>
       <div>
         <span class="program-tag program-tag--rehab reveal">Rehabilitation Support</span>
-        <h2 class="section-title reveal" id="rehab-heading">Assistive Equipment &amp; Long-term Support</h2>
-        <div class="gold-divider reveal"></div>
+        <h2 class="section-title reveal" id="rehab-heading">Therapy, Equipment &amp; Long-term Care</h2>
         <p class="section-body reveal">
-          Beyond food, we recognise that many in our community need practical support to live independently. Our rehabilitation programme provides assistive equipment — walking aids, wheelchairs, and mobility support — to disabled individuals who cannot access or afford them.
+          Our rehabilitation programme supports people living with disabilities, long-term medical needs and conditions affecting movement or hand function. Support includes mobility aids, assistive devices, rehabilitation equipment and access to appropriate therapeutic care.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          We believe that rehabilitation is not just physical — it is about restoring confidence, dignity, and the ability to participate fully in community life.
+          This includes hand therapy for orthopaedic and rheumatological conditions, traumatic injuries of the hand and wrist, and neurological conditions. Rehabilitation is not only physical: it restores confidence, dignity and participation in community life.
         </p>
         <ul class="program-list program-list--blue reveal">
-          <li>Wheelchairs and mobility aids for disabled individuals</li>
-          <li>Walking frames and assistive devices</li>
+          <li>Wheelchairs, walking frames and mobility aids</li>
+          <li>Hand therapy and support for hand and wrist function</li>
+          <li>Support for neurological, orthopaedic and rheumatological conditions</li>
+          <li>Rehabilitation following traumatic hand injuries</li>
           <li>Long-term follow-up and support visits</li>
           <li>Partnership with local health workers</li>
           <li>Priority given to those with no other support network</li>
@@ -169,12 +179,11 @@
   <div class="container">
     <div class="program-inner">
       <div class="img-wrap program-img reveal">
-        <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?w=1200&auto=format&fit=crop" alt="Community members working together" width="600" height="450" loading="lazy" />
+        <img src="images/community-dist-clean.jpg" alt="Community members gathered at the Ramadan distribution with foundation bags" width="1115" height="787" loading="lazy" style="object-position: 65% center;" />
       </div>
       <div>
         <span class="program-tag program-tag--comm reveal">Community Support</span>
         <h2 class="section-title reveal" id="comm-heading">Outreach, Clothing &amp; Welfare</h2>
-        <div class="gold-divider reveal"></div>
         <p class="section-body reveal">
           Our community support programme goes beyond food and equipment. We run clothing drives, welfare visits, and outreach events that connect isolated individuals with the wider community — because no one should feel invisible.
         </p>
@@ -188,7 +197,7 @@
           <li>Referrals to local health and social services</li>
           <li>Volunteer-led outreach and companionship</li>
         </ul>
-        <a href="get-involved.html#volunteer" class="btn btn--gold btn--lg reveal" style="margin-top:var(--space-md)">Join as a Volunteer</a>
+        <a href="get-involved.html#volunteer" class="btn btn--green btn--lg reveal" style="margin-top:var(--space-md)">Join as a Volunteer</a>
       </div>
     </div>
   </div>
@@ -233,7 +242,7 @@
       <h2 class="cta-band__title reveal">Fund a food parcel today</h2>
       <p class="cta-band__sub reveal">Your donation directly funds food, equipment, and community outreach for those who need it most.</p>
       <div class="cta-band__actions reveal">
-        <a href="get-involved.html#donate" class="btn btn--gold btn--lg">Donate Now</a>
+        <a href="get-involved.html#donate" class="btn btn--green btn--lg">Donate Now</a>
         <a href="campaigns.html" class="btn btn--ghost-white btn--lg">View Campaigns</a>
       </div>
     </div>
@@ -244,7 +253,7 @@
   <div class="container">
     <div class="footer__inner">
       <div class="footer__brand">
-        <div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div>
+        <div class="footer__logo"><img src="Brand_assets/yadama/footer-logo.png" alt="YADAMA" width="50" height="50" loading="lazy" /></div>
         <p class="footer__brand-desc">Relief today. Independence tomorrow.</p>
         <div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a><a href="#" class="social-link" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a></div>
       </div>
@@ -252,9 +261,10 @@
       <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
       <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </div>
-    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+    <div class="footer__bottom"><p>&#169; 2026 YADAMA Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
   </div>
 </footer>
 <script src="js/main.js"></script>
 </body>
 </html>
+

@@ -16,10 +16,12 @@ const MIME = {
   '.webp': 'image/webp',
   '.svg':  'image/svg+xml',
   '.ico':  'image/x-icon',
+  '.mp4':  'video/mp4',
 };
 
 createServer(async (req, res) => {
-  let path = req.url === '/' ? '/index.html' : req.url;
+  // decode percent-escapes so asset paths containing spaces resolve
+  let path = decodeURIComponent((req.url === '/' ? '/index.html' : req.url).split('?')[0]);
   const file = join(DIR, path);
   try {
     const data = await readFile(file);

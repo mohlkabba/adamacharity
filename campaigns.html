@@ -1,37 +1,38 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Campaigns — Adama's Relief &amp; Rehabilitation Foundation</title>
-  <meta name="description" content="Ramadan Food Distribution 2026 — supporting 50–100 families including widows, elderly, and disabled households." />
+  <title>Campaigns — YADAMA Relief &amp; Rehabilitation Foundation</title>
+  <meta name="description" content="YADAMA projects: the April 2026 Mosque Fall Prevention and Accessibility Project in London and the Ramadan Food Distribution campaign." />
+  <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
     /* Campaign card */
     .campaign-card {
       background: var(--white); border-radius: var(--radius-lg);
-      overflow: hidden; box-shadow: var(--shadow-md);
+      box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
     }
+    /* No overflow:hidden on .campaign-card — it would anchor position:sticky
+       to that (non-scrolling) box instead of the viewport, so the header
+       would never re-stick as the page scrolls. Round the header's own top
+       corners instead to keep the clipped look. */
     .campaign-card__header {
-      background: linear-gradient(135deg, var(--green-dark), var(--green));
+      background: var(--green-dark);
       padding: var(--space-xl) var(--space-lg);
-      position: relative; overflow: hidden;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      position: sticky; top: 90px; z-index: 5;
     }
-    .campaign-card__header::before {
-      content: ''; position: absolute; top: -40px; right: -40px;
-      width: 200px; height: 200px;
-      background: rgba(255,255,255,0.05); border-radius: 50%; pointer-events: none;
-    }
+    .campaign-card__body { border-radius: 0 0 var(--radius-lg) var(--radius-lg); overflow: hidden; }
     .campaign-card__badge {
       display: inline-flex; align-items: center; gap: 0.4em;
-      background: var(--gold); color: var(--blue-dark);
-      padding: 0.3em 0.9em; border-radius: var(--radius-full);
-      font-size: 0.72rem; font-weight: 700;
-      letter-spacing: 0.08em; text-transform: uppercase;
+      background: var(--white); color: var(--green-dark);
+      padding: 0.35em 1em; border-radius: var(--radius-full);
+      font-size: 0.75rem; font-weight: 700;
       margin-bottom: var(--space-md);
     }
     .campaign-card__title {
@@ -47,6 +48,32 @@
     .campaign-card__meta span { display: flex; align-items: center; gap: 0.35em; }
 
     .campaign-card__body { padding: var(--space-xl); }
+    .current-project {
+      background: linear-gradient(145deg, var(--blue) 0%, var(--blue-dark) 100%);
+      color: var(--white); border-radius: var(--radius-lg);
+      padding: var(--space-xl); box-shadow: var(--shadow-md);
+    }
+    .current-project__grid { display:grid;grid-template-columns:1.15fr 0.85fr;gap:var(--space-xl);align-items:center; }
+    .current-project__label { color:#b9ddb3;font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:var(--space-sm); }
+    .current-project__title { color:var(--white);font-size:clamp(2rem,5vw,3.6rem);line-height:1.06;margin-bottom:var(--space-md); }
+    .current-project__body { color:rgba(255,255,255,0.78);max-width:58ch; }
+    .impact-list { display:grid;gap:var(--space-sm); }
+    .impact-list li { list-style:none;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius-md);padding:var(--space-md);font-weight:600; }
+    .proposal-details { margin-top:var(--space-lg);display:grid;gap:var(--space-lg); }
+    .proposal-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md); }
+    .proposal-panel { background:var(--cream);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-lg); }
+    .proposal-panel__title { font-family:var(--font-display);font-size:1.35rem;color:var(--blue);margin-bottom:var(--space-md); }
+    .proposal-list { display:grid;gap:0.7rem;padding-left:1.15rem;color:var(--text-mid); }
+    .proposal-list li::marker { color:var(--green); }
+    .purchase-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-md); }
+    .purchase-card { display:flex;flex-direction:column;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:var(--space-md);box-shadow:var(--shadow-sm); }
+    .purchase-card__type { color:var(--green-dark);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.35rem; }
+    .purchase-card__title { font-family:var(--font-display);font-size:1.05rem;color:var(--blue);margin-bottom:0.4rem; }
+    .purchase-card__price { font-family:var(--font-display);font-size:1.65rem;font-weight:700;color:var(--text);margin-bottom:var(--space-md); }
+    .purchase-card .btn { margin-top:auto; }
+    .proposal-note { color:var(--muted);font-size:0.82rem;line-height:1.6;margin-top:var(--space-sm); }
+    @media (max-width:760px) { .current-project__grid { grid-template-columns:1fr; } }
+    @media (max-width:760px) { .proposal-grid,.purchase-grid { grid-template-columns:1fr; } }
 
     /* Progress */
     .campaign-progress { margin-bottom: var(--space-xl); }
@@ -129,19 +156,65 @@
       border-color: var(--green); background: rgba(58,138,58,0.06); color: var(--green);
     }
     .donate-box__or { text-align: center; font-size: 0.8rem; color: var(--muted); margin-block: var(--space-xs); }
+    /* Share box sits on a light background — repaint the footer-style icon buttons */
+    .campaign-sidebar .social-link {
+      background: rgba(26,58,107,0.06);
+      border-color: var(--border);
+      color: var(--blue);
+    }
+    /* BEFORE / AFTER EVIDENCE */
+    .ba { margin-top: var(--space-xl); }
+    .ba__grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md); margin-top: var(--space-lg);
+    }
+    .ba__item { margin: 0; }
+    .ba__frame {
+      position: relative; aspect-ratio: 3/4;
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .ba__frame img { width: 100%; height: 100%; object-fit: cover; }
+    .ba__tag {
+      position: absolute; top: var(--space-sm); left: var(--space-sm); z-index: 1;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.35em 0.85em;
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-sm);
+    }
+    .ba__tag--before { background: rgba(16,24,40,0.82); color: #fff; }
+    .ba__tag--after  { background: var(--green-dark); color: #fff; }
+    .ba__cap { font-size: 0.88rem; color: var(--text-mid); margin-top: var(--space-sm); }
+    .equip-photo {
+      margin-top: var(--space-lg);
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-md); aspect-ratio: 16/10;
+    }
+    .equip-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
+
     @media (max-width: 600px) {
       .campaign-card__header { padding: var(--space-lg) var(--space-md); }
       .campaign-card__body   { padding: var(--space-md); }
       .donate-amounts        { grid-template-columns: repeat(2, 1fr); }
       .progress-stats        { grid-template-columns: repeat(3, 1fr); }
+      .ba__grid              { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="icon" href="Brand_assets/yadama/favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="Brand_assets/yadama/favicon-32x32.png" />
+  <link rel="apple-touch-icon" href="Brand_assets/yadama/apple-touch-icon.png" />
+  <meta name="theme-color" content="#053068" />
 </head>
 <body>
 
+<div class="announce">
+  Official launch &amp; fundraising event — Saturday, 12 September 2026.
+  <a href="index.html#official-launch">View event details</a>
+</div>
+
 <header class="site-header" role="banner">
   <nav class="nav container" aria-label="Main navigation">
-    <a href="index.html" class="nav__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="42" height="42" /><span class="nav__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></a>
+    <a href="index.html" class="nav__logo"><img src="Brand_assets/yadama/navbar.svg" alt="YADAMA" width="42" height="42" /></a>
     <ul class="nav__links" id="nav-menu" role="list">
       <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="get-involved.html">Get Involved</a></li><li><a href="contact.html">Contact</a></li><li><a href="get-involved.html#donate" class="btn btn--green">Donate Now</a></li>
     </ul>
@@ -152,9 +225,137 @@
 <section class="page-hero" aria-label="Campaigns">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Campaigns</span></nav>
-    <p class="page-hero__eyebrow reveal">Active Campaigns</p>
-    <h1 class="page-hero__title reveal">Ramadan <em>2026</em><br>Food Distribution</h1>
-    <p class="page-hero__sub reveal">Goal: support 50–100 families with essential food parcels. Our first distribution took place on 27th February 2026.</p>
+    <p class="page-hero__eyebrow reveal">Campaigns</p>
+    <h1 class="page-hero__title reveal">Projects that protect dignity and independence</h1>
+    <p class="page-hero__sub reveal">From immediate humanitarian relief to safer, more accessible community spaces.</p>
+  </div>
+</section>
+
+<section class="section section--white" id="mosque-accessibility" aria-labelledby="mosque-heading">
+  <div class="container">
+    <article class="current-project reveal">
+      <div class="current-project__grid">
+        <div>
+          <p class="current-project__label">Project 3 &middot; Completed &middot; April 2026</p>
+          <h2 class="current-project__title" id="mosque-heading">Mosque Fall Prevention &amp; Accessibility Project</h2>
+          <p class="current-project__body">YADAMA worked with a London mosque to improve safety for older and vulnerable worshippers. Following an Occupational Therapy assessment of the building, support equipment was supplied and fitted &mdash; including a toilet support frame, a high-back chair with armrests, and an emergency call-bell system. The project is now complete.</p>
+          <a href="get-involved.html#partner" class="btn btn--green btn--lg" style="margin-top:var(--space-lg)">Partner with this project</a>
+        </div>
+        <div>
+          <p class="current-project__label">Impact goals</p>
+          <ul class="impact-list">
+            <li>Increase independence for older worshippers</li>
+            <li>Prevent falls and avoidable injuries</li>
+            <li>Promote a safe, accessible worship environment</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <section class="ba reveal" aria-labelledby="ba-heading">
+      <p class="section-label">Before and after</p>
+      <h3 class="proposal-panel__title" id="ba-heading">What changed in the washroom</h3>
+      <div class="ba__grid">
+        <figure class="ba__item">
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--before">Before</span>
+            <img src="images/mosque-toilet-before.jpg" alt="The mosque toilet cubicle before the project, with no support frame or rail beside the toilet" width="900" height="1200" loading="lazy" />
+          </div>
+          <figcaption class="ba__cap">No rail or frame &mdash; worshippers with limited mobility had nothing stable to hold when sitting down or standing up.</figcaption>
+        </figure>
+        <figure class="ba__item">
+          <div class="ba__frame">
+            <span class="ba__tag ba__tag--after">After</span>
+            <img src="images/mosque-toilet-after.jpg" alt="The same cubicle after the project, with a height-adjustable toilet support frame fitted around the toilet" width="900" height="1200" loading="lazy" />
+          </div>
+          <figcaption class="ba__cap">A height-adjustable support frame now gives a firm handhold on both sides for safer sit-to-stand transfers.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <div class="proposal-details">
+      <div class="proposal-grid">
+        <section class="proposal-panel reveal" aria-labelledby="target-group-heading">
+          <h3 class="proposal-panel__title" id="target-group-heading">Who the project supports</h3>
+          <ul class="proposal-list">
+            <li>Older worshippers</li>
+            <li>People with arthritis affecting the hands, fingers, wrists or knees, and those experiencing hip or shoulder pain</li>
+            <li>People with mobility difficulties</li>
+            <li>People recovering from a stroke</li>
+            <li>Anyone at increased risk of falling</li>
+          </ul>
+        </section>
+        <section class="proposal-panel reveal" aria-labelledby="risks-heading">
+          <h3 class="proposal-panel__title" id="risks-heading">Risks identified</h3>
+          <p class="section-body" style="margin-bottom:var(--space-sm)">An informal observation identified several environmental hazards:</p>
+          <ul class="proposal-list">
+            <li>Wet flooring in toilet and ablution areas</li>
+            <li>No non-slip mats or grab rails</li>
+            <li>No emergency call system in toilet facilities</li>
+            <li>Unstable folding chairs without armrests, increasing risk during sit-to-stand transfers</li>
+          </ul>
+        </section>
+        <section class="proposal-panel reveal" aria-labelledby="interventions-heading">
+          <h3 class="proposal-panel__title" id="interventions-heading">Proposed interventions</h3>
+          <ul class="proposal-list">
+            <li>Complete an Occupational Therapy environmental assessment</li>
+            <li>Provide non-slip mats in key areas</li>
+            <li>Recommend grab rails and drop-down support rails</li>
+            <li>Recommend high-back chairs with armrests for safer transfers</li>
+            <li>Install an emergency call-bell system</li>
+            <li>Provide fall-prevention education and practical advice</li>
+          </ul>
+        </section>
+        <section class="proposal-panel reveal" aria-labelledby="outcomes-heading">
+          <h3 class="proposal-panel__title" id="outcomes-heading">Expected outcomes</h3>
+          <ul class="proposal-list">
+            <li>Reduced risk of falls and avoidable hospital admissions</li>
+            <li>Greater independence and confidence for older users</li>
+            <li>Safer toileting and sit-to-stand transfers</li>
+            <li>Improved accessibility throughout mosque facilities</li>
+            <li>A safer worship environment that protects dignity and wellbeing</li>
+          </ul>
+        </section>
+      </div>
+
+      <section class="proposal-panel reveal" aria-labelledby="timeline-heading">
+        <p class="section-label">Project timeline</p>
+        <h3 class="proposal-panel__title" id="timeline-heading">Delivered within one to two months</h3>
+        <p class="section-body">The assessment, recommendations and principal project activities were completed within one to two months. The support equipment and the emergency call-bell system have since been installed, and the project is now complete.</p>
+      </section>
+
+      <section class="proposal-panel reveal" aria-labelledby="purchase-heading">
+        <p class="section-label">Equipment list</p>
+        <h3 class="proposal-panel__title" id="purchase-heading">Safety equipment supplied for this project</h3>
+        <figure>
+          <div class="equip-photo">
+            <img src="images/mosque-equipment.jpg" alt="Equipment delivered to the mosque: a toilet support frame, a boxed high-back lounge chair and an emergency assistance alarm" width="900" height="1200" loading="lazy" />
+          </div>
+          <figcaption class="ba__cap">Delivery day &mdash; toilet support frame, high-back chair and the emergency assistance alarm.</figcaption>
+        </figure>
+        <div class="purchase-grid" style="margin-top:var(--space-lg)">
+          <article class="purchase-card">
+            <p class="purchase-card__type">Emergency safety</p>
+            <h4 class="purchase-card__title">Disabled Toilet Alarm Pull Cord Module</h4>
+            <p class="purchase-card__price">&pound;41.46</p>
+            <a class="btn btn--primary btn--full" href="https://www.tlc-direct.co.uk/Products/ESDTAKIT.html" target="_blank" rel="noopener noreferrer">View at TLC Direct</a>
+          </article>
+          <article class="purchase-card">
+            <p class="purchase-card__type">Support rail option 1</p>
+            <h4 class="purchase-card__title">Cubix Support Rail with Leg</h4>
+            <p class="purchase-card__price">&pound;49.99</p>
+            <a class="btn btn--primary btn--full" href="https://www.careco.co.uk/cubix-support-rail-with-leg/" target="_blank" rel="noopener noreferrer">View at CareCo</a>
+          </article>
+          <article class="purchase-card">
+            <p class="purchase-card__type">Support rail option 2</p>
+            <h4 class="purchase-card__title">Economy Drop Down Rail with Leg</h4>
+            <p class="purchase-card__price">&pound;27.90 <small style="display:block;font:500 0.72rem var(--font-body);color:var(--muted)">with VAT relief &middot; &pound;33.48 inc VAT</small></p>
+            <a class="btn btn--primary btn--full" href="https://www.essentialaids.com/toileting/toilet-support-rails/economy-drop-down-rail-with-leg.html" target="_blank" rel="noopener noreferrer">View at Essential Aids</a>
+          </article>
+        </div>
+        <p class="proposal-note">Prices are indicative figures supplied for this proposal and may change. Final equipment selection and installation should follow the Occupational Therapy environmental assessment and confirmation of suitability with the mosque.</p>
+      </section>
+    </div>
   </div>
 </section>
 
@@ -165,7 +366,7 @@
       <div>
         <div class="campaign-card reveal">
           <div class="campaign-card__header">
-            <div class="campaign-card__badge">★ Active Campaign</div>
+            <div class="campaign-card__badge">First distribution completed — 27 February 2026</div>
             <h2 class="campaign-card__title" id="campaign-main-heading">Ramadan Food Distribution 2026</h2>
             <div class="campaign-card__meta">
               <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 February 2026</span>
@@ -201,15 +402,15 @@
                 </div>
               </div>
               <p style="font-size:0.85rem;color:var(--muted);margin-top:var(--space-xs)">
-                Help us reach the remaining families. Every donation buys another parcel.
+                Fundraising continues so the next distribution can reach the remaining families.
               </p>
             </div>
 
             <p class="section-body" style="margin-bottom:var(--space-md)">
-              Our Ramadan 2026 Food Distribution campaign is our most ambitious yet. We are working to support 50–100 families across our community — with a focus on those who are most overlooked: widows raising children alone, elderly individuals with no family support, and households where disability means earning a living is impossible.
+              The Ramadan 2026 Food Distribution set out to support 50 to 100 families, focusing on those most often overlooked: widows raising children alone, elderly people with no family support, and households where disability makes earning a living impossible.
             </p>
             <p class="section-body" style="margin-bottom:var(--space-xl)">
-              Our first distribution event on <strong>27th February 2026</strong> successfully reached over 50 families. We are continuing to raise funds to reach the remaining households before the end of Ramadan season.
+              The first distribution, on <strong>27 February 2026</strong>, reached more than 50 families. Fundraising continues so the next distribution can reach the remaining households and hit the full goal of 100.
             </p>
 
             <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--blue);margin-bottom:var(--space-md)">Who we're serving</h3>
@@ -225,7 +426,7 @@
                 <p class="beneficiary__desc">Older residents living alone, unable to work, and without regular access to food.</p>
               </div>
               <div class="beneficiary reveal">
-                <div class="beneficiary__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div class="beneficiary__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
                 <h4 class="beneficiary__title">Disabled Families</h4>
                 <p class="beneficiary__desc">Households where disability limits earning potential and access to resources.</p>
               </div>
@@ -245,8 +446,8 @@
               </div>
               <div class="timeline-item timeline-item--upcoming reveal">
                 <div class="timeline-item__date">Ongoing — 2026</div>
-                <h4 class="timeline-item__title">Continue to 100 families</h4>
-                <p class="timeline-item__desc">Fundraising continues to reach the remaining households in our target of 100 families.</p>
+                <h4 class="timeline-item__title">Fundraising toward 100 families</h4>
+                <p class="timeline-item__desc">Donations fund the next distribution, aimed at the remaining households in the 100-family goal.</p>
               </div>
               <div class="timeline-item timeline-item--upcoming reveal">
                 <div class="timeline-item__date">Ramadan 2027</div>
@@ -274,7 +475,7 @@
             <button class="donate-amount" type="button">Other</button>
           </div>
           <div class="donate-box__or">— or donate via —</div>
-          <a href="https://www.gofundme.com" class="btn btn--gold btn--lg btn--full" target="_blank" rel="noopener noreferrer" style="margin-bottom:var(--space-sm)">
+          <a href="https://www.gofundme.com" class="btn btn--green btn--lg btn--full" target="_blank" rel="noopener noreferrer" style="margin-bottom:var(--space-sm)">
             GoFundMe
           </a>
           <a href="https://www.instagram.com/AdamasFoundation1" class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer">
@@ -304,12 +505,12 @@
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer__inner">
-      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/Logo.jpeg" alt="Adama's Foundation" width="50" height="50" loading="lazy" /><span class="footer__logo-text">Adama's Relief &amp;<br>Rehabilitation Foundation</span></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/yadama/footer-logo.png" alt="YADAMA" width="50" height="50" loading="lazy" /></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
       <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
       <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
       <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </div>
-    <div class="footer__bottom"><p>&#169; 2026 Adama's Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
+    <div class="footer__bottom"><p>&#169; 2026 YADAMA Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
   </div>
 </footer>
 <script src="js/main.js"></script>
@@ -324,3 +525,4 @@
 </script>
 </body>
 </html>
+
