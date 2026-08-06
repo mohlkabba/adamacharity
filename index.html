@@ -233,21 +233,73 @@
       gap: var(--space-lg); margin-top: var(--space-xl);
     }
     @media (max-width: 768px) { .pillars__grid { grid-template-columns: 1fr; } }
-    .pillar { text-align: center; }
-    .pillar__icon {
-      width: 60px; height: 60px; margin: 0 auto var(--space-sm);
-      border-radius: var(--radius-full);
+    .pillar {
+      min-width: 0;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
       background: var(--white);
       border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+    .pillar:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .pillar__media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3 / 2;
+      margin: 0;
+      background: var(--blue-dark);
+    }
+    .pillar__media::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 35%;
+      background: linear-gradient(0deg, rgba(5,23,48,0.28), transparent);
+      pointer-events: none;
+    }
+    .pillar__media img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 500ms ease;
+    }
+    .pillar:hover .pillar__media img { transform: scale(1.025); }
+    .pillar__image-note {
+      position: absolute;
+      z-index: 1;
+      right: 0.75rem;
+      bottom: 0.65rem;
+      color: rgba(255,255,255,0.9);
+      background: rgba(5,23,48,0.58);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-full);
+      padding: 0.25em 0.65em;
+      font-size: 0.62rem;
+      letter-spacing: 0.03em;
+      backdrop-filter: blur(5px);
+    }
+    .pillar__body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: clamp(1.25rem, 2.4vw, 1.65rem);
     }
     .pillar h3 { font-size: 1.2rem; color: var(--text); margin-bottom: var(--space-xs); }
-    .pillar p { font-size: 0.92rem; color: var(--muted); max-width: 34ch; margin-inline: auto; }
+    .pillar p { font-size: 0.92rem; color: var(--muted); max-width: 38ch; }
     .pillar a {
-      display: inline-block; margin-top: var(--space-sm);
+      align-self: flex-start; display: inline-block; margin-top: auto; padding-top: var(--space-md);
       font-size: 0.88rem; font-weight: 600; color: var(--green-dark);
     }
     .pillar a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    @media (prefers-reduced-motion: reduce) {
+      .pillar, .pillar__media img { transition: none; }
+      .pillar:hover, .pillar:hover .pillar__media img { transform: none; }
+    }
 
     /* PHOTO BAND */
     .band {
@@ -545,22 +597,37 @@
     </div>
     <div class="pillars__grid">
       <div class="pillar reveal">
-        <div class="pillar__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></div>
-        <h3>Humanitarian relief</h3>
-        <p>Food, clothing, hygiene supplies, emergency assistance and community-based support when families face hardship.</p>
-        <a href="programs.html#food">About this programme</a>
+        <figure class="pillar__media">
+          <img src="images/program-humanitarian-relief-v1.jpg" alt="Volunteers sharing a food and hygiene parcel with an older woman in a Sierra Leone community" width="1536" height="1024" loading="lazy" />
+          <figcaption class="pillar__image-note">Illustrative image</figcaption>
+        </figure>
+        <div class="pillar__body">
+          <h3>Humanitarian relief</h3>
+          <p>Food, clothing, hygiene supplies, emergency assistance and community-based support when families face hardship.</p>
+          <a href="programs.html#food">About this programme</a>
+        </div>
       </div>
       <div class="pillar reveal">
-        <div class="pillar__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
-        <h3>Rehabilitation support</h3>
-        <p>Rehabilitation services, mobility aids, adaptive equipment, occupational therapy, physiotherapy and community-based programmes.</p>
-        <a href="programs.html#rehab">About this programme</a>
+        <figure class="pillar__media">
+          <img src="images/program-rehabilitation-support-v1.jpg" alt="A rehabilitation professional supporting a man practising walking with a frame" width="1536" height="1024" loading="lazy" />
+          <figcaption class="pillar__image-note">Illustrative image</figcaption>
+        </figure>
+        <div class="pillar__body">
+          <h3>Rehabilitation support</h3>
+          <p>Rehabilitation services, mobility aids, adaptive equipment, occupational therapy, physiotherapy and community-based programmes.</p>
+          <a href="programs.html#rehab">About this programme</a>
+        </div>
       </div>
       <div class="pillar reveal">
-        <div class="pillar__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-        <h3>Community development</h3>
-        <p>Partnerships that promote inclusion, improve wellbeing, strengthen local capacity and create sustainable opportunities.</p>
-        <a href="programs.html#community">About this programme</a>
+        <figure class="pillar__media">
+          <img src="images/program-community-development-v1.jpg" alt="Community members planning an inclusive local health and accessibility initiative" width="1536" height="1024" loading="lazy" />
+          <figcaption class="pillar__image-note">Illustrative image</figcaption>
+        </figure>
+        <div class="pillar__body">
+          <h3>Community development</h3>
+          <p>Partnerships that promote inclusion, improve wellbeing, strengthen local capacity and create sustainable opportunities.</p>
+          <a href="programs.html#community">About this programme</a>
+        </div>
       </div>
     </div>
   </div>
