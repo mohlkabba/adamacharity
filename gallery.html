@@ -196,6 +196,174 @@
       .gallery-item__caption p { font-size: 0.82rem; line-height: 1.4; }
       .gallery-item--video .gallery-item__caption p { font-size: 0.9rem; }
     }
+
+    /* Individual media viewer */
+    .gallery-item__media:has(img) { cursor: zoom-in; }
+    .media-open {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.75rem;
+      z-index: 4;
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 0.8rem;
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: var(--radius-full);
+      background: rgba(7,26,53,0.88);
+      color: var(--white);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.24);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      font-size: 0.72rem;
+      font-weight: 750;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .media-open:hover,
+    .media-open:focus-visible {
+      transform: translateY(-2px);
+      background: var(--green-dark);
+      color: var(--white);
+    }
+
+    .media-viewer[hidden] { display: none; }
+    .media-viewer {
+      position: fixed;
+      inset: 0;
+      z-index: 3000;
+      display: grid;
+      place-items: center;
+      padding: clamp(1rem, 3vw, 2.5rem);
+      background: rgba(4,14,31,0.96);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .media-viewer__panel {
+      position: relative;
+      width: min(1120px, 100%);
+      max-height: calc(100vh - 2rem);
+      display: grid;
+      grid-template-rows: minmax(0, 1fr) auto;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 28px;
+      background: #081a36;
+      box-shadow: 0 32px 100px rgba(0,0,0,0.48);
+    }
+    .media-viewer__stage {
+      min-height: 320px;
+      height: min(72vh, 760px);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(42,82,149,0.24), transparent 55%),
+        #030d1e;
+    }
+    .media-viewer__stage img,
+    .media-viewer__stage video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    .media-viewer__meta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.1rem 1.4rem 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .media-viewer__tag {
+      display: block;
+      margin-bottom: 0.25rem;
+      color: #9ad990;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .media-viewer__caption {
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    .media-viewer__count {
+      color: rgba(255,255,255,0.56);
+      font-size: 0.78rem;
+      white-space: nowrap;
+    }
+    .media-viewer__close,
+    .media-viewer__nav {
+      position: absolute;
+      z-index: 2;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(7,26,53,0.84);
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.24);
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .media-viewer__close:hover,
+    .media-viewer__nav:hover,
+    .media-viewer__close:focus-visible,
+    .media-viewer__nav:focus-visible { background: var(--green-dark); }
+    .media-viewer__close {
+      top: 1rem;
+      right: 1rem;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+    }
+    .media-viewer__nav {
+      top: 50%;
+      width: 54px;
+      height: 72px;
+      border-radius: 18px;
+      transform: translateY(-50%);
+    }
+    .media-viewer__nav[hidden] { display: none; }
+    .media-viewer__nav:hover { transform: translateY(-50%) scale(1.04); }
+    .media-viewer__prev { left: 1rem; }
+    .media-viewer__next { right: 1rem; }
+
+    @media (hover: none) and (pointer: coarse) {
+      .media-open {
+        min-height: 64px;
+        padding: 0.65rem 1rem;
+        font-size: 0.82rem;
+      }
+      .media-open svg { width: 30px; height: 30px; }
+      .media-viewer { padding: 24px; }
+      .media-viewer__panel {
+        width: calc(100% - 16px);
+        max-height: calc(100vh - 48px);
+        border-radius: 34px;
+      }
+      .media-viewer__stage { height: min(74vh, 1850px); }
+      .media-viewer__meta { padding: 24px 30px 28px; }
+      .media-viewer__caption { font-size: 1.12rem; }
+      .media-viewer__close {
+        top: 22px;
+        right: 22px;
+        width: 86px;
+        height: 86px;
+      }
+      .media-viewer__nav {
+        width: 82px;
+        height: 108px;
+      }
+      .media-viewer__close svg,
+      .media-viewer__nav svg { width: 34px; height: 34px; }
+      .media-viewer__prev { left: 22px; }
+      .media-viewer__next { right: 22px; }
+    }
   </style>
   <link rel="icon" href="Brand_assets/yadama/favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="Brand_assets/yadama/favicon-32x32.png" />
@@ -269,7 +437,7 @@
       <button class="filter-btn" data-filter="video">Videos</button>
     </div>
 
-    <p class="gallery-note reveal">Select play on any video to watch. Videos remain paused until you choose to start them.</p>
+    <p class="gallery-note reveal">Choose “View photo” or “View video” to open any item individually. Videos remain paused until you choose to start them.</p>
 
     <div class="full-gallery" id="gallery-grid">
 
@@ -510,6 +678,28 @@
     <div class="footer__bottom"><p>&#169; 2026 YADAMA Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
   </div>
 </footer>
+
+<div class="media-viewer" id="media-viewer" role="dialog" aria-modal="true" aria-labelledby="media-viewer-caption" hidden>
+  <div class="media-viewer__panel">
+    <button class="media-viewer__close" type="button" aria-label="Close media viewer">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+    <button class="media-viewer__nav media-viewer__prev" type="button" aria-label="View previous item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+    </button>
+    <div class="media-viewer__stage"></div>
+    <button class="media-viewer__nav media-viewer__next" type="button" aria-label="View next item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+    <div class="media-viewer__meta">
+      <div>
+        <span class="media-viewer__tag"></span>
+        <p class="media-viewer__caption" id="media-viewer-caption"></p>
+      </div>
+      <span class="media-viewer__count" aria-live="polite"></span>
+    </div>
+  </div>
+</div>
 <script src="js/main.js"></script>
 <script>
   // Gallery filter
@@ -530,6 +720,117 @@
         }
       });
     });
+  });
+
+  // Individual photo and video viewer
+  const viewer = document.querySelector('#media-viewer');
+  const viewerStage = viewer.querySelector('.media-viewer__stage');
+  const viewerTag = viewer.querySelector('.media-viewer__tag');
+  const viewerCaption = viewer.querySelector('.media-viewer__caption');
+  const viewerCount = viewer.querySelector('.media-viewer__count');
+  const viewerClose = viewer.querySelector('.media-viewer__close');
+  const viewerPrev = viewer.querySelector('.media-viewer__prev');
+  const viewerNext = viewer.querySelector('.media-viewer__next');
+  let viewerItems = [];
+  let viewerIndex = 0;
+  let viewerTrigger = null;
+
+  const visibleGalleryItems = () => [...galleryItems].filter(item => !item.classList.contains('hidden'));
+
+  const stopViewerMedia = () => {
+    viewerStage.querySelector('video')?.pause();
+    viewerStage.replaceChildren();
+  };
+
+  const renderViewerItem = () => {
+    stopViewerMedia();
+    const item = viewerItems[viewerIndex];
+    if (!item) return;
+
+    const sourceVideo = item.querySelector('video');
+    const sourceImage = item.querySelector('img');
+    let media;
+    if (sourceVideo) {
+      media = document.createElement('video');
+      media.controls = true;
+      media.playsInline = true;
+      media.autoplay = true;
+      media.preload = 'metadata';
+      media.poster = sourceVideo.poster;
+      const source = document.createElement('source');
+      source.src = sourceVideo.querySelector('source')?.src || sourceVideo.currentSrc;
+      source.type = sourceVideo.querySelector('source')?.type || 'video/mp4';
+      media.append(source);
+      media.setAttribute('aria-label', sourceVideo.getAttribute('aria-label') || 'Gallery video');
+    } else {
+      media = document.createElement('img');
+      media.src = sourceImage.currentSrc || sourceImage.src;
+      media.alt = sourceImage.alt;
+    }
+    viewerStage.append(media);
+
+    viewerTag.textContent = item.querySelector('.gallery-item__tag')?.textContent.trim() || 'Gallery';
+    viewerCaption.textContent = item.querySelector('.gallery-item__caption p')?.textContent.trim() || '';
+    viewerCount.textContent = `${viewerIndex + 1} of ${viewerItems.length}`;
+    viewerPrev.hidden = viewerItems.length < 2;
+    viewerNext.hidden = viewerItems.length < 2;
+    if (sourceVideo) media.play().catch(() => {});
+  };
+
+  const openViewer = (item, trigger) => {
+    viewerItems = visibleGalleryItems();
+    viewerIndex = Math.max(0, viewerItems.indexOf(item));
+    viewerTrigger = trigger;
+    document.querySelectorAll('.gallery-item video').forEach(video => video.pause());
+    viewer.hidden = false;
+    document.body.style.overflow = 'hidden';
+    renderViewerItem();
+    viewerClose.focus();
+  };
+
+  const closeViewer = () => {
+    stopViewerMedia();
+    viewer.hidden = true;
+    document.body.style.overflow = '';
+    viewerTrigger?.focus();
+  };
+
+  const moveViewer = direction => {
+    viewerIndex = (viewerIndex + direction + viewerItems.length) % viewerItems.length;
+    renderViewerItem();
+  };
+
+  galleryItems.forEach(item => {
+    const mediaWrap = item.querySelector('.gallery-item__media');
+    const isVideo = Boolean(item.querySelector('video'));
+    const openButton = document.createElement('button');
+    openButton.type = 'button';
+    openButton.className = 'media-open';
+    openButton.setAttribute('aria-haspopup', 'dialog');
+    openButton.setAttribute('aria-label', isVideo ? 'View this video individually' : 'View this photo individually');
+    openButton.innerHTML = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg><span>View ${isVideo ? 'video' : 'photo'}</span>`;
+    openButton.addEventListener('click', () => openViewer(item, openButton));
+    mediaWrap.append(openButton);
+
+    if (!isVideo) {
+      mediaWrap.addEventListener('click', event => {
+        if (event.target.closest('button')) return;
+        openViewer(item, openButton);
+      });
+    }
+  });
+
+  viewerClose.addEventListener('click', closeViewer);
+  viewerPrev.addEventListener('click', () => moveViewer(-1));
+  viewerNext.addEventListener('click', () => moveViewer(1));
+  viewer.addEventListener('click', event => {
+    if (event.target === viewer) closeViewer();
+  });
+  document.addEventListener('keydown', event => {
+    if (viewer.hidden) return;
+    if (event.key === 'Escape') closeViewer();
+    if (event.key === 'ArrowLeft') moveViewer(-1);
+    if (event.key === 'ArrowRight') moveViewer(1);
   });
 </script>
 </body>
