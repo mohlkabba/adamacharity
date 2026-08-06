@@ -165,6 +165,16 @@
       display: grid; grid-template-columns: repeat(2, 1fr);
       gap: var(--space-md); margin-top: var(--space-lg);
     }
+    .ba__comparison + .ba__comparison { margin-top: var(--space-xl); }
+    .ba__comparison-title {
+      display: flex; align-items: center; gap: var(--space-sm);
+      font-family: var(--font-display); font-size: 1.12rem;
+      color: var(--blue); margin-top: var(--space-lg);
+    }
+    .ba__comparison-title::before {
+      content: ''; width: 2rem; height: 3px; flex: 0 0 auto;
+      border-radius: var(--radius-full); background: var(--green);
+    }
     .ba__item { margin: 0; }
     .ba__frame {
       position: relative; aspect-ratio: 3/4;
@@ -263,23 +273,47 @@
 
     <section class="ba reveal" aria-labelledby="ba-heading">
       <p class="section-label">Before and after</p>
-      <h3 class="proposal-panel__title" id="ba-heading">What changed in the washroom</h3>
-      <div class="ba__grid">
-        <figure class="ba__item">
-          <div class="ba__frame">
-            <span class="ba__tag ba__tag--before">Before</span>
-            <img src="images/mosque-toilet-before.jpg" alt="The mosque toilet cubicle before the project, with no support frame or rail beside the toilet" width="900" height="1200" loading="lazy" />
-          </div>
-          <figcaption class="ba__cap">No rail or frame &mdash; worshippers with limited mobility had nothing stable to hold when sitting down or standing up.</figcaption>
-        </figure>
-        <figure class="ba__item">
-          <div class="ba__frame">
-            <span class="ba__tag ba__tag--after">After</span>
-            <img src="images/mosque-toilet-after.jpg" alt="The same cubicle after the project, with a height-adjustable toilet support frame fitted around the toilet" width="900" height="1200" loading="lazy" />
-          </div>
-          <figcaption class="ba__cap">A height-adjustable support frame now gives a firm handhold on both sides for safer sit-to-stand transfers.</figcaption>
-        </figure>
-      </div>
+      <h3 class="proposal-panel__title" id="ba-heading">What changed in the mosque facilities</h3>
+
+      <section class="ba__comparison" aria-labelledby="toilet-comparison-heading">
+        <h4 class="ba__comparison-title" id="toilet-comparison-heading">Accessible toilet</h4>
+        <div class="ba__grid">
+          <figure class="ba__item">
+            <div class="ba__frame">
+              <span class="ba__tag ba__tag--before">Before</span>
+              <img src="images/mosque-toilet-before.jpg" alt="The mosque toilet cubicle before the project, with no support frame or rail beside the toilet" width="900" height="1200" loading="lazy" />
+            </div>
+            <figcaption class="ba__cap">No rail or frame &mdash; worshippers with limited mobility had nothing stable to hold when sitting down or standing up.</figcaption>
+          </figure>
+          <figure class="ba__item">
+            <div class="ba__frame">
+              <span class="ba__tag ba__tag--after">After</span>
+              <img src="images/mosque-toilet-after.jpg" alt="The same cubicle after the project, with a height-adjustable toilet support frame fitted around the toilet" width="900" height="1200" loading="lazy" />
+            </div>
+            <figcaption class="ba__cap">A height-adjustable support frame now gives a firm handhold on both sides for safer sit-to-stand transfers.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="ba__comparison" aria-labelledby="wudu-comparison-heading">
+        <h4 class="ba__comparison-title" id="wudu-comparison-heading">Wudu area</h4>
+        <div class="ba__grid">
+          <figure class="ba__item">
+            <div class="ba__frame">
+              <span class="ba__tag ba__tag--before">Before</span>
+              <img src="images/mosque-wudu-before.jpg" alt="The mosque wudu area before the safety improvement, with an uncovered tiled floor" width="1536" height="2048" loading="lazy" />
+            </div>
+            <figcaption class="ba__cap">The uncovered tiled floor could become slippery when wet, increasing the risk of a fall during wudu.</figcaption>
+          </figure>
+          <figure class="ba__item">
+            <div class="ba__frame">
+              <span class="ba__tag ba__tag--after">After</span>
+              <img src="images/mosque-wudu-after.jpg" alt="The mosque wudu area after black anti-slip rubber matting was fitted around the washing stations" width="720" height="1680" loading="lazy" style="object-position:center 44%;" />
+            </div>
+            <figcaption class="ba__cap">Anti-slip rubber matting now provides a more secure surface around the washing stations.</figcaption>
+          </figure>
+        </div>
+      </section>
     </section>
 
     <div class="proposal-details">
