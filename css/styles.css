@@ -16,6 +16,23 @@ input, button, textarea, select { font: inherit; }
 p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
 ul { list-style: none; }
 
+/* Phones keep the desktop canvas, so enlarge type optically without
+   collapsing the desktop grids or navigation into mobile stacks. */
+@media (hover: none) and (pointer: coarse) {
+  html {
+    -webkit-text-size-adjust: 175%;
+    text-size-adjust: 175%;
+  }
+
+  .form-group { min-width: 0; }
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 /* ─── 2. TOKENS ─────────────────────────────────────────── */
 :root {
   --blue:        #1a3a6b;
