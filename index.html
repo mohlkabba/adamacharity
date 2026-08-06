@@ -216,6 +216,15 @@
       .mission__inner { grid-template-columns: 1fr; }
       .mission__img { aspect-ratio: 16/9; }
     }
+    @media (max-device-width: 600px), (hover: none) and (pointer: coarse) {
+      .mission__inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .mission__inner > figure { display: none; }
+      .mission__inner > div { width: 100%; }
+      .mission .section-body { max-width: none; }
+    }
 
     /* PILLARS */
     .pillars { background: var(--cream); }
