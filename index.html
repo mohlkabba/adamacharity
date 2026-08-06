@@ -78,14 +78,6 @@
       backdrop-filter: blur(6px);
     }
     .hero .btn--ghost:hover { background: var(--white); color: var(--blue-dark); border-color: var(--white); }
-    .hero__image-note {
-      position: absolute; right: 1rem; bottom: 0.8rem;
-      color: rgba(255,255,255,0.72); background: rgba(5,23,48,0.48);
-      border: 1px solid rgba(255,255,255,0.14); border-radius: var(--radius-full);
-      padding: 0.25em 0.65em; font-size: 0.65rem; letter-spacing: 0.03em;
-      backdrop-filter: blur(5px);
-    }
-
     @media (max-width: 820px) {
       .hero {
         min-height: 0;
@@ -104,7 +96,6 @@
       .hero__headline { font-size: clamp(2.55rem, 12vw, 3.45rem); }
       .hero__pill { font-size: 0.72rem; }
       .hero__ctas .btn { flex: 1 1 auto; }
-      .hero__image-note { top: 21.2rem; bottom: auto; }
     }
 
     /* COLLAGE STRIP */
@@ -253,14 +244,6 @@
       margin: 0;
       background: var(--blue-dark);
     }
-    .pillar__media::after {
-      content: '';
-      position: absolute;
-      inset: auto 0 0;
-      height: 35%;
-      background: linear-gradient(0deg, rgba(5,23,48,0.28), transparent);
-      pointer-events: none;
-    }
     .pillar__media img {
       width: 100%;
       height: 100%;
@@ -269,20 +252,6 @@
       transition: transform 500ms ease;
     }
     .pillar:hover .pillar__media img { transform: scale(1.025); }
-    .pillar__image-note {
-      position: absolute;
-      z-index: 1;
-      right: 0.75rem;
-      bottom: 0.65rem;
-      color: rgba(255,255,255,0.9);
-      background: rgba(5,23,48,0.58);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: var(--radius-full);
-      padding: 0.25em 0.65em;
-      font-size: 0.62rem;
-      letter-spacing: 0.03em;
-      backdrop-filter: blur(5px);
-    }
     .pillar__body {
       display: flex;
       flex: 1;
@@ -473,7 +442,6 @@
       </div>
     </div>
   </div>
-  <span class="hero__image-note">Illustrative image</span>
 </section>
 
 <section class="collage" aria-label="Our work in photos">
@@ -599,7 +567,6 @@
       <div class="pillar reveal">
         <figure class="pillar__media">
           <img src="images/program-humanitarian-relief-v1.jpg" alt="Volunteers sharing a food and hygiene parcel with an older woman in a Sierra Leone community" width="1536" height="1024" loading="lazy" />
-          <figcaption class="pillar__image-note">Illustrative image</figcaption>
         </figure>
         <div class="pillar__body">
           <h3>Humanitarian relief</h3>
@@ -610,7 +577,6 @@
       <div class="pillar reveal">
         <figure class="pillar__media">
           <img src="images/program-rehabilitation-support-v1.jpg" alt="A rehabilitation professional supporting a man practising walking with a frame" width="1536" height="1024" loading="lazy" />
-          <figcaption class="pillar__image-note">Illustrative image</figcaption>
         </figure>
         <div class="pillar__body">
           <h3>Rehabilitation support</h3>
@@ -621,7 +587,6 @@
       <div class="pillar reveal">
         <figure class="pillar__media">
           <img src="images/program-community-development-v1.jpg" alt="Community members planning an inclusive local health and accessibility initiative" width="1536" height="1024" loading="lazy" />
-          <figcaption class="pillar__image-note">Illustrative image</figcaption>
         </figure>
         <div class="pillar__body">
           <h3>Community development</h3>
