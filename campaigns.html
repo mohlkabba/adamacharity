@@ -17,15 +17,12 @@
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
     }
-    /* No overflow:hidden on .campaign-card — it would anchor position:sticky
-       to that (non-scrolling) box instead of the viewport, so the header
-       would never re-stick as the page scrolls. Round the header's own top
-       corners instead to keep the clipped look. */
+    /* Keep the header in normal document flow so it never obscures campaign
+       progress or body copy as visitors scroll through the card. */
     .campaign-card__header {
       background: var(--green-dark);
       padding: var(--space-xl) var(--space-lg);
       border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-      position: sticky; top: 90px; z-index: 5;
     }
     .campaign-card__body { border-radius: 0 0 var(--radius-lg) var(--radius-lg); overflow: hidden; }
     .campaign-card__badge {
@@ -525,4 +522,3 @@
 </script>
 </body>
 </html>
-
