@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gallery &amp; Impact — YADAMA Relief &amp; Rehabilitation Foundation</title>
-  <meta name="description" content="Photos from YADAMA food distributions, community outreach, and rehabilitation support." />
+  <meta name="description" content="Real photos and videos from YADAMA food distributions, clothing support, community outreach, and accessibility projects." />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -28,44 +28,116 @@
     .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
     .filter-btn.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
 
-    /* Full gallery grid */
+    /* Curated story grid */
     .full-gallery {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: var(--space-sm);
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1.25rem;
     }
-    @media (max-width: 768px) { .full-gallery { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 480px) { .full-gallery { grid-template-columns: 1fr; } }
-
-    .gallery-photo {
-      position: relative; overflow: hidden;
-      border-radius: var(--radius-md);
-      aspect-ratio: 4/3; cursor: pointer;
-      transition: opacity 0.3s;
+    .gallery-item {
+      grid-column: span 4;
+      margin: 0;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .gallery-photo.hidden { display: none; }
-    .gallery-photo img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: transform 0.55s cubic-bezier(0.4,0,0.2,1);
+    .full-gallery > .gallery-item {
+      aspect-ratio: auto;
+      cursor: default;
     }
-    .gallery-photo:hover img { transform: scale(1.06); }
-    .gallery-photo::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(to top, rgba(16,24,40,0.62) 0%, transparent 45%);
+    .full-gallery > .gallery-item:first-child {
+      grid-column: span 8;
+      grid-row: auto;
+      aspect-ratio: auto;
     }
-    .gallery-photo figcaption {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      padding: var(--space-sm) var(--space-md); z-index: 2; color: var(--white);
+    .full-gallery > .gallery-item::after { content: none; }
+    .gallery-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
-    .gallery-photo figcaption .tag {
-      display: block; font-size: 0.6rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: rgba(255,255,255,0.75); font-weight: 700; margin-bottom: 0.25rem;
+    .gallery-item--wide { grid-column: span 8; }
+    .gallery-item.hidden { display: none; }
+    .gallery-item__media {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      background: #071a35;
     }
-    .gallery-photo figcaption p { font-size: 0.85rem; font-weight: 500; line-height: 1.4; }
+    .gallery-item--wide .gallery-item__media { aspect-ratio: 16 / 9; }
+    .gallery-item--portrait .gallery-item__media { aspect-ratio: 4 / 5; }
+    .gallery-item__media img,
+    .gallery-item__media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-item--video .gallery-item__media video { object-fit: contain; }
+    .gallery-item__media img { transition: transform 0.55s cubic-bezier(0.4,0,0.2,1); }
+    .gallery-item:hover .gallery-item__media img { transform: scale(1.035); }
+    .gallery-item__caption { padding: 1rem 1.1rem 1.15rem; }
+    .gallery-item__tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-bottom: 0.35rem;
+      color: var(--green);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .gallery-item__caption p {
+      margin: 0;
+      color: var(--blue);
+      font-size: 0.93rem;
+      font-weight: 650;
+      line-height: 1.45;
+    }
+    .media-badge {
+      position: absolute;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.38rem 0.62rem;
+      border-radius: var(--radius-full);
+      background: rgba(5, 48, 104, 0.9);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 750;
+      letter-spacing: 0.03em;
+      pointer-events: none;
+    }
+    .gallery-note {
+      max-width: 760px;
+      margin: -0.5rem auto var(--space-lg);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 900px) {
+      .gallery-item,
+      .gallery-item--wide { grid-column: span 6; }
+      .full-gallery > .gallery-item:first-child { grid-column: span 6; }
+      .gallery-item--wide .gallery-item__media { aspect-ratio: 4 / 3; }
+    }
+    @media (max-width: 600px) {
+      .full-gallery { gap: 1rem; }
+      .gallery-item,
+      .gallery-item--wide { grid-column: 1 / -1; }
+      .full-gallery > .gallery-item:first-child { grid-column: 1 / -1; }
+      .gallery-item__caption { padding: 0.9rem 1rem 1rem; }
+    }
 
     /* Impact numbers */
     .impact-numbers {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md);
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);
     }
     @media (max-width: 768px) { .impact-numbers { grid-template-columns: repeat(2, 1fr); } }
     .impact-num-card {
@@ -111,7 +183,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Gallery</span></nav>
     <p class="page-hero__eyebrow reveal">Our work in pictures</p>
     <h1 class="page-hero__title reveal">Gallery &amp; Impact</h1>
-    <p class="page-hero__sub reveal">Photographs from our food distributions, community outreach and rehabilitation support.</p>
+    <p class="page-hero__sub reveal">Real photographs and videos from our food relief, clothing support and accessibility work.</p>
   </div>
 </section>
 
@@ -121,7 +193,7 @@
       <p class="section-label section-label--center section-label--white reveal">By the numbers</p>
       <h2 class="section-title section-title--center section-title--white reveal">Our impact so far</h2>
     </div>
-    <div class="impact-numbers" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="impact-numbers">
       <div class="impact-num-card reveal">
         <div class="impact-num-card__num impact-num-card__num--green">100</div>
         <div class="impact-num-card__label">Ramadan food packs distributed in Port Loko</div>
@@ -141,67 +213,178 @@
 <section class="section section--white" aria-labelledby="gallery-section-heading">
   <div class="container">
     <div style="text-align:center;margin-bottom:var(--space-lg)">
-      <p class="section-label section-label--center reveal">Photo Gallery</p>
-      <h2 class="section-title section-title--center reveal" id="gallery-section-heading">Ramadan 2026 — In Pictures</h2>
-      <p class="section-body section-body--center reveal" style="margin-bottom:var(--space-lg)">Filter by category to explore our work.</p>
+      <p class="section-label section-label--center reveal">From the field</p>
+      <h2 class="section-title section-title--center reveal" id="gallery-section-heading">Real moments. Visible progress.</h2>
+      <p class="section-body section-body--center reveal" style="margin-bottom:var(--space-lg)">Explore the latest photos and videos shared by our team and community partners.</p>
     </div>
 
     <div class="gallery-filters reveal" role="group" aria-label="Gallery filters">
-      <button class="filter-btn active" data-filter="all">All Photos</button>
-      <button class="filter-btn" data-filter="food">Food Distribution</button>
-      <button class="filter-btn" data-filter="community">Community</button>
-      <button class="filter-btn" data-filter="volunteers">Volunteers</button>
+      <button class="filter-btn active" data-filter="all">All Media</button>
+      <button class="filter-btn" data-filter="food">Food Relief</button>
+      <button class="filter-btn" data-filter="clothing">Clothing Support</button>
+      <button class="filter-btn" data-filter="accessibility">Accessibility</button>
+      <button class="filter-btn" data-filter="video">Videos</button>
     </div>
+
+    <p class="gallery-note reveal">Select play on any video to watch. Videos remain paused until you choose to start them.</p>
 
     <div class="full-gallery" id="gallery-grid">
 
-      <figure class="gallery-photo reveal" data-category="food">
-        <img src="images/food-packages.jpg" alt="Ramadan food parcels and charity boxes prepared for distribution" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Food Distribution</span>
-          <p>100 food packs distributed in Port Loko</p>
+      <figure class="gallery-item gallery-item--wide reveal" data-category="food">
+        <div class="gallery-item__media">
+          <img src="images/gallery-food-community.jpg" alt="Older adults and community members gathered with food support bags in Port Loko" width="820" height="607" loading="eager" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Food Relief</span>
+          <p>Food support reaching older adults and families in Port Loko.</p>
         </figcaption>
       </figure>
 
-      <figure class="gallery-photo reveal" data-category="volunteers">
-        <img src="images/community-dist-clean.jpg" alt="Volunteers preparing and packing essential food donations" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Volunteers</span>
-          <p>Volunteers preparing essential food items</p>
+      <article class="gallery-item gallery-item--portrait gallery-item--video reveal" data-category="food video">
+        <div class="gallery-item__media">
+          <span class="media-badge" aria-hidden="true">▶ Video · 28 sec</span>
+          <video controls playsinline preload="metadata" poster="images/gallery-food-handover-poster.png" aria-label="Video of a food support handover in Port Loko">
+            <source src="images/gallery-food-handover.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        <div class="gallery-item__caption">
+          <span class="gallery-item__tag">Food Relief · Video</span>
+          <p>A community food-support handover in progress.</p>
+        </div>
+      </article>
+
+      <figure class="gallery-item reveal" data-category="food">
+        <div class="gallery-item__media">
+          <img src="images/gallery-food-recipients.jpg" alt="Community members holding green and white food-support bags during distribution" width="820" height="607" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Food Relief</span>
+          <p>Community members receive prepared support bags.</p>
         </figcaption>
       </figure>
 
-      <figure class="gallery-photo reveal" data-category="food">
-        <img src="images/wheelchair-outreach.jpg" alt="Family receiving a food parcel donation" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Food Distribution</span>
-          <p>Ramadan 2026 — 27th February distribution day</p>
+      <article class="gallery-item gallery-item--portrait gallery-item--video reveal" data-category="food video">
+        <div class="gallery-item__media">
+          <span class="media-badge" aria-hidden="true">▶ Video · 10 sec</span>
+          <video controls playsinline preload="metadata" poster="images/gallery-hot-meals-poster.png" aria-label="Video showing hot meals prepared for community distribution">
+            <source src="images/gallery-hot-meals.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        <div class="gallery-item__caption">
+          <span class="gallery-item__tag">Hot Meals · Video</span>
+          <p>Fresh meals packed and ready for community distribution.</p>
+        </div>
+      </article>
+
+      <figure class="gallery-item gallery-item--wide reveal" data-category="clothing">
+        <div class="gallery-item__media">
+          <img src="images/gallery-clothing-donation.jpg" alt="Large boxes and bags of donated clothing prepared for YADAMA community support" width="1600" height="1200" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Clothing Support</span>
+          <p>Donated clothing packed and prepared for the next stage of its journey.</p>
         </figcaption>
       </figure>
 
-      <figure class="gallery-photo reveal" data-category="community">
-        <img src="images/outreach-support-clean.jpg" alt="Elderly person receiving care and support" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Community Care</span>
-          <p>Serving widows, elderly &amp; families with disabilities</p>
+      <article class="gallery-item gallery-item--portrait gallery-item--video reveal" data-category="clothing video">
+        <div class="gallery-item__media">
+          <span class="media-badge" aria-hidden="true">▶ Video · 1 min 14 sec</span>
+          <video controls playsinline preload="metadata" poster="images/gallery-clothing-support-poster.png" aria-label="Video showing donated clothing being sorted and prepared">
+            <source src="images/gallery-clothing-support.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        <div class="gallery-item__caption">
+          <span class="gallery-item__tag">Clothing Support · Video</span>
+          <p>Clothes and shoes being sorted before distribution.</p>
+        </div>
+      </article>
+
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-wudu-before.jpg" alt="Wudu area before anti-slip matting was installed" width="1536" height="2048" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · Before</span>
+          <p>The wudu area before the floor-safety improvement.</p>
         </figcaption>
       </figure>
 
-      <figure class="gallery-photo reveal" data-category="community">
-        <img src="images/ramadan-people.jpg" alt="Ramadan 2026 campaign poster showing a food distribution in progress" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Campaign</span>
-          <p>Campaign poster, Ramadan 2026</p>
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-wudu-after.jpg" alt="Wudu area after anti-slip rubber matting was fitted" width="720" height="1680" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · After</span>
+          <p>Anti-slip matting fitted around the washing stations.</p>
         </figcaption>
       </figure>
 
-      <figure class="gallery-photo reveal" data-category="community">
-        <img src="images/rehab.webp" alt="A wheelchair and walking frame provided through the rehabilitation programme" width="400" height="300" loading="lazy" />
-        <figcaption>
-          <span class="tag">Rehabilitation</span>
-          <p>Assistive equipment provided through our rehabilitation programme</p>
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-hallway-before.jpg" alt="Mosque hallway before the route was cleared, with shoes and equipment obstructing the floor" width="1536" height="2048" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · Before</span>
+          <p>The hallway before a clear, safer walking route was created.</p>
         </figcaption>
       </figure>
+
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-hallway-after.jpg" alt="Mosque hallway after it was cleared and covered with a continuous dark floor runner" width="720" height="1680" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · After</span>
+          <p>A continuous runner now defines the cleared walking route.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-toilet-before.jpg" alt="Mosque toilet before the support frame was installed" width="900" height="1200" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · Before</span>
+          <p>The toilet cubicle before additional support was provided.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-toilet-after.jpg" alt="Mosque toilet after a height-adjustable support frame was installed" width="900" height="1200" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · After</span>
+          <p>A height-adjustable support frame fitted around the toilet.</p>
+        </figcaption>
+      </figure>
+
+      <figure class="gallery-item gallery-item--portrait reveal" data-category="accessibility">
+        <div class="gallery-item__media">
+          <img src="images/mosque-support-chair.jpg" alt="Supportive high-back chair with armrests provided for an older worshipper" width="685" height="1600" loading="lazy" />
+        </div>
+        <figcaption class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility Support</span>
+          <p>The first supportive chair provided for an older worshipper.</p>
+        </figcaption>
+      </figure>
+
+      <article class="gallery-item gallery-item--portrait gallery-item--video reveal" data-category="accessibility video">
+        <div class="gallery-item__media">
+          <span class="media-badge" aria-hidden="true">▶ Video · 25 sec</span>
+          <video controls playsinline preload="metadata" poster="images/gallery-mosque-accessibility-poster.png" aria-label="Video showing accessibility equipment delivered for the mosque project">
+            <source src="images/gallery-mosque-accessibility.mp4" type="video/mp4" />
+            Your browser does not support embedded video.
+          </video>
+        </div>
+        <div class="gallery-item__caption">
+          <span class="gallery-item__tag">Accessibility · Video</span>
+          <p>Equipment arriving for the mosque safety and accessibility project.</p>
+        </div>
+      </article>
 
     </div>
   </div>
@@ -236,17 +419,19 @@
 <script>
   // Gallery filter
   const filterBtns = document.querySelectorAll('.filter-btn');
-  const photos = document.querySelectorAll('.gallery-photo');
+  const galleryItems = document.querySelectorAll('.gallery-item');
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
-      photos.forEach(photo => {
-        if (filter === 'all' || photo.dataset.category === filter) {
-          photo.classList.remove('hidden');
+      galleryItems.forEach(item => {
+        const categories = item.dataset.category.split(' ');
+        if (filter === 'all' || categories.includes(filter)) {
+          item.classList.remove('hidden');
         } else {
-          photo.classList.add('hidden');
+          item.classList.add('hidden');
+          item.querySelector('video')?.pause();
         }
       });
     });
