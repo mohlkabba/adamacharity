@@ -195,8 +195,12 @@
     /* OFFICIAL LAUNCH */
     .launch-event { background:var(--blue-dark);color:var(--white);overflow:hidden; }
     .launch-event__inner { display:grid;grid-template-columns:0.9fr 1.1fr;gap:var(--space-xl);align-items:center; }
-    .launch-event__art { border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg); }
-    .launch-event__art img { width:100%;height:auto; }
+    .launch-event__art { border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--white); }
+    .launch-event__art > a:first-child { display:block;overflow:hidden; }
+    .launch-event__art img { width:100%;height:auto;transition:transform 0.45s ease; }
+    .launch-event__art:hover img { transform:scale(1.015); }
+    .launch-event__flyer-link { display:block;padding:0.8rem 1rem;color:var(--blue-dark);font-size:0.78rem;font-weight:700;text-align:center;background:var(--white); }
+    .launch-event__flyer-link:hover { color:var(--green-dark); }
     .launch-event .section-label { color:#a8d49e; }
     .launch-event__title { color:var(--white);font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.06;margin-bottom:var(--space-md); }
     .launch-event__intro { color:rgba(255,255,255,0.76);font-size:1.05rem;max-width:54ch;margin-bottom:var(--space-lg); }
@@ -480,7 +484,10 @@
 <section class="launch-event section" id="official-launch" aria-labelledby="launch-heading">
   <div class="container launch-event__inner">
     <div class="launch-event__art reveal">
-      <img src="Brand_assets/launch-invitation.jpeg" alt="Invitation to the YADAMA launching ceremony and fundraising event on 12 September 2026" width="1800" height="1300" loading="lazy" />
+      <a href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener" aria-label="Open the full YADAMA launch and fundraising event flyer">
+        <img src="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" alt="YADAMA launch and fundraising event flyer with event details, impact highlights, donation QR code and bank transfer details" width="1456" height="2048" loading="lazy" />
+      </a>
+      <a class="launch-event__flyer-link" href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener">Open full flyer &amp; donation QR</a>
     </div>
     <div>
       <p class="section-label reveal">Official launch &amp; fundraising event</p>
