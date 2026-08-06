@@ -709,6 +709,10 @@ a { color: inherit; text-decoration: none; }
 .announce a { color: var(--white); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 .announce a:hover { opacity: 0.85; }
 
+/* The wrapper only becomes a sticky announcement/header unit on touch
+   devices. display:contents keeps the established desktop header behavior. */
+.sticky-shell { display: contents; }
+
 @media (max-width: 900px) {
   .footer__inner { grid-template-columns: 1fr 1fr; }
   .footer__brand { grid-column: span 2; }
@@ -805,6 +809,127 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 600px) {
   .page-hero::before { width: 260px; height: 260px; }
   .hero::before      { width: 300px; height: 300px; }
+}
+
+/* Touch navigation for the fixed desktop canvas used on phones. */
+@media (hover: none) and (pointer: coarse) {
+  .sticky-shell {
+    display: block;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  .sticky-shell .announce {
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.14);
+  }
+
+  .sticky-shell .site-header {
+    position: relative;
+    top: auto;
+    z-index: 2;
+  }
+
+  .nav__toggle {
+    display: flex;
+    position: relative;
+    z-index: 1001;
+    width: 72px;
+    height: 64px;
+    align-items: center;
+    padding: 0;
+    border: 2px solid rgba(26,58,107,0.12);
+    border-radius: 18px;
+    background: var(--cream);
+  }
+
+  .nav__toggle span {
+    width: 38px;
+    height: 4px;
+  }
+
+  .nav__toggle.is-open {
+    border-color: var(--blue);
+    background: var(--blue);
+  }
+  .nav__toggle.is-open span { background: var(--white); }
+  .nav__toggle.is-open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+  .nav__toggle.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .nav__toggle.is-open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+  .nav__links {
+    position: absolute;
+    top: calc(100% + 16px);
+    right: max(20px, calc((100vw - 1160px) / 2));
+    width: min(860px, calc(100vw - 40px));
+    max-height: calc(100vh - 180px);
+    padding: 32px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    border: 2px solid rgba(255,255,255,0.14);
+    border-radius: 28px;
+    background:
+      radial-gradient(circle at 88% 6%, rgba(74,170,74,0.28), transparent 32%),
+      linear-gradient(155deg, #16366a 0%, var(--blue-dark) 60%, #0b1d40 100%);
+    box-shadow: 0 28px 70px rgba(17,38,80,0.34);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-16px) scale(0.98);
+    transform-origin: top right;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    z-index: 1000;
+  }
+
+  .nav__links.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  .nav__links li { width: 100%; }
+  .nav__links a {
+    width: 100%;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.88);
+    font-family: var(--font-display);
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+  }
+
+  .nav__links a:not(.btn)::after {
+    content: '›';
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+  }
+
+  .nav__links a:hover,
+  .nav__links a:focus-visible {
+    color: var(--white);
+    background: rgba(255,255,255,0.08);
+  }
+  .nav__links a.active { color: #9ad990; }
+  .nav__links .btn {
+    min-height: 66px;
+    justify-content: center;
+    margin-top: 12px;
+    border: 0;
+    border-radius: var(--radius-full);
+    color: var(--white);
+  }
 }
 
 /* ──────────────────────────────────────────────────────────────────────────

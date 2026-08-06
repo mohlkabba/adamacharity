@@ -19,21 +19,35 @@ if (header) {
 const toggle = document.querySelector('.nav__toggle');
 const menu   = document.querySelector('.nav__links');
 if (toggle && menu) {
-  toggle.addEventListener('click', () => {
-    const isOpen = menu.classList.toggle('is-open');
+  const usesTouchDropdown = window.matchMedia('(hover: none) and (pointer: coarse)');
+  const setMenuState = isOpen => {
+    menu.classList.toggle('is-open', isOpen);
     toggle.classList.toggle('is-open', isOpen);
     toggle.setAttribute('aria-expanded', String(isOpen));
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    header.classList.toggle('nav-open', isOpen);
+    toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = isOpen && !usesTouchDropdown.matches ? 'hidden' : '';
+    header?.classList.toggle('nav-open', isOpen);
+  };
+
+  toggle.addEventListener('click', () => {
+    setMenuState(!menu.classList.contains('is-open'));
   });
+
   menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu.classList.remove('is-open');
-      toggle.classList.remove('is-open');
-      toggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-      header.classList.remove('nav-open');
-    });
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
+  document.addEventListener('click', event => {
+    if (!menu.classList.contains('is-open')) return;
+    if (menu.contains(event.target) || toggle.contains(event.target)) return;
+    setMenuState(false);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && menu.classList.contains('is-open')) {
+      setMenuState(false);
+      toggle.focus();
+    }
   });
 }
 
