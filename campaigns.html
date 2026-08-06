@@ -189,12 +189,24 @@
     }
     .equip-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 42%; }
 
+    /* Future programme roadmap */
+    .future-grid { display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-md);margin-top:var(--space-xl); }
+    .future-card { background:var(--white);border:1px solid var(--border);border-radius:var(--radius-lg);padding:var(--space-lg);box-shadow:var(--shadow-sm); }
+    .future-card--wide { grid-column:1 / -1; }
+    .future-card__date { color:var(--green-dark);font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:var(--space-xs); }
+    .future-card__title { font-family:var(--font-display);font-size:1.35rem;color:var(--blue);margin-bottom:var(--space-sm); }
+    .future-card__body { color:var(--text-mid);font-size:0.92rem;line-height:1.7; }
+    .future-card__list { margin:var(--space-sm) 0 0 1.1rem;color:var(--text-mid);font-size:0.88rem;line-height:1.65; }
+    .future-card__list li::marker { color:var(--green); }
+
     @media (max-width: 600px) {
       .campaign-card__header { padding: var(--space-lg) var(--space-md); }
       .campaign-card__body   { padding: var(--space-md); }
       .donate-amounts        { grid-template-columns: repeat(2, 1fr); }
       .progress-stats        { grid-template-columns: repeat(3, 1fr); }
       .ba__grid              { grid-template-columns: 1fr; }
+      .future-grid           { grid-template-columns: 1fr; }
+      .future-card--wide     { grid-column:auto; }
     }
   </style>
   <link rel="icon" href="Brand_assets/yadama/favicon.ico" sizes="any" />
@@ -233,9 +245,9 @@
     <article class="current-project reveal">
       <div class="current-project__grid">
         <div>
-          <p class="current-project__label">Project 3 &middot; Completed &middot; April 2026</p>
+          <p class="current-project__label">Project 3 &middot; Ongoing &middot; London</p>
           <h2 class="current-project__title" id="mosque-heading">Mosque Fall Prevention &amp; Accessibility Project</h2>
-          <p class="current-project__body">YADAMA worked with a London mosque to improve safety for older and vulnerable worshippers. Following an Occupational Therapy assessment of the building, support equipment was supplied and fitted &mdash; including a toilet support frame, a high-back chair with armrests, and an emergency call-bell system. The project is now complete.</p>
+          <p class="current-project__body">YADAMA is working with a London mosque to improve accessibility for older worshippers with reduced mobility and longstanding chronic pain. Following an Occupational Therapy assessment, support equipment has been supplied and fitted while the project continues to raise awareness of falls prevention and promote safe mobility within mosque facilities.</p>
           <a href="get-involved.html#partner" class="btn btn--green btn--lg" style="margin-top:var(--space-lg)">Partner with this project</a>
         </div>
         <div>
@@ -318,7 +330,7 @@
       <section class="proposal-panel reveal" aria-labelledby="timeline-heading">
         <p class="section-label">Project timeline</p>
         <h3 class="proposal-panel__title" id="timeline-heading">Delivered within one to two months</h3>
-        <p class="section-body">The assessment, recommendations and principal project activities were completed within one to two months. The support equipment and the emergency call-bell system have since been installed, and the project is now complete.</p>
+        <p class="section-body">The assessment, recommendations and initial installation were completed within one to two months. The support equipment and emergency call-bell system are now in place, while accessibility monitoring and falls-prevention awareness continue.</p>
       </section>
 
       <section class="proposal-panel reveal" aria-labelledby="purchase-heading">
@@ -368,7 +380,7 @@
             <div class="campaign-card__meta">
               <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>27 February 2026</span>
               <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Sierra Leone</span>
-              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>50–100 family goal</span>
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:middle;margin-right:0.3em"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>Port Loko &amp; Freetown</span>
             </div>
           </div>
           <div class="campaign-card__body">
@@ -377,37 +389,37 @@
               <h3 class="campaign-progress__title">Campaign Progress</h3>
               <div class="progress-stats">
                 <div class="progress-stat">
-                  <div class="progress-stat__num progress-stat__num--green">50+</div>
-                  <div class="progress-stat__label">Families reached</div>
+                  <div class="progress-stat__num progress-stat__num--green">100</div>
+                  <div class="progress-stat__label">Food packs</div>
                 </div>
                 <div class="progress-stat">
-                  <div class="progress-stat__num">100</div>
-                  <div class="progress-stat__label">Family goal</div>
+                  <div class="progress-stat__num">200</div>
+                  <div class="progress-stat__label">Hot meals</div>
                 </div>
                 <div class="progress-stat">
-                  <div class="progress-stat__num progress-stat__num--green">50%+</div>
-                  <div class="progress-stat__label">Goal achieved</div>
+                  <div class="progress-stat__num progress-stat__num--green">2</div>
+                  <div class="progress-stat__label">Communities served</div>
                 </div>
               </div>
               <div class="progress-wrap">
                 <div class="progress-label">
-                  <span><strong>50+ families</strong> reached so far</span>
-                  <span>Goal: 100 families</span>
+                  <span><strong>2026 programme</strong> delivered</span>
+                  <span>Completed</span>
                 </div>
                 <div class="progress-bar">
-                  <div class="progress-bar__fill" data-width="55%" style="width:0"></div>
+                  <div class="progress-bar__fill" data-width="100%" style="width:0"></div>
                 </div>
               </div>
               <p style="font-size:0.85rem;color:var(--muted);margin-top:var(--space-xs)">
-                Fundraising continues so the next distribution can reach the remaining families.
+                The 2026 programme delivered food support in Port Loko and hot meals in Freetown.
               </p>
             </div>
 
             <p class="section-body" style="margin-bottom:var(--space-md)">
-              The Ramadan 2026 Food Distribution set out to support 50 to 100 families, focusing on those most often overlooked: widows raising children alone, elderly people with no family support, and households where disability makes earning a living impossible.
+              Between February and March 2026, YADAMA distributed <strong>100 Ramadan food packs</strong> to vulnerable older adults in Port Loko District.
             </p>
             <p class="section-body" style="margin-bottom:var(--space-xl)">
-              The first distribution, on <strong>27 February 2026</strong>, reached more than 50 families. Fundraising continues so the next distribution can reach the remaining households and hit the full goal of 100.
+              The programme also served <strong>200 hot meals</strong> &mdash; Jollof rice, chicken and bottled water &mdash; to people experiencing homelessness, people who are blind, and people living with disabilities in Freetown.
             </p>
 
             <h3 style="font-family:var(--font-display);font-size:1.3rem;color:var(--blue);margin-bottom:var(--space-md)">Who we're serving</h3>
@@ -439,17 +451,17 @@
               <div class="timeline-item timeline-item--done reveal">
                 <div class="timeline-item__date">27 February 2026</div>
                 <h4 class="timeline-item__title">First distribution day ✓</h4>
-                <p class="timeline-item__desc">Over 50 families received essential food parcels. A landmark day for our foundation.</p>
+                <p class="timeline-item__desc">Food packs began reaching vulnerable older adults in Port Loko District.</p>
               </div>
               <div class="timeline-item timeline-item--upcoming reveal">
-                <div class="timeline-item__date">Ongoing — 2026</div>
-                <h4 class="timeline-item__title">Fundraising toward 100 families</h4>
-                <p class="timeline-item__desc">Donations fund the next distribution, aimed at the remaining households in the 100-family goal.</p>
+                <div class="timeline-item__date">March 2026</div>
+                <h4 class="timeline-item__title">200 hot meals served</h4>
+                <p class="timeline-item__desc">People experiencing homelessness, blindness and disability received hot meals in Freetown.</p>
               </div>
               <div class="timeline-item timeline-item--upcoming reveal">
                 <div class="timeline-item__date">Ramadan 2027</div>
                 <h4 class="timeline-item__title">Next annual campaign</h4>
-                <p class="timeline-item__desc">Planning begins for an even larger campaign with an expanded volunteer base.</p>
+                <p class="timeline-item__desc">Expansion to more than 200 beneficiaries across two villages in Sierra Leone.</p>
               </div>
             </div>
 
@@ -475,12 +487,12 @@
           <a href="https://www.gofundme.com" class="btn btn--green btn--lg btn--full" target="_blank" rel="noopener noreferrer" style="margin-bottom:var(--space-sm)">
             GoFundMe
           </a>
-          <a href="https://www.instagram.com/AdamasFoundation1" class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.instagram.com/Yadamafoundation" class="btn btn--primary btn--full" target="_blank" rel="noopener noreferrer">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             Donate via Instagram
           </a>
           <p style="font-size:0.75rem;color:var(--muted);margin-top:var(--space-sm);text-align:center">
-            100% of donations go directly to food parcels and delivery.
+            Donations support humanitarian relief and rehabilitation programmes.
           </p>
         </div>
 
@@ -488,7 +500,7 @@
           <h4 style="font-family:var(--font-display);font-size:1rem;color:var(--blue);margin-bottom:var(--space-xs)">Share This Campaign</h4>
           <p style="font-size:0.82rem;color:var(--muted);margin-bottom:var(--space-sm)">Help us reach more donors by sharing on social media.</p>
           <div style="display:flex;gap:0.5rem">
-            <a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Share on Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="https://www.instagram.com/Yadamafoundation" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Share on Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
             <a href="#" class="social-link" aria-label="Share on Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="#" class="social-link" aria-label="Share on WhatsApp"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
           </div>
@@ -499,13 +511,53 @@
   </div>
 </section>
 
+<section class="section section--cream" id="future-projects" aria-labelledby="future-heading">
+  <div class="container">
+    <p class="section-label section-label--center reveal">Our vision for the future</p>
+    <h2 class="section-title section-title--center reveal" id="future-heading">Future projects</h2>
+    <p class="section-body reveal" style="max-width:64ch;margin-inline:auto;text-align:center">The next stage of YADAMA's work connects seasonal relief with practical rehabilitation and maternal care across Sierra Leone.</p>
+    <div class="future-grid">
+      <article class="future-card reveal">
+        <p class="future-card__date">12 September 2026 &middot; London</p>
+        <h3 class="future-card__title">Launch &amp; Fundraising Event</h3>
+        <p class="future-card__body">Celebrating YADAMA's official launch, showcasing completed projects and raising funds for life-changing humanitarian and rehabilitation programmes in the United Kingdom and Sierra Leone.</p>
+      </article>
+      <article class="future-card reveal">
+        <p class="future-card__date">December 2026 &middot; Sierra Leone</p>
+        <h3 class="future-card__title">Christmas Community Outreach</h3>
+        <p class="future-card__body">Distributing donated food, clothing and essential supplies to people experiencing homelessness, children living in orphanages and vulnerable families.</p>
+      </article>
+      <article class="future-card reveal">
+        <p class="future-card__date">2027 &middot; Date to be confirmed</p>
+        <h3 class="future-card__title">Neuro / Stroke Rehabilitation</h3>
+        <p class="future-card__body">Supporting selected hospital stroke rehabilitation wards with 50 Neuro-Rehabilitation Resource Packages.</p>
+        <ul class="future-card__list">
+          <li>Resistance therapy band and soft hand exercise ball</li>
+          <li>Therapy putty and illustrated home exercise programme</li>
+          <li>Stroke and caregiver education booklet</li>
+        </ul>
+      </article>
+      <article class="future-card reveal">
+        <p class="future-card__date">2027 &middot; Date to be confirmed</p>
+        <h3 class="future-card__title">Mother &amp; Baby Care</h3>
+        <p class="future-card__body">Providing vulnerable mothers and newborns in maternity wards with baby clothing, blankets, wipes, nappies, toiletries, maternity pads and essential postnatal care items.</p>
+      </article>
+      <article class="future-card future-card--wide reveal">
+        <p class="future-card__date">February 2027 &middot; Sierra Leone</p>
+        <h3 class="future-card__title">Ramadan Expansion Programme</h3>
+        <p class="future-card__body">Expanding the Ramadan food programme from 150 to more than 200 beneficiaries across two villages, extending dignified humanitarian support during the holy month.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
 <footer class="site-footer" role="contentinfo">
   <div class="container">
     <div class="footer__inner">
-      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/yadama/footer-logo.png" alt="YADAMA" width="50" height="50" loading="lazy" /></div><p class="footer__brand-desc">Relief today. Independence tomorrow.</p><div class="footer__social"><a href="https://www.instagram.com/AdamasFoundation1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
+      <div class="footer__brand"><div class="footer__logo"><img src="Brand_assets/yadama/footer-logo.png" alt="YADAMA" width="50" height="50" loading="lazy" /></div><p class="footer__brand-desc">Together, we restore dignity, rebuild lives and create hope.</p><div class="footer__social"><a href="https://www.instagram.com/Yadamafoundation" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a></div></div>
       <div class="footer__col"><h4>Pages</h4><ul><li><a href="about.html">About Us</a></li><li><a href="programs.html">Programs</a></li><li><a href="campaigns.html">Campaigns</a></li><li><a href="gallery.html">Gallery</a></li></ul></div>
       <div class="footer__col"><h4>Get Involved</h4><ul><li><a href="get-involved.html#donate">Donate</a></li><li><a href="get-involved.html#volunteer">Volunteer</a></li><li><a href="get-involved.html#partner">Partner</a></li></ul></div>
-      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/AdamasFoundation1" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@AdamasFoundation1</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
+      <div class="footer__col"><h4>Connect</h4><ul><li><a href="https://www.instagram.com/Yadamafoundation" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@Yadamafoundation</a></li><li><a href="https://www.tiktok.com/@Yadamafoundation" target="_blank" rel="noopener noreferrer">TikTok &mdash; @Yadamafoundation</a></li><li><a href="contact.html">Contact Us</a></li></ul></div>
     </div>
     <div class="footer__bottom"><p>&#169; 2026 YADAMA Relief &amp; Rehabilitation Foundation. All rights reserved.</p><nav class="footer__bottom-links"><a href="contact.html">Contact</a><a href="#">Privacy</a></nav><span class="footer__credit">Built by <a href="https://kabbatechltd.com" target="_blank" rel="noopener noreferrer">Kabbatechltd.com</a></span></div>
   </div>
