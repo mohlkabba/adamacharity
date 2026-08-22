@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1200" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YADAMA</title>
   <meta name="description" content="YADAMA Relief &amp; Rehabilitation Foundation delivers food parcels and mobility equipment to widows, older people and families living with disability in Sierra Leone." />
   <meta property="og:type" content="website" />
@@ -135,10 +135,11 @@
     }
     .collage__stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.75); margin-top: 0.4rem; }
     .collage__caption {
-      position: absolute; left: 0.9rem; bottom: 0.9rem;
+      position: absolute; left: 0.9rem; right: 0.9rem; bottom: 0.9rem;
+      width: fit-content; max-width: calc(100% - 1.8rem);
       background: rgba(255,255,255,0.92);
       color: var(--text);
-      font-size: 0.72rem; font-weight: 600;
+      font-size: 0.72rem; font-weight: 600; line-height: 1.35;
       padding: 0.35em 0.8em; border-radius: var(--radius-full);
     }
     @media (max-width: 900px) {
@@ -480,13 +481,19 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 0.75rem;
       }
-      .collage__tile { min-height: 180px; border-radius: 18px; }
+      /* Equal-height tiles keep the message and stat panels compact instead
+         of stretching to match a portrait photo. */
+      .collage__tile { min-height: 0; aspect-ratio: 3 / 4; border-radius: 18px; }
       .collage__tile--msg,
       .collage__tile--stat { padding: 1rem; }
-      .collage__tile--msg p { font-size: 1rem; }
+      .collage__tile--msg p { font-size: 0.95rem; }
       .collage__stat-num { font-size: 2.4rem; }
       .collage__stat-label { font-size: 0.78rem; }
-      .collage__caption { left: 0.65rem; bottom: 0.65rem; font-size: 0.64rem; }
+      .collage__caption {
+        left: 0.6rem; right: 0.6rem; bottom: 0.6rem;
+        max-width: calc(100% - 1.2rem);
+        font-size: 0.72rem; padding: 0.3em 0.7em;
+      }
 
       .channels__inner { gap: 0.35rem 1rem; }
       .channels__label { flex-basis: 100%; text-align: center; }
