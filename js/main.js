@@ -15,6 +15,56 @@ if (header) {
   }, { passive: true });
 }
 
+// ── Retracting header on touch devices ────────────────────────
+// The announcement bar and header stay pinned on phones, so give the page
+// back to the reader: slide the shell away on the way down, bring it
+// straight back on the way up.
+const shell = document.querySelector('.sticky-shell');
+if (shell) {
+  const touch = window.matchMedia('(hover: none) and (pointer: coarse)');
+  const REVEAL_ZONE = 120;  // always visible this close to the top
+  const DELTA = 6;          // ignore scroll jitter smaller than this
+
+  let lastY = window.scrollY;
+  let ticking = false;
+
+  const update = () => {
+    ticking = false;
+    const y = window.scrollY;
+    const moved = y - lastY;
+
+    // Short pages (contact scrolls barely a fraction of a screen) gain
+    // nothing from retracting, so keep the bar put unless there is at least
+    // a full extra screen of content to get out of the way of.
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+
+    // Never hide over the top of the page or while the menu is open.
+    if (!touch.matches || y <= REVEAL_ZONE || scrollable < window.innerHeight ||
+        header?.classList.contains('nav-open')) {
+      shell.classList.remove('is-tucked');
+      lastY = y;
+      return;
+    }
+    if (Math.abs(moved) < DELTA) return;
+
+    shell.classList.toggle('is-tucked', moved > 0);
+    lastY = y;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+
+  // Opening the menu must always bring the bar back.
+  document.addEventListener('click', event => {
+    if (event.target.closest('.nav__toggle')) shell.classList.remove('is-tucked');
+  }, true);
+
+  touch.addEventListener('change', () => shell.classList.remove('is-tucked'));
+}
+
 // ── Mobile nav toggle ─────────────────────────────────────────
 const toggle = document.querySelector('.nav__toggle');
 const menu   = document.querySelector('.nav__links');

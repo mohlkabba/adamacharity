@@ -818,7 +818,13 @@ a { color: inherit; text-decoration: none; }
     position: sticky;
     top: 0;
     z-index: 1000;
+    /* Retracts on the way down, returns on the way up — transform only, so
+       it stays on the compositor and never reflows the page. */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
   }
+
+  .sticky-shell.is-tucked { transform: translateY(-100%); }
 
   .sticky-shell .announce {
     position: relative;
