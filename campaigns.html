@@ -302,11 +302,68 @@
       background: rgba(58, 138, 58, 0.12); color: var(--green-dark);
       font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
     }
+    /* Spacing rules key off p + p, so anything following a list needs its own. */
+    .future-prose__steps + p,
+    .future-prose__tags + p { margin-top: var(--space-md); }
     .future-prose__goal {
       margin-top: var(--space-md); color: var(--green-dark); font-size: 0.75rem;
       font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      font-family: var(--font-body);
     }
     .future-prose__goal + p { margin-top: 0.4rem; }
+    /* Conditional wording is set apart so a plan never reads as a promise. */
+    .future-prose__note {
+      margin-top: var(--space-md); padding-top: var(--space-sm);
+      border-top: 1px solid var(--border);
+      font-size: 0.88rem !important; color: var(--muted) !important;
+    }
+    .future-prose__tags {
+      list-style: none; margin: var(--space-sm) 0 0; padding: 0;
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+    }
+    .future-prose__tags li {
+      padding: 0.45rem 0.9rem; border-radius: var(--radius-full);
+      background: rgba(26,58,107,0.06); border: 1px solid rgba(26,58,107,0.12);
+      font-size: 0.9rem; font-weight: 600; color: var(--blue);
+    }
+    .mb-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); margin-top: var(--space-sm); }
+    @media (max-width: 640px) { .mb-split { grid-template-columns: 1fr; } }
+    .mb-split .future-prose__project-title { font-size: 1.05rem; margin-bottom: 0; }
+
+    /* Future card footnotes */
+    .future-card__goal { margin-top: var(--space-sm); font-size: 0.88rem; color: var(--text-mid); line-height: 1.65; }
+    .future-card__goal strong { color: var(--blue); }
+    .future-card__note {
+      margin-top: var(--space-sm); padding-top: var(--space-sm);
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem; color: var(--muted); line-height: 1.6;
+    }
+
+    /* Long-term rehabilitation vision */
+    .vision-grid {
+      list-style: none; counter-reset: vis; padding: 0; margin: 0;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+      gap: var(--space-md);
+    }
+    .vision-item {
+      counter-increment: vis; position: relative;
+      padding: var(--space-lg) var(--space-md) var(--space-md);
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+    .vision-item::before {
+      content: counter(vis);
+      position: absolute; top: var(--space-md); left: var(--space-md);
+      display: grid; place-items: center;
+      width: 1.9rem; height: 1.9rem; border-radius: var(--radius-full);
+      background: var(--blue); color: var(--white);
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+    }
+    .vision-item h3 {
+      font-family: var(--font-display); font-size: 1.1rem; color: var(--blue);
+      margin: var(--space-lg) 0 0.35rem; letter-spacing: -0.01em;
+    }
+    .vision-item p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
 
     @media (max-width: 600px) {
       .campaign-card__header { padding: var(--space-lg) var(--space-md); }
@@ -720,50 +777,118 @@
   <div class="container">
     <p class="section-label section-label--center reveal">Our vision for the future</p>
     <h2 class="section-title section-title--center reveal" id="future-heading">Future projects</h2>
-    <p class="section-body reveal" style="max-width:64ch;margin-inline:auto;text-align:center">The next stage of YADAMA's work connects seasonal relief with practical rehabilitation and maternal care across Sierra Leone.</p>
+    <p class="section-body reveal" style="max-width:64ch;margin-inline:auto;text-align:center">Our long-term direction is rehabilitation and independence. Alongside it we plan seasonal humanitarian support, developed according to identified need, available funding and appropriate partnerships.</p>
     <div class="future-grid">
       <article class="future-card reveal">
-        <p class="future-card__date">12 September 2026 &middot; London</p>
-        <h3 class="future-card__title">Launch &amp; Fundraising Event</h3>
-        <p class="future-card__body">Celebrating YADAMA's official launch, showcasing completed projects and raising funds for life-changing humanitarian and rehabilitation programmes in the United Kingdom and Sierra Leone.</p>
+        <p class="future-card__date">September 2026 &middot; London</p>
+        <h3 class="future-card__title">Official Launch &amp; Fundraising Event</h3>
+        <p class="future-card__body">Introducing YADAMA to the community, sharing our story and vision, showcasing completed projects, raising awareness of rehabilitation and Occupational Therapy, and building partnerships and community support.</p>
+        <p class="future-card__note">Funds raised will support carefully planned projects in the United Kingdom and Sierra Leone, subject to available resources and appropriate project planning.</p>
       </article>
       <article class="future-card reveal">
         <p class="future-card__date">December 2026 &middot; Sierra Leone</p>
         <h3 class="future-card__title">Christmas Community Outreach</h3>
-        <p class="future-card__body">Distributing donated food, clothing and essential supplies to people experiencing homelessness, children living in orphanages and vulnerable families.</p>
+        <p class="future-card__body">Providing clothing and essential supplies to vulnerable people using donated goods and resources collected through supporters in the UK. Potential beneficiaries include people experiencing homelessness, children living in orphanages, vulnerable families, and older and disadvantaged individuals.</p>
+        <p class="future-card__goal"><strong>Our goal:</strong> to provide practical assistance while bringing warmth, dignity, compassion and hope during the festive period.</p>
+        <p class="future-card__note">A supporting humanitarian activity, not a replacement for our long-term rehabilitation focus.</p>
       </article>
       <article class="future-card future-card--wide reveal">
         <p class="future-card__date">February 2027 &middot; Sierra Leone</p>
-        <h3 class="future-card__title">Ramadan Expansion Programme</h3>
-        <p class="future-card__body">Expanding the Ramadan food programme from 150 to more than 200 beneficiaries across two villages, extending dignified humanitarian support during the holy month.</p>
+        <h3 class="future-card__title">Ramadan Community Outreach Programme</h3>
+        <p class="future-card__body">Expanding our Ramadan food distribution programme and providing practical support to vulnerable individuals and families. The programme may expand to more than 200 beneficiaries across two villages.</p>
+        <p class="future-card__goal"><strong>Our goal:</strong> to extend humanitarian support during Ramadan while promoting dignity, compassion and community wellbeing.</p>
+        <p class="future-card__note">Subject to available funding and project planning.</p>
       </article>
     </div>
 
     <div class="future-prose reveal">
-      <p class="future-prose__meta">2027 &middot; Date TBC &middot; Sierra Leone</p>
-      <h3 class="future-prose__heading">Neuro / Stroke Rehabilitation &amp; Mother &amp; Baby Care Project</h3>
+      <p class="future-prose__meta">2027 &middot; Date TBC &middot; Sierra Leone &middot; Primary focus</p>
+      <h3 class="future-prose__heading">Stroke &amp; Neuro-Rehabilitation Resource Project</h3>
 
       <div class="future-prose__project">
-        <h4 class="future-prose__project-title">Neuro Rehabilitation Project</h4>
-        <p>Supporting selected hospital stroke rehabilitation wards by delivering 50 Neuro-Rehabilitation Resource Packages.</p>
-        <p class="future-prose__lead-in">Each package will include:</p>
+        <p>YADAMA aims to develop a pilot rehabilitation resource project supporting selected hospital stroke rehabilitation services in Sierra Leone.</p>
+        <p>The initial concept is to provide <strong>up to 50 Neuro-Rehabilitation Resource Packages</strong>, subject to clinical advice, appropriate partnerships, funding and assessment of local needs.</p>
+        <p class="future-prose__lead-in">Potential resources may include:</p>
         <ol class="future-prose__steps">
-          <li>Resistance therapy band</li>
-          <li>Soft hand exercise ball</li>
+          <li>Resistance therapy bands</li>
+          <li>Soft hand exercise balls</li>
           <li>Therapy putty</li>
-          <li>Illustrated home exercise programme</li>
-          <li>Stroke and caregiver education booklet</li>
+          <li>Illustrated home exercise resources</li>
+          <li>Stroke and caregiver education materials</li>
         </ol>
-        <h5 class="future-prose__goal">Our Goal</h5>
-        <p>To improve recovery outcomes for stroke survivors while supporting hospitals with limited rehabilitation resources and helping individuals regain independence in their daily lives.</p>
+        <p>The contents of each package will be reviewed with appropriate rehabilitation professionals to ensure that resources are safe, suitable and relevant to the individuals receiving them.</p>
+        <h4 class="future-prose__goal">Our Goal</h4>
+        <p>To support rehabilitation services with appropriate practical resources and education, helping stroke survivors and their caregivers work towards greater independence in everyday activities.</p>
       </div>
 
       <div class="future-prose__project">
-        <h4 class="future-prose__project-title">Mother &amp; Baby Care Project</h4>
-        <p>Supporting mothers and newborn babies in maternity wards who are unable to afford essential items following childbirth.</p>
-        <p>Many families are discharged from hospital without the essential items needed to care for a newborn. Through this project, we aim to provide practical support during one of the most important moments in a family's life.</p>
+        <h4 class="future-prose__project-title">Beyond equipment distribution</h4>
+        <p>Our long-term aim is to develop this project further by exploring:</p>
+        <ul class="future-prose__tags">
+          <li>Rehabilitation education</li>
+          <li>Caregiver support</li>
+          <li>Professional partnerships</li>
+          <li>Community rehabilitation</li>
+          <li>Occupational Therapy awareness</li>
+          <li>Follow-up and evaluation</li>
+          <li>Sustainable rehabilitation programmes</li>
+        </ul>
       </div>
     </div>
+
+    <div class="future-prose reveal">
+      <p class="future-prose__meta">Date to be confirmed &middot; Supporting initiative</p>
+      <h3 class="future-prose__heading">Mother &amp; Baby Support</h3>
+
+      <div class="future-prose__project">
+        <p>YADAMA may also support vulnerable mothers and newborn babies where there is a clearly identified need and a suitable partnership.</p>
+        <p class="future-prose__lead-in">Potential support may include:</p>
+        <div class="mb-split">
+          <div>
+            <h4 class="future-prose__project-title">For babies</h4>
+            <ul class="future-prose__tags">
+              <li>Baby clothing</li>
+              <li>Baby blankets</li>
+              <li>Baby wipes</li>
+              <li>Baby toiletries</li>
+              <li>Nappies, where available</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="future-prose__project-title">For mothers</h4>
+            <ul class="future-prose__tags">
+              <li>Maternity sanitary pads</li>
+              <li>Personal hygiene essentials</li>
+              <li>Toiletries</li>
+              <li>Appropriate postnatal essentials</li>
+            </ul>
+          </div>
+        </div>
+        <h4 class="future-prose__goal">Our Goal</h4>
+        <p>To provide practical and compassionate support to mothers and newborn babies experiencing financial hardship during the early postnatal period.</p>
+        <p class="future-prose__note">Any future mother and baby project will be developed according to identified needs, available funding and appropriate partnerships. This is a supporting community initiative rather than YADAMA's primary rehabilitation programme.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--white" aria-labelledby="longterm-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-xl)">
+      <p class="section-label section-label--center reveal">Where we are heading</p>
+      <h2 class="section-title section-title--center reveal" id="longterm-heading">Our long-term rehabilitation vision</h2>
+      <p class="section-body section-body--center reveal">Our ambition is to develop sustainable rehabilitation programmes that address the wider needs of people living with disability and those recovering from stroke and neurological conditions. Over time, we aim to explore:</p>
+    </div>
+    <ol class="vision-grid">
+      <li class="vision-item reveal"><h3>Rehabilitation services</h3><p>Supporting access to appropriate rehabilitation for people who currently have limited options.</p></li>
+      <li class="vision-item reveal"><h3>Stroke &amp; neuro-rehabilitation</h3><p>Developing programmes that support stroke survivors and people living with neurological conditions.</p></li>
+      <li class="vision-item reveal"><h3>Occupational Therapy awareness</h3><p>Increasing understanding of Occupational Therapy and its role in independence and participation.</p></li>
+      <li class="vision-item reveal"><h3>Rehabilitation equipment</h3><p>Supporting access to appropriate and safe rehabilitation and assistive equipment.</p></li>
+      <li class="vision-item reveal"><h3>Education &amp; training</h3><p>Supporting individuals, families, caregivers and, where appropriate, healthcare professionals with rehabilitation education.</p></li>
+      <li class="vision-item reveal"><h3>Accessibility</h3><p>Promoting safer and more accessible environments for people with disabilities and reduced mobility.</p></li>
+      <li class="vision-item reveal"><h3>Partnerships</h3><p>Working with hospitals, healthcare professionals, community organisations and other appropriate partners.</p></li>
+      <li class="vision-item reveal"><h3>Evaluation &amp; sustainability</h3><p>Learning from every project, measuring impact and developing programmes that can be sustained over the long term.</p></li>
+    </ol>
   </div>
 </section>
 
