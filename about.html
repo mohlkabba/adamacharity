@@ -11,10 +11,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <style>
-    /* ── MVV GRID ── */
+    /* ── MISSION & VISION ── */
     .mvv-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md);
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md);
     }
+    /* Approach sits under the pair it explains, spanning the full row. */
+    .mvv-card--wide { grid-column: 1 / -1; }
     @media (max-width: 768px) { .mvv-grid { grid-template-columns: 1fr; } }
     .mvv-card {
       background: var(--white); border-radius: var(--radius-lg);
@@ -34,11 +36,19 @@
     .mvv-card__title { font-family: var(--font-display); font-size: 1.4rem; color: var(--blue); margin-bottom: var(--space-xs); }
     .mvv-card__body { font-size: 0.95rem; color: var(--muted); line-height: 1.75; }
 
-    /* ── VALUES LIST ── */
+    /* ── OUR VALUES (REACH) ── */
+    .values { border-bottom: 1px solid var(--border); }
+    .values-intro {
+      max-width: 60ch; margin: 0 auto var(--space-xl);
+      text-align: center; color: var(--text-mid); line-height: 1.75;
+    }
+    .values-intro strong { color: var(--blue); font-weight: 700; }
     .values-grid {
       display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md);
-      margin-top: var(--space-xl);
     }
+    /* Five values into two columns leaves an orphan — let the last one run
+       the full width instead of sitting alone in a half-empty row. */
+    .value-item--wide { grid-column: 1 / -1; }
     @media (max-width: 640px) { .values-grid { grid-template-columns: 1fr; } }
     .value-item {
       display: flex; gap: var(--space-sm); align-items: flex-start;
@@ -174,7 +184,8 @@
       .mvv-card__icon { margin-bottom: 0.6rem; }
       .mvv-card__title { font-size: 1.25rem; }
       .mvv-card__body { font-size: 0.92rem; line-height: 1.65; }
-      .values-grid { gap: 0.75rem; margin-top: 1.5rem; }
+      .values-grid { gap: 0.75rem; }
+      .values-intro { margin-bottom: 1.75rem; }
       .value-item { padding: 1rem; }
       .value-item__icon { width: 42px; height: 42px; min-width: 42px; }
     }
@@ -266,7 +277,7 @@
   <div class="container">
     <div style="text-align:center;margin-bottom:var(--space-xl)">
       <p class="section-label section-label--center reveal">Our Foundation</p>
-      <h2 class="section-title section-title--center reveal" id="mvv-heading">Mission, Vision &amp; Values</h2>
+      <h2 class="section-title section-title--center reveal" id="mvv-heading">Mission &amp; Vision</h2>
     </div>
     <div class="mvv-grid">
       <div class="mvv-card reveal">
@@ -279,46 +290,56 @@
         <h3 class="mvv-card__title">Our Vision</h3>
         <p class="mvv-card__body">A world where every person, regardless of poverty, disability or circumstance, has access to humanitarian support, quality rehabilitation services, and the opportunity to live with dignity, independence, hope and purpose.</p>
       </div>
-      <div class="mvv-card mvv-card--gold reveal">
+      <div class="mvv-card mvv-card--gold mvv-card--wide reveal">
         <div class="mvv-card__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3 class="mvv-card__title">Our Approach</h3>
         <p class="mvv-card__body">Compassionate, inclusive and sustainable programmes that address urgent needs and long-term recovery with professionalism, respect and community partnership.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="section section--white values" aria-labelledby="values-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-lg)">
+      <p class="section-label section-label--center reveal">REACH</p>
+      <h2 class="section-title section-title--center reveal" id="values-heading">Our Values</h2>
+    </div>
+    <p class="values-intro reveal">Five principles guide every decision we make, spelling out the word <strong>REACH</strong> — the reach we want our work to have in the lives of the people we serve.</p>
 
     <div class="values-grid">
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div>
-          <h4 class="value-item__title">R — Rehabilitation &amp; Respect</h4>
+          <h3 class="value-item__title">R — Rehabilitation &amp; Respect</h3>
           <p class="value-item__desc">We promote recovery, independence, wellbeing and dignity while treating every individual with compassion, kindness and respect.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 22L5.71 22c.5-1.39 1.17-2.98 2.15-4.42C9.49 16 11.5 15 14 15c3 0 5-2 5-5V2c-3 0-5.5 2-6 5.5"/><line x1="3" y1="22" x2="7" y2="22"/></svg></div>
         <div>
-          <h4 class="value-item__title">E — Equity &amp; Inclusion</h4>
+          <h3 class="value-item__title">E — Equity &amp; Inclusion</h3>
           <p class="value-item__desc">We provide support fairly and without discrimination, ensuring equal access regardless of age, disability, gender, ethnicity, religion or background.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <div>
-          <h4 class="value-item__title">A — Accountability</h4>
+          <h3 class="value-item__title">A — Accountability</h3>
           <p class="value-item__desc">We act with honesty, transparency and integrity, taking responsibility for our decisions, partnerships and the resources entrusted to us.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div>
-          <h4 class="value-item__title">C — Compassion &amp; Collaboration</h4>
+          <h3 class="value-item__title">C — Compassion &amp; Collaboration</h3>
           <p class="value-item__desc">We serve with empathy and work alongside communities, healthcare professionals, volunteers, donors and partners to create sustainable solutions and maximise impact.</p>
         </div>
       </div>
-      <div class="value-item reveal">
+      <div class="value-item value-item--wide reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <div>
-          <h4 class="value-item__title">H — Humanity</h4>
+          <h3 class="value-item__title">H — Humanity</h3>
           <p class="value-item__desc">Everything we do is guided by protecting human dignity, relieving suffering, restoring independence and creating hope.</p>
         </div>
       </div>
