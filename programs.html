@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1200" />
   <title>Programs | YADAMA</title>
-  <meta name="description" content="Food distribution, rehabilitation support, and community outreach — the three pillars of YADAMA." />
+  <meta name="description" content="Rehabilitation and restoring independence is YADAMA's primary focus — stroke and neuro-rehabilitation, Occupational Therapy awareness, assistive equipment and accessibility — supported by practical humanitarian assistance." />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,6 +70,25 @@
     .program-appeal__title svg { flex: 0 0 auto; }
     .program-appeal p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
     .program-appeal p + p { margin-top: 0.5rem; }
+
+    /* Why rehabilitation matters — the conditions behind the need */
+    .condition-list {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+      gap: 0.65rem; list-style: none; margin: 0 auto; max-width: 62rem;
+    }
+    .condition-list li {
+      display: flex; align-items: center; gap: 0.55rem;
+      padding: 0.75rem var(--space-md);
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-sm);
+      font-size: 0.9rem; font-weight: 600; color: var(--blue);
+    }
+    .condition-list li::before {
+      content: ''; flex: 0 0 auto; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--blue);
+    }
+    .why-note { max-width: 68ch; margin: var(--space-lg) auto 0; text-align: center; }
+    .why-note .section-body { max-width: none; }
 
     /* How it works */
     .how-it-works { background: var(--blue); padding-block: var(--space-xl); }
@@ -146,66 +165,39 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>Programs</span></nav>
     <p class="page-hero__eyebrow reveal">What we do</p>
     <h1 class="page-hero__title reveal">Our Programs</h1>
-    <p class="page-hero__sub reveal">Immediate humanitarian relief and specialist rehabilitation support, working together to restore dignity and independence.</p>
-  </div>
-</section>
-
-<section class="program-section" id="food" aria-labelledby="food-heading">
-  <div class="container">
-    <div class="program-inner">
-      <div class="img-wrap program-img reveal">
-        <img src="images/gallery-food-community.jpg" alt="Older adults and community members gathered with food-support bags in Port Loko" width="820" height="607" loading="lazy" />
-        <div class="img-wrap--badge">
-          <div class="img-wrap--badge-num">100</div>
-          <div class="img-wrap--badge-text">Food packs distributed<br>Ramadan 2026</div>
-        </div>
-      </div>
-      <div>
-        <span class="program-tag program-tag--food reveal">Food Distribution</span>
-        <h2 class="section-title reveal" id="food-heading">Humanitarian Relief</h2>
-        <p class="section-body reveal">
-          When families face hardship, we respond with food, clothing, hygiene supplies, emergency assistance and community-based humanitarian support.
-        </p>
-        <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          During February and March 2026, YADAMA distributed 100 Ramadan food packs to vulnerable older adults in Port Loko District and served 200 hot meals to people experiencing homelessness, people who are blind, and people living with disabilities in Freetown.
-        </p>
-        <ul class="program-list reveal">
-          <li>Ramadan annual food distribution campaign</li>
-          <li>Emergency response food parcels</li>
-          <li>Direct delivery to households — no middlemen</li>
-          <li>Support for older adults, widows, orphaned children and disabled people</li>
-          <li>Volunteer-packed and volunteer-delivered</li>
-        </ul>
-        <a href="campaigns.html" class="btn btn--green btn--lg reveal" style="margin-top:var(--space-md)">View Current Campaign</a>
-      </div>
-    </div>
+    <p class="page-hero__sub reveal">Rehabilitation and restoring independence is our primary focus, supported by practical humanitarian assistance where there is an identified need.</p>
   </div>
 </section>
 
 <section class="program-section" id="rehab" aria-labelledby="rehab-heading">
   <div class="container">
-    <div class="program-inner program-inner--reverse">
+    <div class="program-inner">
       <div class="img-wrap program-img reveal">
         <img src="images/rehab.webp" alt="Assistive equipment — wheelchair and walking aid — provided by YADAMA" width="600" height="450" loading="lazy" />
       </div>
       <div>
-        <span class="program-tag program-tag--rehab reveal">Rehabilitation Support</span>
-        <h2 class="section-title reveal" id="rehab-heading">Therapy, Equipment &amp; Long-term Care</h2>
+        <span class="program-tag program-tag--rehab reveal">Primary focus</span>
+        <h2 class="section-title reveal" id="rehab-heading">Rehabilitation &amp; Independence</h2>
         <p class="section-body reveal">
-          We improve access to rehabilitation services, mobility aids, assistive devices, adaptive equipment, occupational therapy, physiotherapy and community-based rehabilitation programmes.
+          YADAMA aims to develop and support accessible rehabilitation services for people who face limited access to appropriate care, rehabilitation resources and assistive equipment.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          Rehabilitation restores more than physical function. It supports confidence, participation, independence and dignity for children and adults living with disabilities or recovering from illness and injury.
+          Our long-term focus includes:
         </p>
         <ul class="program-list program-list--blue reveal">
-          <li>Wheelchairs, walking frames and mobility aids</li>
-          <li>Hand therapy and support for hand and wrist function</li>
-          <li>Support for neurological, orthopaedic and rheumatological conditions</li>
-          <li>Rehabilitation following traumatic hand injuries</li>
-          <li>Long-term follow-up and support visits</li>
-          <li>Partnership with local health workers</li>
-          <li>Priority given to those with no other support network</li>
+          <li>General rehabilitation</li>
+          <li>Stroke rehabilitation</li>
+          <li>Neuro-rehabilitation</li>
+          <li>Occupational Therapy awareness</li>
+          <li>Physiotherapy and rehabilitation partnerships</li>
+          <li>Assistive and rehabilitation equipment</li>
+          <li>Accessibility and falls prevention</li>
+          <li>Education for individuals, families and caregivers</li>
+          <li>Support for activities of daily living and independence</li>
         </ul>
+        <p class="section-body reveal" style="margin-top:var(--space-md)">
+          We believe rehabilitation is not simply about recovery. It is about helping people regain confidence, adapt to their circumstances, participate in everyday activities and live with greater independence and dignity.
+        </p>
         <div class="program-appeal reveal">
           <h3 class="program-appeal__title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
@@ -220,6 +212,66 @@
   </div>
 </section>
 
+
+<section class="program-section" id="why-rehab" aria-labelledby="why-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-lg)">
+      <span class="program-tag program-tag--rehab reveal">The need</span>
+      <h2 class="section-title section-title--center reveal" id="why-heading">Why rehabilitation matters</h2>
+      <p class="section-body section-body--center reveal">Many individuals in Sierra Leone live with long-term disabilities or functional difficulties resulting from:</p>
+    </div>
+    <ul class="condition-list reveal">
+      <li>Stroke</li><li>Spinal cord injury</li><li>Cerebral palsy</li><li>Polio</li>
+      <li>Trauma</li><li>Fractures</li><li>Amputations</li><li>Age-related mobility challenges</li>
+      <li>Osteoarthritis</li><li>Rheumatoid arthritis</li>
+      <li>Other neurological and musculoskeletal conditions</li>
+    </ul>
+    <div class="why-note">
+      <p class="section-body reveal">Access to rehabilitation services, including Occupational Therapy, Physiotherapy and appropriate rehabilitation equipment, remains limited for many people. Without appropriate rehabilitation and support, individuals may struggle to regain independence, carry out everyday activities, return to meaningful roles and participate fully in family and community life.</p>
+      <p class="section-body reveal" style="margin-top:var(--space-sm)">YADAMA aims to contribute to improving access to appropriate rehabilitation support and resources while working with qualified professionals and local partners.</p>
+    </div>
+  </div>
+</section>
+<section class="program-section" id="food" aria-labelledby="food-heading">
+  <div class="container">
+    <div class="program-inner program-inner--reverse">
+      <div class="img-wrap program-img reveal">
+        <img src="images/gallery-food-community.jpg" alt="Older adults and community members gathered with food-support bags in Port Loko" width="820" height="607" loading="lazy" />
+        <div class="img-wrap--badge">
+          <div class="img-wrap--badge-num">100</div>
+          <div class="img-wrap--badge-text">Food packs distributed<br>Ramadan 2026</div>
+        </div>
+      </div>
+      <div>
+        <span class="program-tag program-tag--food reveal">Supporting activity</span>
+        <h2 class="section-title reveal" id="food-heading">Humanitarian &amp; Practical Support</h2>
+        <p class="section-body reveal">
+          Although rehabilitation is our primary focus, we recognise that people living in vulnerable circumstances may also face immediate challenges such as hunger, homelessness, poverty and lack of essential supplies.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          During February and March 2026, YADAMA distributed 100 Ramadan food packs to vulnerable older adults in Port Loko District and served 200 hot meals to people experiencing homelessness, people who are blind, and people living with disabilities in Freetown.
+        </p>
+        <p class="section-body reveal" style="margin-top:var(--space-sm)">
+          Where appropriate and where resources allow, we may provide:
+        </p>
+        <ul class="program-list reveal">
+          <li>Food</li>
+          <li>Clothing</li>
+          <li>Essential supplies</li>
+          <li>Emergency assistance</li>
+          <li>Community outreach</li>
+          <li>Support for vulnerable families</li>
+          <li>Other practical humanitarian assistance</li>
+        </ul>
+        <p class="section-body reveal" style="margin-top:var(--space-md)">
+          These activities support our wider commitment to human dignity and community wellbeing, but rehabilitation and independence remain at the heart of our long-term direction.
+        </p>
+        <a href="campaigns.html" class="btn btn--green btn--lg reveal" style="margin-top:var(--space-md)">View Current Campaign</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="program-section" id="inclusion" aria-labelledby="inclusion-heading">
   <div class="container">
     <div class="program-inner">
@@ -227,7 +279,7 @@
         <img src="images/wheelchair-outreach.jpg" alt="A family receiving inclusive community support from YADAMA" width="600" height="450" loading="lazy" />
       </div>
       <div>
-        <span class="program-tag program-tag--food reveal">Disability Inclusion</span>
+        <span class="program-tag program-tag--rehab reveal">Part of our rehabilitation work</span>
         <h2 class="section-title reveal" id="inclusion-heading">Access, Participation &amp; Equal Opportunity</h2>
         <p class="section-body reveal">
           Disability should never prevent someone from learning, working, joining community life or accessing compassionate care. We help remove practical and social barriers by combining appropriate equipment with advocacy, education and inclusive programme design.
@@ -249,12 +301,12 @@
 
 <section class="program-section" id="community" aria-labelledby="comm-heading">
   <div class="container">
-    <div class="program-inner">
+    <div class="program-inner program-inner--reverse">
       <div class="img-wrap program-img reveal">
         <img src="images/community-dist-clean.jpg" alt="Community members gathered at the Ramadan distribution with foundation bags" width="1115" height="787" loading="lazy" style="object-position: 65% center;" />
       </div>
       <div>
-        <span class="program-tag program-tag--comm reveal">Community Partnerships</span>
+        <span class="program-tag program-tag--comm reveal">Supporting activity</span>
         <h2 class="section-title reveal" id="comm-heading">Stronger Communities, Sustainable Change</h2>
         <p class="section-body reveal">
           We work alongside local communities, healthcare providers and partner organisations to promote inclusion, improve health and wellbeing, strengthen local capacity and create sustainable opportunities for future generations.
