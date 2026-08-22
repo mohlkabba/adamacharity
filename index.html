@@ -185,12 +185,54 @@
 
     /* OFFICIAL LAUNCH */
     .launch-event { background:var(--blue-dark);color:var(--white);overflow:hidden; }
-    .launch-event__inner { display:grid;grid-template-columns:0.9fr 1.1fr;gap:var(--space-xl);align-items:center; }
-    .launch-event__art { border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-lg);background:var(--white); }
-    .launch-event__art > a:first-child { display:block;overflow:hidden; }
-    .launch-event__art img { width:100%;height:auto;transition:transform 0.45s ease; }
-    .launch-event__art:hover img { transform:scale(1.015); }
-    .launch-event__flyer-link { display:block;padding:0.8rem 1rem;color:var(--blue-dark);font-size:0.78rem;font-weight:700;text-align:center;background:var(--white); }
+    .launch-event__inner { display:grid;grid-template-columns:1.12fr 1fr;gap:var(--space-lg);align-items:center; }
+
+    /* Flyer showpiece — glow stage + tilted card + sheen */
+    .launch-event__art { position:relative; }
+    .launch-event__art::before {
+      content:''; position:absolute; inset:-20% -16%; z-index:0; pointer-events:none;
+      mix-blend-mode:screen;
+      background:
+        radial-gradient(ellipse 58% 52% at 26% 20%, rgba(74,170,74,0.75) 0%, transparent 68%),
+        radial-gradient(ellipse 54% 58% at 80% 84%, rgba(201,168,76,0.55) 0%, transparent 68%),
+        radial-gradient(ellipse 70% 65% at 50% 50%, rgba(42,82,149,0.55) 0%, transparent 72%);
+      filter:blur(34px); opacity:0.85;
+      transition:opacity 0.5s ease, transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+    .launch-event__art:hover::before,
+    .launch-event__art:focus-within::before { opacity:1;transform:scale(1.06); }
+    .launch-event__flyer {
+      position:relative; z-index:1;
+      border-radius:var(--radius-lg); overflow:hidden; background:var(--white);
+      transform:perspective(1600px) rotateY(-5deg) rotateX(2deg);
+      transform-origin:62% 50%;
+      box-shadow:
+        0 2px 6px rgba(4,16,40,0.35),
+        0 18px 45px rgba(4,16,40,0.45),
+        0 42px 90px rgba(4,16,40,0.32),
+        0 0 0 1px rgba(201,168,76,0.28);
+      transition:transform 0.6s cubic-bezier(0.34,1.28,0.64,1), box-shadow 0.45s ease;
+    }
+    .launch-event__art:hover .launch-event__flyer,
+    .launch-event__art:focus-within .launch-event__flyer {
+      transform:perspective(1600px) rotateY(0deg) rotateX(0deg) translateY(-10px) scale(1.02);
+      box-shadow:
+        0 4px 10px rgba(4,16,40,0.4),
+        0 28px 70px rgba(4,16,40,0.5),
+        0 62px 120px rgba(4,16,40,0.38),
+        0 0 0 1px rgba(201,168,76,0.5);
+    }
+    .launch-event__flyer::after {
+      content:''; position:absolute; inset:0; z-index:2; pointer-events:none;
+      background:linear-gradient(105deg, transparent 38%, rgba(255,255,255,0.5) 50%, transparent 62%);
+      transform:translateX(-115%); opacity:0;
+      transition:transform 0.9s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    }
+    .launch-event__art:hover .launch-event__flyer::after { transform:translateX(115%);opacity:1; }
+    .launch-event__flyer > a:first-child { display:block;overflow:hidden; }
+    .launch-event__flyer img { width:100%;height:auto;transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
+    .launch-event__art:hover img { transform:scale(1.03); }
+    .launch-event__flyer-link { position:relative;z-index:3;display:block;padding:0.8rem 1rem;color:var(--blue-dark);font-size:0.78rem;font-weight:700;text-align:center;background:var(--white); }
     .launch-event__flyer-link:hover { color:var(--green-dark); }
     .launch-event .section-label { color:#a8d49e; }
     .launch-event__title { color:var(--white);font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.06;margin-bottom:var(--space-md); }
@@ -201,8 +243,21 @@
     .launch-detail__value { color:var(--white);font-weight:600;margin-top:0.25rem; }
     .launch-impact { display:flex;flex-wrap:wrap;gap:0.55rem;margin-top:var(--space-md); }
     .launch-impact span { border:1px solid rgba(255,255,255,0.16);background:rgba(255,255,255,0.07);border-radius:var(--radius-full);padding:0.55em 0.9em;font-size:0.78rem; }
-    @media (max-width:860px) { .launch-event__inner { grid-template-columns:1fr; } }
+    @media (max-width:860px) {
+      .launch-event__inner { grid-template-columns:1fr;gap:var(--space-xl); }
+      .launch-event__art { max-width:520px;margin-inline:auto; }
+      .launch-event__flyer { transform:none; }
+      .launch-event__art:hover .launch-event__flyer,
+      .launch-event__art:focus-within .launch-event__flyer { transform:translateY(-6px); }
+      .launch-event__art::before { inset:-7% -5%;filter:blur(30px); }
+    }
     @media (max-width:520px) { .launch-event__details { grid-template-columns:1fr; } }
+    @media (prefers-reduced-motion: reduce) {
+      .launch-event__flyer { transform:none; }
+      .launch-event__art:hover .launch-event__flyer,
+      .launch-event__art:focus-within .launch-event__flyer { transform:none; }
+      .launch-event__flyer::after { display:none; }
+    }
 
     /* MISSION */
     .mission { background: var(--white); }
@@ -444,8 +499,8 @@
       .impact__item { padding-left: 0.8rem; }
 
       .launch-event__inner { gap: 1.75rem; }
-      .launch-event__art > a:first-child { aspect-ratio: 3 / 4; }
-      .launch-event__art > a:first-child img {
+      .launch-event__flyer > a:first-child { aspect-ratio: 5 / 7; }
+      .launch-event__flyer > a:first-child img {
         width: 100%; height: 100%; object-fit: cover; object-position: top center;
       }
       .launch-event__details {
@@ -596,10 +651,12 @@
 <section class="launch-event section" id="official-launch" aria-labelledby="launch-heading">
   <div class="container launch-event__inner">
     <div class="launch-event__art reveal">
-      <a href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener" aria-label="Open the full YADAMA launch and fundraising event flyer">
-        <img src="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" alt="YADAMA launch and fundraising event flyer with event details, impact highlights, donation QR code and bank transfer details" width="1456" height="2048" loading="lazy" />
-      </a>
-      <a class="launch-event__flyer-link" href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener">Open full flyer &amp; donation QR</a>
+      <div class="launch-event__flyer">
+        <a href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener" aria-label="Open the full YADAMA launch and fundraising event flyer">
+          <img src="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" alt="YADAMA launch and fundraising event flyer with event details, impact highlights, donation QR code and bank transfer details" width="1456" height="2048" loading="lazy" />
+        </a>
+        <a class="launch-event__flyer-link" href="Brand_assets/yadama-launch-fundraising-flyer-2026.jpg" target="_blank" rel="noopener">Open full flyer &amp; donation QR</a>
+      </div>
     </div>
     <div>
       <p class="section-label reveal">Official launch &amp; fundraising event</p>
@@ -875,7 +932,7 @@
           <li><a href="https://www.instagram.com/Yadamafoundation" class="footer__insta-link" target="_blank" rel="noopener noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>@Yadamafoundation</a></li>
           <li><a href="https://www.tiktok.com/@Yadamafoundation" target="_blank" rel="noopener noreferrer">TikTok &mdash; @Yadamafoundation</a></li>
           <li><a href="contact.html">Contact Us</a></li>
-          <li><a href="contact.html">Sierra Leone</a></li>
+          <li><a href="contact.html">United Kingdom &amp; Sierra Leone</a></li>
         </ul>
       </div>
     </div>

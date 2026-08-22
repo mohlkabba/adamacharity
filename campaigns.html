@@ -260,6 +260,50 @@
     .future-card__list { margin:var(--space-sm) 0 0 1.1rem;color:var(--text-mid);font-size:0.88rem;line-height:1.65; }
     .future-card__list li::marker { color:var(--green); }
 
+    /* 2027 projects — long-form editorial layout, no cards */
+    .future-prose { max-width: 70ch; margin: var(--space-xl) auto 0; }
+    .future-prose__meta {
+      color: var(--green-dark); font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-xs);
+    }
+    .future-prose__heading {
+      font-family: var(--font-display); font-size: clamp(1.6rem, 3.4vw, 2.35rem);
+      line-height: 1.15; letter-spacing: -0.02em; color: var(--blue);
+    }
+    .future-prose__project {
+      margin-top: var(--space-lg); padding-top: var(--space-lg);
+      border-top: 1px solid var(--border);
+    }
+    .future-prose__project-title {
+      font-family: var(--font-display); font-size: 1.4rem;
+      letter-spacing: -0.01em; color: var(--blue); margin-bottom: var(--space-sm);
+    }
+    .future-prose p { color: var(--text-mid); font-size: 1rem; line-height: 1.8; }
+    .future-prose p + p { margin-top: var(--space-sm); }
+    .future-prose__lead-in { margin-top: var(--space-md); font-weight: 600; color: var(--text); }
+    .future-prose__steps {
+      list-style: none; counter-reset: pkg;
+      margin: var(--space-sm) 0 0; padding: 0;
+      display: grid; gap: 0.7rem;
+    }
+    .future-prose__steps li {
+      counter-increment: pkg; position: relative; padding-left: 2.6rem;
+      color: var(--text-mid); font-size: 1rem; line-height: 1.6;
+    }
+    .future-prose__steps li::before {
+      content: counter(pkg);
+      position: absolute; left: 0; top: 0;
+      display: grid; place-items: center;
+      width: 1.75rem; height: 1.75rem; border-radius: var(--radius-full);
+      background: rgba(58, 138, 58, 0.12); color: var(--green-dark);
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+    }
+    .future-prose__goal {
+      margin-top: var(--space-md); color: var(--green-dark); font-size: 0.75rem;
+      font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .future-prose__goal + p { margin-top: 0.4rem; }
+
     @media (max-width: 600px) {
       .campaign-card__header { padding: var(--space-lg) var(--space-md); }
       .campaign-card__body   { padding: var(--space-md); }
@@ -297,6 +341,11 @@
       .chair-appeal .btn { width: 100%; }
       .future-grid { gap: 0.85rem; margin-top: 1.5rem; }
       .future-card { padding: 1.15rem; }
+      .future-prose { margin-top: 2.25rem; }
+      .future-prose__project { margin-top: 1.6rem; padding-top: 1.6rem; }
+      .future-prose p, .future-prose__steps li { font-size: 0.95rem; }
+      .future-prose__steps li { padding-left: 2.3rem; }
+      .future-prose__steps li::before { width: 1.6rem; height: 1.6rem; font-size: 0.78rem; }
       .donate-box { padding: 1.2rem; }
     }
   </style>
@@ -679,26 +728,37 @@
         <h3 class="future-card__title">Christmas Community Outreach</h3>
         <p class="future-card__body">Distributing donated food, clothing and essential supplies to people experiencing homelessness, children living in orphanages and vulnerable families.</p>
       </article>
-      <article class="future-card reveal">
-        <p class="future-card__date">2027 &middot; Date to be confirmed</p>
-        <h3 class="future-card__title">Neuro / Stroke Rehabilitation</h3>
-        <p class="future-card__body">Supporting selected hospital stroke rehabilitation wards with 50 Neuro-Rehabilitation Resource Packages.</p>
-        <ul class="future-card__list">
-          <li>Resistance therapy band and soft hand exercise ball</li>
-          <li>Therapy putty and illustrated home exercise programme</li>
-          <li>Stroke and caregiver education booklet</li>
-        </ul>
-      </article>
-      <article class="future-card reveal">
-        <p class="future-card__date">2027 &middot; Date to be confirmed</p>
-        <h3 class="future-card__title">Mother &amp; Baby Care</h3>
-        <p class="future-card__body">Providing vulnerable mothers and newborns in maternity wards with baby clothing, blankets, wipes, nappies, toiletries, maternity pads and essential postnatal care items.</p>
-      </article>
       <article class="future-card future-card--wide reveal">
         <p class="future-card__date">February 2027 &middot; Sierra Leone</p>
         <h3 class="future-card__title">Ramadan Expansion Programme</h3>
         <p class="future-card__body">Expanding the Ramadan food programme from 150 to more than 200 beneficiaries across two villages, extending dignified humanitarian support during the holy month.</p>
       </article>
+    </div>
+
+    <div class="future-prose reveal">
+      <p class="future-prose__meta">2027 &middot; Date TBC &middot; Sierra Leone</p>
+      <h3 class="future-prose__heading">Neuro / Stroke Rehabilitation &amp; Mother &amp; Baby Care Project</h3>
+
+      <div class="future-prose__project">
+        <h4 class="future-prose__project-title">Neuro Rehabilitation Project</h4>
+        <p>Supporting selected hospital stroke rehabilitation wards by delivering 50 Neuro-Rehabilitation Resource Packages.</p>
+        <p class="future-prose__lead-in">Each package will include:</p>
+        <ol class="future-prose__steps">
+          <li>Resistance therapy band</li>
+          <li>Soft hand exercise ball</li>
+          <li>Therapy putty</li>
+          <li>Illustrated home exercise programme</li>
+          <li>Stroke and caregiver education booklet</li>
+        </ol>
+        <h5 class="future-prose__goal">Our Goal</h5>
+        <p>To improve recovery outcomes for stroke survivors while supporting hospitals with limited rehabilitation resources and helping individuals regain independence in their daily lives.</p>
+      </div>
+
+      <div class="future-prose__project">
+        <h4 class="future-prose__project-title">Mother &amp; Baby Care Project</h4>
+        <p>Supporting mothers and newborn babies in maternity wards who are unable to afford essential items following childbirth.</p>
+        <p>Many families are discharged from hospital without the essential items needed to care for a newborn. Through this project, we aim to provide practical support during one of the most important moments in a family's life.</p>
+      </div>
     </div>
   </div>
 </section>
