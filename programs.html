@@ -53,6 +53,24 @@
     .program-list--blue li::before { background: var(--blue); }
     .program-list--gold  li::before { background: var(--green); }
 
+    /* In-kind donation appeal — a distinct ask, not another service claim */
+    .program-appeal {
+      margin-top: var(--space-md);
+      padding: var(--space-md);
+      background: rgba(26,58,107,0.05);
+      border: 1px solid rgba(26,58,107,0.12);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius-md);
+    }
+    .program-appeal__title {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-family: var(--font-display); font-size: 1.05rem;
+      color: var(--blue); margin-bottom: 0.45rem;
+    }
+    .program-appeal__title svg { flex: 0 0 auto; }
+    .program-appeal p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+    .program-appeal p + p { margin-top: 0.5rem; }
+
     /* How it works */
     .how-it-works { background: var(--blue); padding-block: var(--space-xl); }
     .how-steps {
@@ -188,6 +206,14 @@
           <li>Partnership with local health workers</li>
           <li>Priority given to those with no other support network</li>
         </ul>
+        <div class="program-appeal reveal">
+          <h3 class="program-appeal__title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            Donate equipment
+          </h3>
+          <p>We gratefully accept donations of mobility and rehabilitation equipment to support patients requiring long-term care in Sierra Leone, including wheelchairs, walking sticks, walking frames, crutches, commode chairs, and other assistive devices.</p>
+          <p>Your support helps improve independence, dignity, and quality of life for those living with disabilities.</p>
+        </div>
         <a href="get-involved.html#donate" class="btn btn--primary btn--lg reveal" style="margin-top:var(--space-md)">Support This Programme</a>
       </div>
     </div>
