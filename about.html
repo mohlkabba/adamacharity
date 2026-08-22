@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1200" />
   <title>About | YADAMA</title>
-  <meta name="description" content="Learn about our mission, vision, values, and the founder story behind YADAMA Relief &amp; Rehabilitation Foundation." />
+  <meta name="description" content="YADAMA Relief &amp; Rehabilitation Foundation improves health, independence and dignity through rehabilitation, education, partnerships and practical support. Our mission, vision, REACH values and founder's story." />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,6 @@
     .mvv-card__body { font-size: 0.95rem; color: var(--muted); line-height: 1.75; }
 
     /* ── OUR VALUES (REACH) ── */
-    .values { border-bottom: 1px solid var(--border); }
     .values-intro {
       max-width: 60ch; margin: 0 auto var(--space-xl);
       text-align: center; color: var(--text-mid); line-height: 1.75;
@@ -63,6 +62,63 @@
     }
     .value-item__title { font-family: var(--font-display); font-size: 1.05rem; color: var(--blue); margin-bottom: 0.2rem; }
     .value-item__desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── APPROACH FORMULA ── */
+    .approach-formula {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      align-items: center; gap: 0.4rem 0.55rem;
+      margin: var(--space-md) 0 var(--space-sm);
+    }
+    .approach-formula span {
+      padding: 0.4rem 0.85rem; border-radius: var(--radius-full);
+      background: rgba(26,58,107,0.07); border: 1px solid rgba(26,58,107,0.12);
+      font-family: var(--font-display); font-size: 0.92rem;
+      font-weight: 600; color: var(--blue);
+    }
+    .approach-formula i { font-style: normal; color: var(--green); font-weight: 700; }
+
+    /* ── FIRST-PERSON STORY QUOTES ── */
+    .story-quotes {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-md); margin-top: var(--space-xl);
+    }
+    @media (max-width: 820px) { .story-quotes { grid-template-columns: 1fr; } }
+    .story-quote {
+      background: var(--white); border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: var(--radius-md); padding: var(--space-lg);
+      box-shadow: var(--shadow-sm);
+    }
+    .story-quote__label {
+      color: var(--green-dark); font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: var(--space-sm);
+    }
+    .story-quote p:not(.story-quote__label) {
+      color: var(--text-mid); font-size: 0.98rem; line-height: 1.8;
+    }
+    .story-quote p + p { margin-top: 0.7rem; }
+    .story-quote footer {
+      margin-top: var(--space-md); font-size: 0.82rem;
+      font-weight: 600; color: var(--muted);
+    }
+
+    /* ── OCCUPATIONAL THERAPY ── */
+    .ot-list {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 0.7rem; margin: var(--space-md) auto 0; max-width: 60rem;
+    }
+    @media (max-width: 700px) { .ot-list { grid-template-columns: 1fr; } }
+    .ot-list li {
+      display: flex; align-items: flex-start; gap: 0.6rem;
+      list-style: none; padding: 0.85rem var(--space-md);
+      background: var(--cream); border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      font-size: 0.92rem; color: var(--text-mid);
+    }
+    .ot-list li::before {
+      content: ''; flex: 0 0 auto; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--green); margin-top: 0.5rem;
+    }
 
     /* ── FOUNDER SECTION ── */
     .founder { background: var(--white); }
@@ -242,7 +298,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span>›</span><span>About Us</span></nav>
     <p class="page-hero__eyebrow reveal">Our story</p>
     <h1 class="page-hero__title reveal">About YADAMA</h1>
-    <p class="page-hero__sub reveal">Humanitarian relief and long-term rehabilitation support that restores dignity, independence and hope.</p>
+    <p class="page-hero__sub reveal">Improving health, independence and dignity through rehabilitation, practical support, education, partnerships and compassionate outreach.</p>
   </div>
 </section>
 
@@ -251,15 +307,15 @@
     <div class="who-inner">
       <div>
         <p class="section-label reveal">Who We Are</p>
-        <h2 class="section-title reveal" id="who-heading">Founded on dignity, opportunity and compassionate care</h2>
+        <h2 class="section-title reveal" id="who-heading">Committed to health, independence and dignity</h2>
         <p class="section-body reveal">
-          YADAMA Relief &amp; Rehabilitation Foundation was founded on the belief that every individual deserves dignity, opportunity and access to compassionate care.
+          YADAMA Relief &amp; Rehabilitation Foundation is committed to improving health, independence and dignity for vulnerable individuals and communities through rehabilitation, practical support, education, partnerships and compassionate outreach.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          During a visit to Sierra Leone in 2022, our founder visited a local hospital's stroke rehabilitation department and witnessed a shortage of safe rehabilitation equipment. She recognised the urgent need for long-term rehabilitation support and established YADAMA to improve access to humanitarian relief and rehabilitation services for vulnerable communities.
+          <strong>Our main focus is rehabilitation and restoring independence.</strong> We aim to develop accessible rehabilitation services and long-term support for people living with disabilities, as well as those recovering from stroke or neurological conditions, and those needing hand therapy.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          The Foundation is dedicated to the memory of the founder's beloved grandmother, whose generosity, kindness and compassion continue to inspire our work.
+          Alongside our rehabilitation work, we provide humanitarian and practical support where there is an identified need and where resources are available.
         </p>
       </div>
       <figure class="who-img reveal">
@@ -283,23 +339,34 @@
       <div class="mvv-card reveal">
         <div class="mvv-card__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3 class="mvv-card__title">Our Mission</h3>
-        <p class="mvv-card__body">To provide humanitarian relief and long-term rehabilitation support to vulnerable individuals and communities by delivering essential aid, improving access to rehabilitation services, and promoting dignity, independence and inclusion.</p>
+        <p class="mvv-card__body">Our primary mission is to improve access to rehabilitation support for people living with disabilities and those recovering from stroke, neurological conditions and other conditions that affect mobility, independence and participation in daily life.</p>
+        <p class="mvv-card__body" style="margin-top:var(--space-sm)">We aim to support individuals through appropriate rehabilitation resources, assistive equipment, education and community-based support, working collaboratively with healthcare professionals and local organisations.</p>
+        <p class="mvv-card__body" style="margin-top:var(--space-sm)">Where there is significant need, we also provide humanitarian and practical assistance, including food, clothing, essential supplies and emergency support.</p>
       </div>
       <div class="mvv-card mvv-card--green reveal">
         <div class="mvv-card__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
         <h3 class="mvv-card__title">Our Vision</h3>
-        <p class="mvv-card__body">A world where every person, regardless of poverty, disability or circumstance, has access to humanitarian support, quality rehabilitation services, and the opportunity to live with dignity, independence, hope and purpose.</p>
+        <p class="mvv-card__body">A world where everyone, regardless of disability, illness or financial hardship, has access to essential support and appropriate rehabilitation services, and the opportunity to live with dignity, independence and hope.</p>
+        <p class="mvv-card__body" style="margin-top:var(--space-sm)">We envision communities where people can access the support they need to recover, adapt, participate and thrive.</p>
       </div>
       <div class="mvv-card mvv-card--gold mvv-card--wide reveal">
         <div class="mvv-card__icon" aria-hidden="true"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
         <h3 class="mvv-card__title">Our Approach</h3>
-        <p class="mvv-card__body">Compassionate, inclusive and sustainable programmes that address urgent needs and long-term recovery with professionalism, respect and community partnership.</p>
+        <p class="mvv-card__body">We believe meaningful support should go beyond simply giving. Our long-term approach is built on five things working together:</p>
+        <div class="approach-formula" aria-label="Rehabilitation plus education plus equipment plus partnerships plus follow-up">
+          <span>Rehabilitation</span><i aria-hidden="true">+</i>
+          <span>Education</span><i aria-hidden="true">+</i>
+          <span>Equipment</span><i aria-hidden="true">+</i>
+          <span>Partnerships</span><i aria-hidden="true">+</i>
+          <span>Follow-up</span>
+        </div>
+        <p class="mvv-card__body">We aim to understand the needs of the people we serve, work with appropriate professionals and local organisations, provide practical resources where appropriate, and learn from every project we undertake. Our goal is to develop sustainable programmes rather than short-term interventions alone.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--white values" aria-labelledby="values-heading">
+<section class="section section--white" aria-labelledby="values-heading">
   <div class="container">
     <div style="text-align:center;margin-bottom:var(--space-lg)">
       <p class="section-label section-label--center reveal">REACH</p>
@@ -312,42 +379,42 @@
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <div>
           <h3 class="value-item__title">R — Rehabilitation &amp; Respect</h3>
-          <p class="value-item__desc">We promote recovery, independence, wellbeing and dignity while treating every individual with compassion, kindness and respect.</p>
+          <p class="value-item__desc">Promoting recovery, independence, wellbeing and dignity.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8C8 10 5.9 16.17 3.82 22L5.71 22c.5-1.39 1.17-2.98 2.15-4.42C9.49 16 11.5 15 14 15c3 0 5-2 5-5V2c-3 0-5.5 2-6 5.5"/><line x1="3" y1="22" x2="7" y2="22"/></svg></div>
         <div>
           <h3 class="value-item__title">E — Equity &amp; Inclusion</h3>
-          <p class="value-item__desc">We provide support fairly and without discrimination, ensuring equal access regardless of age, disability, gender, ethnicity, religion or background.</p>
+          <p class="value-item__desc">Supporting people fairly and without discrimination, while recognising different needs and circumstances.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
         <div>
           <h3 class="value-item__title">A — Accountability</h3>
-          <p class="value-item__desc">We act with honesty, transparency and integrity, taking responsibility for our decisions, partnerships and the resources entrusted to us.</p>
+          <p class="value-item__desc">Operating transparently, ethically and responsibly.</p>
         </div>
       </div>
       <div class="value-item reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <div>
           <h3 class="value-item__title">C — Compassion &amp; Collaboration</h3>
-          <p class="value-item__desc">We serve with empathy and work alongside communities, healthcare professionals, volunteers, donors and partners to create sustainable solutions and maximise impact.</p>
+          <p class="value-item__desc">Working with empathy and collaborating with communities, professionals and partners.</p>
         </div>
       </div>
       <div class="value-item value-item--wide reveal">
         <div class="value-item__icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <div>
           <h3 class="value-item__title">H — Humanity</h3>
-          <p class="value-item__desc">Everything we do is guided by protecting human dignity, relieving suffering, restoring independence and creating hope.</p>
+          <p class="value-item__desc">Protecting human dignity, showing kindness and inspiring hope.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section section--white" aria-labelledby="symbolism-heading">
+<section class="section section--cream" aria-labelledby="symbolism-heading">
   <div class="container">
     <div class="who-inner">
       <div class="reveal" style="display:grid;place-items:center;padding:var(--space-lg)">
@@ -372,7 +439,7 @@
     <div class="founder__inner">
       <aside class="founder__statement reveal" aria-label="The idea behind YADAMA">
         <p class="founder__statement-label">The idea behind YADAMA</p>
-        <p class="founder__statement-title">Immediate relief should open the door to lasting independence.</p>
+        <p class="founder__statement-title">Rehabilitation is not simply about recovery.</p>
         <div class="founder__statement-notes" aria-label="Founding principles">
           <span>Occupational therapy</span>
           <span>Community partnership</span>
@@ -380,20 +447,55 @@
         </div>
       </aside>
       <div>
-        <p class="section-label reveal">Meet our founder</p>
+        <p class="section-label reveal">Our story</p>
         <h2 class="section-title reveal" id="founder-heading">A professional vision, shaped by firsthand experience</h2>
         <p class="section-body reveal">
-          YADAMA was founded by a UK-based Occupational Therapist with a vision to improve access to humanitarian relief and long-term rehabilitation services for vulnerable individuals in Sierra Leone.
+          YADAMA Relief &amp; Rehabilitation Foundation was born from a commitment to serve vulnerable individuals and communities. The journey began with a personal experience in Sierra Leone in 2022, where our founder &mdash; a UK-based Occupational Therapist &mdash; witnessed the limited availability of rehabilitation resources within a stroke rehabilitation setting.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          Inspired by firsthand experience in a Sierra Leone hospital's stroke rehabilitation department, the Foundation is committed to restoring dignity, promoting independence and enabling people to participate in the meaningful activities of everyday life.
+          That experience created a long-term commitment to rehabilitation and independence. The Foundation's mission was strengthened by the example of her late grandmother, whose life was defined by kindness, generosity and service to others.
         </p>
         <p class="section-body reveal" style="margin-top:var(--space-sm)">
-          Her clinical insight and community commitment guide an approach that connects immediate relief with practical, sustainable rehabilitation support.
+          YADAMA brings these experiences together through a commitment to practical action, rehabilitation, education, partnership and humanitarian support.
         </p>
         <a href="get-involved.html" class="btn btn--primary btn--lg reveal" style="margin-top:var(--space-md)">Get involved</a>
       </div>
     </div>
+
+    <div class="story-quotes">
+      <blockquote class="story-quote reveal">
+        <p class="story-quote__label">The inspiration behind the Foundation</p>
+        <p>During my first visit to Sierra Leone in 2022, I visited the stroke rehabilitation department at a local hospital. I saw that only a small amount of rehabilitation equipment was available, and some of the equipment appeared to be old, unsuitable or no longer safe for use.</p>
+        <p>That experience stayed with me. It made me realise how important access to rehabilitation resources can be for people recovering from stroke and living with disability, and it inspired me to establish YADAMA and work towards expanding access to rehabilitation support, education and appropriate resources for people who need them most.</p>
+        <footer>&mdash; Founder, YADAMA Relief &amp; Rehabilitation Foundation</footer>
+      </blockquote>
+      <blockquote class="story-quote reveal">
+        <p class="story-quote__label">In loving memory</p>
+        <p>My commitment to serving vulnerable people was strengthened further on 19 February 2026, when my beloved grandmother passed away. Growing up, I watched her give selflessly to people who were poor, blind, vulnerable or simply in need of kindness. She loved other people's children as if they were her own.</p>
+        <p>She was kind, calm, honest and exceptionally generous, and she never sought recognition for the good she did. Everything I am doing today is deeply influenced by watching her serve others with compassion and humility. YADAMA is dedicated to her memory and the values she lived by.</p>
+        <footer>&mdash; Founder, YADAMA Relief &amp; Rehabilitation Foundation</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream" aria-labelledby="ot-heading">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:var(--space-lg)">
+      <p class="section-label section-label--center reveal">Occupational Therapy</p>
+      <h2 class="section-title section-title--center reveal" id="ot-heading">Raising awareness of Occupational Therapy</h2>
+      <p class="section-body section-body--center reveal">A key part of YADAMA's long-term vision is to raise awareness of Occupational Therapy. Many people are unfamiliar with it, or confuse it with Physiotherapy. Occupational Therapy focuses on helping people take part in the everyday activities that are meaningful and important to them.</p>
+    </div>
+    <ul class="ot-list reveal">
+      <li>Develop or regain skills needed for daily living</li>
+      <li>Adapt activities after illness or injury</li>
+      <li>Improve independence</li>
+      <li>Use appropriate assistive equipment</li>
+      <li>Build confidence</li>
+      <li>Return to meaningful roles and routines</li>
+      <li>Participate more fully in family and community life</li>
+    </ul>
+    <p class="section-body section-body--center reveal" style="margin-top:var(--space-lg);max-width:64ch">Through education and community partnerships, YADAMA hopes to improve understanding of the important role Occupational Therapy can play in rehabilitation and independence.</p>
   </div>
 </section>
 
