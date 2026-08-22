@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1200" />
   <title>YADAMA</title>
-  <meta name="description" content="YADAMA Relief &amp; Rehabilitation Foundation delivers food parcels and mobility equipment to widows, older people and families living with disability in Sierra Leone." />
+  <meta name="description" content="YADAMA Relief &amp; Rehabilitation Foundation improves access to rehabilitation and independence for people living with disability and those recovering from stroke, supported by practical humanitarian assistance in the UK and Sierra Leone." />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="YADAMA Relief &amp; Rehabilitation Foundation" />
-  <meta property="og:description" content="Food parcels and mobility equipment for widows, older people and families living with disability in Sierra Leone." />
+  <meta property="og:description" content="Rehabilitation and independence for people living with disability and those recovering from stroke, supported by practical humanitarian assistance in the UK and Sierra Leone." />
   <meta property="og:image" content="images/yadama-hero-wheelchair-v2.jpg" />
   <script>document.documentElement.classList.add('js');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -191,7 +191,16 @@
     /* IMPACT NUMBERS — cream, so it separates the white collage above
        from the navy launch block below instead of merging into it */
     .impact { background: var(--cream); padding-block: var(--space-xl); border-block: 1px solid var(--border); }
-    .impact__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-md); }
+    /* Three delivered facts. Anything not yet delivered belongs below the
+       row, not inside it — the section heading reads "delivered so far". */
+    .impact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+    .impact__next {
+      margin-top: var(--space-lg); padding-top: var(--space-md);
+      border-top: 1px solid var(--border);
+      font-size: 0.92rem; color: var(--muted); line-height: 1.7;
+    }
+    .impact__next a { color: var(--green-dark); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+    .impact__next a:hover { color: var(--blue); }
     .impact__item { border-left: 2px solid var(--green); padding-left: var(--space-md); }
     .impact__num {
       font-family: var(--font-display);
@@ -593,14 +602,15 @@
 <section class="hero" aria-label="Introduction">
   <div class="container hero__inner">
     <div class="hero__text">
-      <p class="hero__pill reveal">Humanitarian relief &amp; rehabilitation &middot; Sierra Leone</p>
+      <p class="hero__pill reveal">Rehabilitation &amp; independence &middot; United Kingdom &amp; Sierra Leone</p>
       <h1 class="hero__headline reveal">
         Relief today.<br>
         Restoring <span class="u-mark">independence<svg viewBox="0 0 200 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 9 C60 3 145 3 196 7" stroke="#3a8a3a" stroke-width="5" fill="none" stroke-linecap="round"/></svg></span><br>for tomorrow.
       </h1>
       <p class="hero__sub reveal">
-        Providing humanitarian relief and long-term rehabilitation support that restores dignity,
-        promotes independence and creates hope for vulnerable individuals and communities across Sierra Leone.
+        Improving access to rehabilitation for people living with disability and those recovering from
+        stroke and neurological conditions &mdash; supported by practical humanitarian assistance where
+        there is an identified need.
       </p>
       <div class="hero__ctas reveal">
         <a href="get-involved.html#donate" class="btn btn--green btn--lg">Donate Now</a>
@@ -660,11 +670,8 @@
         <p class="impact__num">1</p>
         <p class="impact__label">mosque made accessible for older worshippers in London</p>
       </div>
-      <div class="impact__item reveal">
-        <p class="impact__num">50</p>
-        <p class="impact__label">Neuro-Rehabilitation Resource Packages planned for 2027</p>
-      </div>
     </div>
+    <p class="impact__next reveal">Looking ahead, our primary focus is a pilot stroke and neuro-rehabilitation resource project for Sierra Leone. <a href="campaigns.html#future-projects">See what we are planning</a></p>
   </div>
 </section>
 
@@ -730,27 +737,27 @@
   <div class="container">
     <div style="text-align:center">
       <p class="section-label section-label--center reveal">What we do</p>
-      <h2 class="section-title section-title--center reveal" id="pillars-heading" style="margin-bottom:0">Immediate help. Lasting independence.</h2>
+      <h2 class="section-title section-title--center reveal" id="pillars-heading" style="margin-bottom:0">Lasting independence. Immediate help where it is needed.</h2>
     </div>
     <div class="pillars__grid">
-      <div class="pillar reveal">
-        <figure class="pillar__media">
-          <img src="images/program-humanitarian-relief-v2.jpg" alt="YADAMA volunteers sharing a food and hygiene parcel with an older woman in a Sierra Leone community" width="1536" height="1024" loading="lazy" />
-        </figure>
-        <div class="pillar__body">
-          <h3>Humanitarian relief</h3>
-          <p>Food, clothing, hygiene supplies, emergency assistance and community-based support when families face hardship.</p>
-          <a href="programs.html#food">About this programme</a>
-        </div>
-      </div>
       <div class="pillar reveal">
         <figure class="pillar__media">
           <img src="images/program-rehabilitation-support-v1.jpg" alt="A rehabilitation professional supporting a man practising walking with a frame" width="1536" height="1024" loading="lazy" />
         </figure>
         <div class="pillar__body">
-          <h3>Rehabilitation support</h3>
-          <p>Rehabilitation services, mobility aids, adaptive equipment, occupational therapy, physiotherapy and community-based programmes.</p>
+          <h3>Rehabilitation &amp; independence</h3>
+          <p>Our primary focus. Rehabilitation services, assistive equipment, Occupational Therapy awareness, accessibility and education for families and caregivers.</p>
           <a href="programs.html#rehab">About this programme</a>
+        </div>
+      </div>
+      <div class="pillar reveal">
+        <figure class="pillar__media">
+          <img src="images/program-humanitarian-relief-v2.jpg" alt="YADAMA volunteers sharing a food and hygiene parcel with an older woman in a Sierra Leone community" width="1536" height="1024" loading="lazy" />
+        </figure>
+        <div class="pillar__body">
+          <h3>Humanitarian &amp; practical support</h3>
+          <p>Food, clothing, essential supplies and emergency assistance, provided where there is an identified need and resources allow.</p>
+          <a href="programs.html#food">About this programme</a>
         </div>
       </div>
       <div class="pillar reveal">
