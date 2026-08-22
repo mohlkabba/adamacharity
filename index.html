@@ -148,6 +148,16 @@
       .collage__grid { grid-template-columns: 1fr; }
       .collage__tile { min-height: 220px; }
     }
+    /* Phones render the 1200px canvas with text scaled up 175%, which leaves
+       the message tile too narrow for its longest word — "volunteers." was
+       breaking mid-word. Give the two text tiles more of the row and trim the
+       type just enough that every word fits. Desktop is untouched. */
+    @media (hover: none) and (pointer: coarse) {
+      .collage__grid { grid-template-columns: 0.92fr 1.32fr 1.11fr 0.85fr; }
+      .collage__tile--msg p { font-size: 1rem; hyphens: none; }
+      .collage__stat-num { font-size: 2.9rem; }
+      .collage__stat-label { font-size: 0.82rem; }
+    }
 
     /* DONATE CHANNELS STRIP */
     .channels {
