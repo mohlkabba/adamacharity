@@ -977,7 +977,7 @@ a { color: inherit; text-decoration: none; }
     text-decoration: none;
     letter-spacing: 0.01em;
   }
-  .announce a::before { content: 'Launch event · 12 Sep 2026 · '; }
+  .announce a::before { content: 'Thank you for a wonderful launch ·\00a0'; }
 
   .site-header {
     background: rgba(255,255,255,0.985);
