@@ -1,0 +1,48 @@
+# Pages CMS (https://app.pagescms.org) — lets the YADAMA team add project
+# photos to the Gallery page without editing code. Each save commits to
+# this repo and Vercel republishes the site.
+media:
+  input: images/uploads
+  output: /images/uploads
+  extensions: [jpg, jpeg, png, webp]
+  rename: safe
+
+content:
+  - name: gallery
+    label: Project photos
+    type: file
+    path: data/gallery.json
+    format: json
+    list: true
+    fields:
+      - name: photo
+        label: Photo
+        type: image
+        required: true
+        description: JPG or PNG photo from your phone or computer.
+      - name: caption
+        label: Caption
+        type: string
+        required: true
+        description: One short sentence about what the photo shows, e.g. "Food packs handed out in Port Loko".
+      - name: project
+        label: Project
+        type: select
+        required: true
+        default: community
+        options:
+          values:
+            - value: food
+              label: Food Relief
+            - value: clothing
+              label: Clothing Support
+            - value: accessibility
+              label: Accessibility
+            - value: rehabilitation
+              label: Rehabilitation
+            - value: community
+              label: Community & Events
+      - name: date
+        label: Date taken
+        type: date
+        description: Optional. Newest photos appear first on the Gallery page.

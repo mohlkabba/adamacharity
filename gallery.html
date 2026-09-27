@@ -62,6 +62,24 @@
     }
     .gallery-item--wide { grid-column: span 8; }
     .gallery-item.hidden { display: none; }
+    /* Photos added by the team through Pages CMS — uniform cards, newest first */
+    .latest-gallery { margin-bottom: var(--space-xl); }
+    .latest-gallery__title {
+      font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+      letter-spacing: -0.02em;
+      color: var(--blue-dark);
+      margin-bottom: var(--space-md);
+    }
+    .latest-gallery__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+      gap: 1.25rem;
+    }
+    .latest-gallery__grid > .gallery-item,
+    .latest-gallery__grid > .gallery-item:first-child { grid-column: auto; grid-row: auto; aspect-ratio: auto; cursor: default; }
+    .latest-gallery__grid .gallery-item::after { content: none; }
+    /* Event photos are mostly people — keep heads in frame when cropping */
+    .latest-gallery__grid .gallery-item__media img { object-position: 50% 28%; }
     .gallery-item__media {
       position: relative;
       overflow: hidden;
@@ -376,8 +394,8 @@
 
 <div class="sticky-shell">
 <div class="announce">
-  Official launch &amp; fundraising event — Saturday, 12 September 2026.
-  <a href="index.html#official-launch">View event details</a>
+  Thank you to everyone who joined our official launch on 12 September 2026. Donations remain open.
+  <a href="get-involved.html#donate">Donate</a>
 </div>
 
 <header class="site-header" role="banner">
@@ -440,6 +458,11 @@
     </div>
 
     <p class="gallery-note reveal">Choose “View photo” or “View video” to open any item individually. Videos remain paused until you choose to start them.</p>
+
+    <div class="latest-gallery" id="latest-photos" hidden>
+      <h3 class="latest-gallery__title">Latest from our projects</h3>
+      <div class="latest-gallery__grid" id="latest-grid"></div>
+    </div>
 
     <div class="full-gallery" id="gallery-grid">
 
@@ -704,6 +727,100 @@
 </div>
 <script src="js/main.js"></script>
 <script>
+(async () => {
+  // Photos the YADAMA team adds through Pages CMS live in data/gallery.json.
+  // They are rendered first (newest on top) so the filters and viewer below
+  // treat them exactly like the hand-built items.
+  const uploadTags = {
+    food: 'Food Relief',
+    clothing: 'Clothing Support',
+    accessibility: 'Accessibility',
+    rehabilitation: 'Rehabilitation',
+    community: 'Community & Events'
+  };
+  const isLocal = ['localhost', '127.0.0.1'].includes(location.hostname);
+  const resized = (src, width) => `/_vercel/image?url=${encodeURIComponent(src)}&w=${width}&q=75`;
+
+  const loadUploadedPhotos = async () => {
+    let photos = [];
+    try {
+      const res = await fetch('data/gallery.json', { cache: 'no-cache' });
+      if (res.ok) photos = await res.json();
+    } catch { return; }
+    if (!Array.isArray(photos) || !photos.length) return;
+
+    const latest = document.querySelector('#latest-photos');
+    const grid = document.querySelector('#latest-grid');
+    photos
+      .filter(photo => photo && photo.photo)
+      .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+      .forEach((photo, index) => {
+        const src = photo.photo.startsWith('/') ? photo.photo : `/${photo.photo}`;
+        const category = uploadTags[photo.project] ? photo.project : 'community';
+        const caption = String(photo.caption || '').trim();
+
+        const figure = document.createElement('figure');
+        figure.className = 'gallery-item';
+        figure.dataset.category = category;
+
+        const media = document.createElement('div');
+        media.className = 'gallery-item__media';
+        const img = document.createElement('img');
+        img.alt = caption || `${uploadTags[category]} photo from YADAMA`;
+        img.width = 1080;
+        img.height = 810;
+        img.loading = index < 3 ? 'eager' : 'lazy';
+        img.decoding = 'async';
+        if (!isLocal) {
+          img.srcset = [640, 1080, 1920].map(w => `${resized(src, w)} ${w}w`).join(', ');
+          img.sizes = '(max-width: 700px) 100vw, (max-width: 1100px) 50vw, 33vw';
+          // Fall back to the original file if resizing is unavailable
+          img.addEventListener('error', () => {
+            if (img.src.endsWith(src)) return;
+            img.removeAttribute('srcset');
+            img.src = src;
+          });
+        }
+        img.src = isLocal ? src : resized(src, 1080);
+        media.append(img);
+
+        const figcaption = document.createElement('figcaption');
+        figcaption.className = 'gallery-item__caption';
+        const tag = document.createElement('span');
+        tag.className = 'gallery-item__tag';
+        tag.textContent = uploadTags[category];
+        const text = document.createElement('p');
+        text.textContent = caption;
+        figcaption.append(tag, text);
+
+        figure.append(media, figcaption);
+        grid.append(figure);
+      });
+    if (!grid.children.length) return;
+    latest.hidden = false;
+
+    // Only show filters for the new categories once they have photos
+    const videoFilter = document.querySelector('.filter-btn[data-filter="video"]');
+    ['rehabilitation', 'community'].forEach(key => {
+      if (!grid.querySelector(`.gallery-item[data-category~="${key}"]`)) return;
+      if (document.querySelector(`.filter-btn[data-filter="${key}"]`)) return;
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn';
+      btn.dataset.filter = key;
+      btn.textContent = uploadTags[key];
+      videoFilter.before(btn);
+    });
+
+    // Hide the "Latest" heading when a filter leaves it empty
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => setTimeout(() => {
+        latest.hidden = !grid.querySelector('.gallery-item:not(.hidden)');
+      }));
+    });
+  };
+
+  await loadUploadedPhotos();
+
   // Gallery filter
   const filterBtns = document.querySelectorAll('.filter-btn');
   const galleryItems = document.querySelectorAll('.gallery-item');
@@ -834,6 +951,7 @@
     if (event.key === 'ArrowLeft') moveViewer(-1);
     if (event.key === 'ArrowRight') moveViewer(1);
   });
+})();
 </script>
 </body>
 </html>
