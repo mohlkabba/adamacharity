@@ -1,109 +1,307 @@
 [
   {
-    "photo": "/images/uploads/launch-founder-opening.jpg",
-    "caption": "Our founder, Adama, opening the official launch.",
+    "photo": "/images/uploads/launch-6389.jpg",
+    "caption": "Our volunteer team on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-volunteer-team.jpg",
-    "caption": "Our volunteer team, who helped make the launch a success.",
-    "project": "community",
-    "date": "2026-09-12"
-  },
-  {
-    "photo": "/images/uploads/launch-founder-speech.jpg",
-    "caption": "Adama sharing the story and vision behind YADAMA.",
-    "project": "community",
-    "date": "2026-09-12"
-  },
-  {
-    "photo": "/images/uploads/launch-guests-at-tables.jpg",
-    "caption": "Guests celebrating together at Rouel Road TRA Hall.",
-    "project": "community",
-    "date": "2026-09-12"
-  },
-  {
-    "photo": "/images/uploads/launch-auction.jpg",
+    "photo": "/images/uploads/launch-6301.jpg",
     "caption": "Bidding under way during the fundraising auction.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-guest-speaker.jpg",
-    "caption": "A guest speaker addressing supporters.",
+    "photo": "/images/uploads/launch-6304.jpg",
+    "caption": "Guests celebrating together at Rouel Road TRA Hall.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-welcome.jpg",
+    "photo": "/images/uploads/launch-6195.jpg",
     "caption": "Adama welcoming guests to the launch.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-auction-guests.jpg",
-    "caption": "Guests enjoying the auction.",
+    "photo": "/images/uploads/launch-6366.jpg",
+    "caption": "Our MC and host on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-host.jpg",
-    "caption": "Our host keeping the evening flowing.",
+    "photo": "/images/uploads/launch-6379.jpg",
+    "caption": "One of our speakers at the launch.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-families.jpg",
-    "caption": "Families came together to celebrate the launch.",
+    "photo": "/images/uploads/launch-6197.jpg",
+    "caption": "One of our speakers at the launch.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-speaker-presentation.jpg",
-    "caption": "A speaker presenting during the evening programme.",
+    "photo": "/images/uploads/launch-6390.jpg",
+    "caption": "Our volunteer team on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-supporters.jpg",
-    "caption": "Supporters gathered with our founder.",
+    "photo": "/images/uploads/launch-6342.jpg",
+    "caption": "Our volunteer team on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-auction-basket.jpg",
-    "caption": "Presenting a gift basket during the auction.",
+    "photo": "/images/uploads/launch-6321.jpg",
+    "caption": "Our volunteer team on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-hall-programme.jpg",
-    "caption": "The hall during the evening programme.",
+    "photo": "/images/uploads/launch-6223.jpg",
+    "caption": "Our volunteer team on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-flowers.jpg",
+    "photo": "/images/uploads/launch-6334.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6178.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6406.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6411.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6183.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6177.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6222.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6318.jpg",
+    "caption": "Our volunteer team on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-welcome-desk.jpg",
+    "caption": "Volunteers at the welcome and donation desk.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6220.jpg",
+    "caption": "Our MC and host on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6214.jpg",
+    "caption": "Our MC and host on launch night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6174.jpg",
     "caption": "Flowers and thanks on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-volunteers.jpg",
-    "caption": "Volunteers in YADAMA T-shirts, ready to help.",
+    "photo": "/images/uploads/launch-6356.jpg",
+    "caption": "Our MC and host on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-guests-evening.jpg",
-    "caption": "Guests enjoying the evening.",
+    "photo": "/images/uploads/launch-6371.jpg",
+    "caption": "Our MC and host on launch night.",
     "project": "community",
     "date": "2026-09-12"
   },
   {
-    "photo": "/images/uploads/launch-dj.jpg",
+    "photo": "/images/uploads/launch-6306.jpg",
+    "caption": "Guests enjoying the evening together.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6309.jpg",
+    "caption": "Guests enjoying the auction.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6305.jpg",
+    "caption": "Guests celebrating together at the tables.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6308.jpg",
+    "caption": "Guests enjoying the auction.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6313.jpg",
+    "caption": "Families came together to celebrate the launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6315.jpg",
+    "caption": "Families came together to celebrate the launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6447.jpg",
+    "caption": "One of our youngest guests at the launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6448.jpg",
+    "caption": "One of our youngest guests at the launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6442.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6420.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6432.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6375.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6399.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6387.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6362.jpg",
     "caption": "Adama with our DJ for the night.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6385.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6430.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6428.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6422.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6277.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6281.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6283.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6381.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6376.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6373.jpg",
+    "caption": "Guests at the official YADAMA launch.",
+    "project": "community",
+    "date": "2026-09-12"
+  },
+  {
+    "photo": "/images/uploads/launch-6341.jpg",
+    "caption": "Guests at the official YADAMA launch.",
     "project": "community",
     "date": "2026-09-12"
   }
