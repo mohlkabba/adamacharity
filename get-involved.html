@@ -149,6 +149,10 @@
         <div class="donation-platform__logo"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
         <h3 class="donation-platform__name">Donate via GoFundMe</h3>
         <p class="donation-platform__desc">Secure, trusted donation platform. One-off or recurring donations accepted. Share with friends and family to multiply your impact.</p>
+        <div class="gfm-live">
+          <p class="gfm-live__label"><span class="gfm-live__dot" aria-hidden="true"></span>Live from GoFundMe</p>
+          <div class="gfm-embed" data-url="https://www.gofundme.com/f/help-yadama-restore-independence-and-dignity/widget/medium"></div>
+        </div>
         <div class="donate-amounts-grid">
           <button class="donate-amount-btn" type="button">&pound;5<span class="donate-amount-btn__desc">Essential supplies</span></button>
           <button class="donate-amount-btn active" type="button">&pound;10<span class="donate-amount-btn__desc">Humanitarian aid</span></button>
@@ -354,6 +358,7 @@
   </div>
 </footer>
 <script src="js/main.js"></script>
+<script defer src="https://www.gofundme.com/static/js/embed.js"></script>
 <script>
   document.querySelectorAll('.donate-amount-btn').forEach(btn => {
     btn.addEventListener('click', () => {
